@@ -7,13 +7,10 @@ class ColorPalettes{
   //Colors for theme
   static Color lightPrimary = Color(0xfffcfcff);
   static Color darkPrimary = Color(0xff16161C);
-  static Color lightAccent = Colors.blue;
-  static Color darkAccent = Color(0xffD73831);
+  static Color lightAccent = Colors.deepOrange;
+  static Color darkAccent = Colors.orange;
   static Color lightBG = Color(0xfffcfcff);
   static Color darkBG = Color(0xff212121);
-  static Color badgeColor = Colors.red;
-  static Color orange = Colors.orange;
-  static Color green = Colors.green;
 
   static ThemeData lightTheme = ThemeData(
     fontFamily: 'IBMPlexSans',
@@ -24,7 +21,6 @@ class ColorPalettes{
     dividerColor: darkBG,
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
-      elevation: 10,
       textTheme: TextTheme(
         title: TextStyle(
           color: darkBG,
@@ -45,7 +41,6 @@ class ColorPalettes{
     scaffoldBackgroundColor: darkBG,
     cursorColor: darkAccent,
     appBarTheme: AppBarTheme(
-      elevation: 10,
       color: darkPrimary,
       textTheme: TextTheme(
         title: TextStyle(
