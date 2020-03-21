@@ -27,8 +27,11 @@ class MoviesLoaded extends MoviesState {
 class MoviesNotLoaded extends MoviesState {
   final String errorMessage;
 
-  MoviesNotLoaded([this.errorMessage = ""]);
+  const MoviesNotLoaded(this.errorMessage);
 
   @override
   List<Object> get props => [errorMessage];
+
+  @override
+  String toString() => 'LoginFailure { error: $errorMessage }';
 }

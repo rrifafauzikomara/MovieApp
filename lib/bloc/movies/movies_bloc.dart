@@ -43,9 +43,8 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
         resMovies = newMovies;
       }
       yield MoviesLoaded(resMovies, page);
-    } catch (_) {
-      print(_.toString());
-      if (page == 1) yield MoviesNotLoaded("Error");
+    } catch (e) {
+      if (page == 1) yield MoviesNotLoaded(e.toString());
     }
   }
 
@@ -67,9 +66,8 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
         resMovies = newMovies;
       }
       yield MoviesLoaded(resMovies, page);
-    } catch (_) {
-      print(_.toString());
-      if (page == 1) yield MoviesNotLoaded("Error");
+    } catch (e) {
+      if (page == 1) yield MoviesNotLoaded(e.toString());
     }
   }
 
@@ -91,9 +89,8 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
         resMovies = newMovies;
       }
       yield MoviesLoaded(resMovies, page);
-    } catch (_) {
-      print(_.toString());
-      if (page == 1) yield MoviesNotLoaded("Error");
+    } catch (e) {
+      if (page == 1) yield MoviesNotLoaded(e.toString());
     }
   }
 
@@ -115,9 +112,8 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
         resMovies = newMovies;
       }
       yield MoviesLoaded(resMovies, page);
-    } catch (_) {
-      print(_.toString());
-      if (page == 1) yield MoviesNotLoaded("Error");
+    } catch (e) {
+      if (page == 1) yield MoviesNotLoaded(e.toString());
     }
   }
 }

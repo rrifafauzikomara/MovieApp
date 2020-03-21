@@ -42,8 +42,7 @@ abstract class RestClient {
 @JsonSerializable()
 class Result extends Equatable {
   final List<Movies> results;
-
-  Result(this.results);
+  const Result([this.results = const []]);
 
   @override
   List<Object> get props => [results];

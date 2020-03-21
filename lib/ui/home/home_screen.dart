@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviecatalogue/bloc/movies/movies_bloc.dart';
+import 'package:moviecatalogue/network/repository/movie_repository.dart';
 import 'package:moviecatalogue/ui/favorite/favorite_screen.dart';
 import 'package:moviecatalogue/ui/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/popular/popular_screen.dart';
@@ -16,7 +19,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   PageController _pageController;
   int _page = 0;
 
@@ -32,10 +34,30 @@ class _HomePageState extends State<HomePage> {
         controller: _pageController,
         onPageChanged: onPageChanged,
         children: <Widget>[
-          NowPlayingScreen(),
-          UpComingScreen(),
-          PopularScreen(),
-          TopRatedScreen(),
+          BlocProvider(
+            create: (context) {
+              return MoviesBloc(MovieRepository());
+            },
+            child: NowPlayingScreen(),
+          ),
+          BlocProvider(
+            create: (context) {
+              return MoviesBloc(MovieRepository());
+            },
+            child: UpComingScreen(),
+          ),
+          BlocProvider(
+            create: (context) {
+              return MoviesBloc(MovieRepository());
+            },
+            child: PopularScreen(),
+          ),
+          BlocProvider(
+            create: (context) {
+              return MoviesBloc(MovieRepository());
+            },
+            child: TopRatedScreen(),
+          ),
           FavoriteScreen(),
         ],
       ),
@@ -46,8 +68,8 @@ class _HomePageState extends State<HomePage> {
           // sets the active color of the `BottomNavigationBar` if `Brightness` is light
           primaryColor: Theme.of(context).accentColor,
           textTheme: Theme.of(context).textTheme.copyWith(
-            caption: TextStyle(color: Colors.grey[500]),
-          ),
+                caption: TextStyle(color: Colors.grey[500]),
+              ),
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
