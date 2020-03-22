@@ -42,10 +42,11 @@ abstract class RestClient {
 @JsonSerializable()
 class Result extends Equatable {
   final List<Movies> results;
-  const Result([this.results = const []]);
+  final int page;
+  const Result([this.results = const [], this.page = 1]);
 
   @override
-  List<Object> get props => [results];
+  List<Object> get props => [results, page];
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
   Map<String, dynamic> toJson() => _$ResultToJson(this);

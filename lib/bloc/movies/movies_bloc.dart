@@ -29,7 +29,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     try {
       var currentMovies;
       if (state is MoviesLoaded) {
-        currentMovies = (state as MoviesLoaded).result;
+        currentMovies = (state as MoviesLoaded).result.results.toList();
       } else {
         yield MoviesLoading();
       }

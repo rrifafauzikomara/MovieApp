@@ -61,7 +61,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
                 itemBuilder: (BuildContext context, int index) {
                   Movies movies = state.result.results[index];
                   return CardNowPlaying(
-                    image: 'https://image.tmdb.org/t/p/w185${movies.poster_path}',
+                    image: movies.poster_path,
                     title: movies.title,
                     vote: movies.vote_average.toString(),
                     releaseDate: movies.release_date,

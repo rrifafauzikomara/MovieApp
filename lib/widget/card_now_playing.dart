@@ -37,7 +37,7 @@ class CardNowPlaying extends StatelessWidget {
                 width: Sizes.width(context) / 3,
                 height: Sizes.width(context) / 2,
                 child: Image.network(
-                  image,
+                    'https://image.tmdb.org/t/p/w185$image',
                 ),
               ),
               Expanded(
