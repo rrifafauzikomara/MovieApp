@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:moviecatalogue/bloc/movies/bloc.dart';
-import 'package:moviecatalogue/common/sizes.dart';
 import 'package:moviecatalogue/network/api/rest_client.dart';
+import 'package:moviecatalogue/widget/card_now_playing.dart';
+import 'package:moviecatalogue/widget/chip_genre_movies.dart';
 
 class NowPlayingScreen extends StatefulWidget {
   @override
@@ -59,7 +60,15 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                 itemCount: state.result.results == null ? 0 : state.result.results.length,
                 itemBuilder: (BuildContext context, int index) {
                   Movies movies = state.result.results[index];
-                  return Center(child: Text(movies.title));
+                  return CardNowPlaying(
+                    image: 'https://image.tmdb.org/t/p/w185${movies.poster_path}',
+                    title: movies.title,
+                    vote: movies.vote_average.toString(),
+                    releaseDate: movies.release_date,
+                    overview: movies.overview,
+                    genre: movies.genre_ids.take(3).map(buildGenreChip).toList(),
+                    onTap: () => null,
+                  );
                 },
               ),
               onEndOfPage: () => _loadMoreMovies(_currentPage + 1),
@@ -67,10 +76,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
           } else if (state is MoviesLoading) {
             return Center(child: CircularProgressIndicator());
           } else if (state is MoviesNotLoaded) {
-            return Padding(
-              padding: EdgeInsets.all(Sizes.dp16(context)),
-              child: Center(child: Text(state.errorMessage)),
-            );
+            return Center(child: Text(state.errorMessage));
           } else {
             return Center(child: Text(""));
           }
