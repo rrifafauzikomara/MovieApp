@@ -22,7 +22,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // "true" for darkTheme, "false" for lightTheme
-  bool isDark = false;
+  bool isDark = true;
 
   @override
   void initState() {
