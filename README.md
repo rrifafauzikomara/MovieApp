@@ -6,7 +6,12 @@
 *  Up Coming Movies
 *  Popular Movies
 *  Top Rated Movies
-*  Favorite Movies
+
+## Screenshot
+
+<pre>
+<img src="screenshot/Android.png" width="250" height="460">     <img src="screenshot/iOS.png" width="250" height="460">
+</pre>
 
 ## Quick start
 
@@ -24,13 +29,25 @@ extensible and open development model.
 
 ## Libraries
 
-* [BLoC pattern](https://bloclibrary.dev/)
-* [equatable](https://pub.dev/packages/equatable)
-* [retrofit](https://pub.dartlang.org/packages/retrofit) with [dio](https://github.com/flutterchina/dio/)
-* [json_serializable](https://pub.dev/packages/json_serializable)
-* [build_runner](https://pub.dev/packages/build_runner)
+* [BLoC Pattern](https://bloclibrary.dev/)
+* [Equatable](https://pub.dev/packages/equatable)
+* [Retrofit](https://pub.dartlang.org/packages/retrofit) with [dio](https://github.com/flutterchina/dio/)
+* [Json Serializable](https://pub.dev/packages/json_serializable)
+* [Build Runner](https://pub.dev/packages/build_runner)
+* [Shared Preferences](https://pub.dev/packages/shared_preferences)
+
+## Todo
+
+* [ ] Detail Movies
+* [ ] Favorite Movies (SQFlite)
+* [ ] Shimmer Loading
+* [ ] Unit Testing (Mockito)
+* [ ] Instrumentation Testing
+* [ ] Flavor on Android and iOS
+* [ ] Build and Release for iOS
 
 ## How to run
+
 To run the app, switch to that project's directory, and use `flutter run`. Make sure you have an emulator running, or a device connected over USB and debugging enabled on that device.
 
 ```console
@@ -46,3 +63,13 @@ or you can watch for changes and rebuild automatically
 ```console
 flutter pub run build_runner watch
 ```
+
+## I Want To Contribute!
+
+Feel free to contribute or create a new pull request!
+
+## Author
+
+* **R Rifa Fauzi Komara**
+
+Don't forget to follow me, fork and give me a ★
