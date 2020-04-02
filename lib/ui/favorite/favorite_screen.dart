@@ -8,6 +8,10 @@ class FavoriteScreen extends StatefulWidget {
 class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Center(
+        child: Text("Comming Soon"),
+      ),
+    );
   }
 }

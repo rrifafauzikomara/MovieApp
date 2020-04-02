@@ -254,13 +254,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.4"
-  intl:
-    dependency: "direct main"
-    description:
-      name: intl
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.16.1"
   io:
     dependency: transitive
     description:
@@ -276,7 +269,7 @@ packages:
     source: hosted
     version: "0.6.1+1"
   json_annotation:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: json_annotation
       url: "https://pub.dartlang.org"
@@ -289,13 +282,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.2.5"
-  lazy_load_scrollview:
-    dependency: "direct main"
-    description:
-      name: lazy_load_scrollview
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
   logging:
     dependency: transitive
     description:
@@ -345,13 +331,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1+2"
-  onesignal_flutter:
-    dependency: "direct main"
-    description:
-      name: onesignal_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.3.4"
   package_config:
     dependency: transitive
     description:
@@ -359,13 +338,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.2"
-  package_info:
-    dependency: "direct main"
-    description:
-      name: package_info
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.0+16"
   package_resolver:
     dependency: transitive
     description:

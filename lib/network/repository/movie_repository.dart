@@ -22,32 +22,28 @@ class MovieRepository implements Repository {
   @override
   Future<Result> getNowPlaying(
       [String apiKey = ApiConstant.apiKey,
-      String language = ApiConstant.language,
-      int page = 1]) async {
-    return await apiRepository.getNowPlaying(apiKey, language, page);
+      String language = ApiConstant.language]) async {
+    return await apiRepository.getNowPlaying(apiKey, language);
   }
 
   @override
   Future<Result> getPopular(
       [String apiKey = ApiConstant.apiKey,
-      String language = ApiConstant.language,
-      int page = 1]) async {
-    return await apiRepository.getPopular(apiKey, language, page);
+      String language = ApiConstant.language]) async {
+    return await apiRepository.getPopular(apiKey, language);
   }
 
   @override
   Future<Result> getTopRated(
       [String apiKey = ApiConstant.apiKey,
-      String language = ApiConstant.language,
-      int page = 1]) async {
-    return await apiRepository.getTopRated(apiKey, language, page);
+      String language = ApiConstant.language]) async {
+    return await apiRepository.getTopRated(apiKey, language);
   }
 
   @override
   Future<Result> getUpComing(
       [String apiKey = ApiConstant.apiKey,
-      String language = ApiConstant.language,
-      int page = 1]) async {
-    return await apiRepository.getUpComing(apiKey, language, page);
+      String language = ApiConstant.language]) async {
+    return await apiRepository.getUpComing(apiKey, language);
   }
 }

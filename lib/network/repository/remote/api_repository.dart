@@ -14,23 +14,23 @@ class ApiRepository implements Repository {
   }
 
   @override
-  Future<Result> getNowPlaying([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language, int page = 1]) {
-    return _restClient.getNowPlaying(apiKey, language, page);
+  Future<Result> getNowPlaying([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
+    return _restClient.getNowPlaying(apiKey, language);
   }
 
   @override
-  Future<Result> getPopular([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language, int page = 1]) {
-    return _restClient.getPopular(apiKey, language, page);
+  Future<Result> getPopular([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
+    return _restClient.getPopular(apiKey, language);
   }
 
   @override
-  Future<Result> getTopRated([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language, int page = 1]) {
-    return _restClient.getTopRated(apiKey, language, page);
+  Future<Result> getTopRated([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
+    return _restClient.getTopRated(apiKey, language);
   }
 
   @override
-  Future<Result> getUpComing([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language, int page = 1]) {
-    return _restClient.getUpComing(apiKey, language, page);
+  Future<Result> getUpComing([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
+    return _restClient.getUpComing(apiKey, language);
   }
 
 }

@@ -13,40 +13,35 @@ abstract class RestClient {
   @GET("now_playing")
   Future<Result> getNowPlaying(
     @Query("api_key") String apiKey,
-    @Query("language") String language,
-    @Query("page") int page,
+    @Query("language") String language
   );
 
   @GET("upcoming")
   Future<Result> getUpComing(
     @Query("api_key") String apiKey,
-    @Query("language") String language,
-    @Query("page") int page,
+    @Query("language") String language
   );
 
   @GET("popular")
   Future<Result> getPopular(
     @Query("api_key") String apiKey,
-    @Query("language") String language,
-    @Query("page") int page,
+    @Query("language") String language
   );
 
   @GET("top_rated")
   Future<Result> getTopRated(
     @Query("api_key") String apiKey,
-    @Query("language") String language,
-    @Query("page") int page,
+    @Query("language") String language
   );
 }
 
 @JsonSerializable()
 class Result extends Equatable {
   final List<Movies> results;
-  final int page;
-  const Result([this.results = const [], this.page = 1]);
+  const Result([this.results = const []]);
 
   @override
-  List<Object> get props => [results, page];
+  List<Object> get props => [results];
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
   Map<String, dynamic> toJson() => _$ResultToJson(this);

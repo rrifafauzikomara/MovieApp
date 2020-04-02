@@ -15,105 +15,61 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   @override
   Stream<MoviesState> mapEventToState(MoviesEvent event) async* {
     if (event is LoadNowPlaying) {
-      yield* _mapLoadNowPlayingToState(1);
+      yield* _mapLoadNowPlayingToState();
     } else if (event is LoadUpComing) {
-      yield* _mapLoadUpComingToState(1);
+      yield* _mapLoadUpComingToState();
     } else if (event is LoadPopular) {
-      yield* _mapLoadPopularToState(1);
+      yield* _mapLoadPopularToState();
     } else if (event is LoadTopRated) {
-      yield* _mapLoadTopRatedToState(1);
+      yield* _mapLoadTopRatedToState();
     }
   }
 
-  Stream<MoviesState> _mapLoadNowPlayingToState(int page) async* {
+  Stream<MoviesState> _mapLoadNowPlayingToState() async* {
     try {
-      var currentMovies;
-      if (state is MoviesLoaded) {
-        currentMovies = (state as MoviesLoaded).result.results.toList();
-      } else {
-        yield MoviesLoading();
-      }
+      yield MoviesLoading();
 
-      var newMovies = await repository.getNowPlaying(
-          ApiConstant.apiKey, ApiConstant.language, page);
-      var resMovies;
-      if (page > 1 && currentMovies != null) {
-        resMovies = currentMovies..addAll(newMovies);
-      } else {
-        resMovies = newMovies;
-      }
-      yield MoviesLoaded(resMovies, page);
+      // call api
+      var movies = await repository.getNowPlaying(ApiConstant.apiKey, ApiConstant.language);
+      yield MoviesLoaded(movies);
     } catch (e) {
-      if (page == 1) yield MoviesNotLoaded(e.toString());
+      yield MoviesNotLoaded(e.toString());
     }
   }
 
-  Stream<MoviesState> _mapLoadUpComingToState(int page) async* {
+  Stream<MoviesState> _mapLoadUpComingToState() async* {
     try {
-      var currentMovies;
-      if (state is MoviesLoaded) {
-        currentMovies = (state as MoviesLoaded).result;
-      } else {
-        yield MoviesLoading();
-      }
+      yield MoviesLoading();
 
-      var newMovies = await repository.getUpComing(
-          ApiConstant.apiKey, ApiConstant.language, page);
-      var resMovies;
-      if (page > 1 && currentMovies != null) {
-        resMovies = currentMovies..addAll(newMovies);
-      } else {
-        resMovies = newMovies;
-      }
-      yield MoviesLoaded(resMovies, page);
+      // call api
+      var movies = await repository.getUpComing(ApiConstant.apiKey, ApiConstant.language);
+      yield MoviesLoaded(movies);
     } catch (e) {
-      if (page == 1) yield MoviesNotLoaded(e.toString());
+      MoviesNotLoaded(e.toString());
     }
   }
 
-  Stream<MoviesState> _mapLoadPopularToState(int page) async* {
+  Stream<MoviesState> _mapLoadPopularToState() async* {
     try {
-      var currentMovies;
-      if (state is MoviesLoaded) {
-        currentMovies = (state as MoviesLoaded).result;
-      } else {
-        yield MoviesLoading();
-      }
+      yield MoviesLoading();
 
-      var newMovies = await repository.getPopular(
-          ApiConstant.apiKey, ApiConstant.language, page);
-      var resMovies;
-      if (page > 1 && currentMovies != null) {
-        resMovies = currentMovies..addAll(newMovies);
-      } else {
-        resMovies = newMovies;
-      }
-      yield MoviesLoaded(resMovies, page);
+      // call api
+      var movies = await repository.getPopular(ApiConstant.apiKey, ApiConstant.language);
+      yield MoviesLoaded(movies);
     } catch (e) {
-      if (page == 1) yield MoviesNotLoaded(e.toString());
+      MoviesNotLoaded(e.toString());
     }
   }
 
-  Stream<MoviesState> _mapLoadTopRatedToState(int page) async* {
+  Stream<MoviesState> _mapLoadTopRatedToState() async* {
     try {
-      var currentMovies;
-      if (state is MoviesLoaded) {
-        currentMovies = (state as MoviesLoaded).result;
-      } else {
-        yield MoviesLoading();
-      }
+      yield MoviesLoading();
 
-      var newMovies = await repository.getTopRated(
-          ApiConstant.apiKey, ApiConstant.language, page);
-      var resMovies;
-      if (page > 1 && currentMovies != null) {
-        resMovies = currentMovies..addAll(newMovies);
-      } else {
-        resMovies = newMovies;
-      }
-      yield MoviesLoaded(resMovies, page);
+      // call api
+      var movies = await repository.getTopRated(ApiConstant.apiKey, ApiConstant.language);
+      yield MoviesLoaded(movies);
     } catch (e) {
-      if (page == 1) yield MoviesNotLoaded(e.toString());
+      MoviesNotLoaded(e.toString());
     }
   }
 }

@@ -16,12 +16,11 @@ class MoviesLoadingMore extends MoviesState{}
 
 class MoviesLoaded extends MoviesState {
   final Result result;
-  final int page;
 
-  const MoviesLoaded([this.result, this.page = 1]);
+  const MoviesLoaded([this.result]);
 
   @override
-  List<Object> get props => [result, page];
+  List<Object> get props => [result];
 }
 
 class MoviesNotLoaded extends MoviesState {

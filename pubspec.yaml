@@ -12,12 +12,7 @@ dependencies:
   flutter_bloc: ^3.1.0
   equatable: ^1.1.1
   retrofit: any
-  json_annotation:
-  intl: ^0.16.1
   shared_preferences: any
-  package_info: ^0.4.0+14
-  onesignal_flutter: ^2.3.4
-  lazy_load_scrollview: 1.0.1
 
 dev_dependencies:
   flutter_test:
