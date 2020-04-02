@@ -32,7 +32,7 @@ extensible and open development model.
 ## Libraries
 * [BLoC Pattern](https://bloclibrary.dev/)
 * [Equatable](https://pub.dev/packages/equatable)
-* [Retrofit](https://pub.dartlang.org/packages/retrofit) with [dio](https://github.com/flutterchina/dio/)
+* [Retrofit](https://pub.dartlang.org/packages/retrofit) with [Dio](https://github.com/flutterchina/dio/)
 * [Json Serializable](https://pub.dev/packages/json_serializable)
 * [Build Runner](https://pub.dev/packages/build_runner)
 * [Shared Preferences](https://pub.dev/packages/shared_preferences)
