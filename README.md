@@ -37,6 +37,7 @@ extensible and open development model.
 * [Build Runner](https://pub.dev/packages/build_runner)
 * [Shared Preferences](https://pub.dev/packages/shared_preferences) for Cache Implementation
 * [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) for [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) and [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared) modules
+* [Shimmer Loading](https://pub.dev/packages/shimmer)
 
 
 ## Todo
@@ -56,7 +57,7 @@ To run the app, switch to that project's directory, and use `flutter run`. Make 
 flutter run
 ```
 
-If you want to generate file `*.g.dart`, you can use this command on terminal.
+If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) first using `cd` command. For example `cd core`.
 One time build:
 ```console
 flutter pub run build_runner build
