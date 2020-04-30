@@ -57,7 +57,8 @@ To run the app, switch to that project's directory, and use `flutter run`. Make 
 flutter run
 ```
 
-If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) first using `cd` command. For example `cd core`.
+If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) module first using `cd` command. For example `cd core`. Then you can run the command below.
+
 One time build:
 ```console
 flutter pub run build_runner build
