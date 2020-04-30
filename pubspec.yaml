@@ -8,11 +8,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc: ^3.0.0
-  flutter_bloc: ^3.1.0
-  equatable: ^1.1.1
-  retrofit: any
-  shared_preferences: any
 
   # This is our modular
   core:
@@ -23,9 +18,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  retrofit_generator: any
-  build_runner: any
-  json_serializable: any
 
 flutter:
   uses-material-design: true
