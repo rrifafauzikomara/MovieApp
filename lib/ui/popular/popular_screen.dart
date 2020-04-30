@@ -37,7 +37,7 @@ class _PopularScreenState extends State<PopularScreen> {
             },
           );
         } else if (state is MoviesLoading) {
-          return CircularProgress();
+          return ShimmerMovies();
         } else if (state is MoviesNotLoaded) {
           return Center(child: Text(state.errorMessage));
         } else {

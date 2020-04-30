@@ -7,8 +7,9 @@ class PrefHelper {
   static const CHECK_INTERVAL = "check_interval";
   static const DATA = "data";
 
+  // Interval 600000 means handle cache for 600000 milliseconds or 10 minutes
   static Future<bool> storeCache(String key, String json,
-      {int lastChecked, int interval = 3600000}) {
+      {int lastChecked, int interval = 600000}) {
     if (lastChecked == null) {
       lastChecked = DateTime.now().millisecondsSinceEpoch;
     }

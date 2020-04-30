@@ -37,12 +37,12 @@ extensible and open development model.
 * [Build Runner](https://pub.dev/packages/build_runner)
 * [Shared Preferences](https://pub.dev/packages/shared_preferences) for Cache Implementation
 * [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) for [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) and [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared) modules
+* [Shimmer Loading](https://pub.dev/packages/shimmer)
 
 
 ## Todo
 * [ ] Detail Movies
 * [ ] Favorite Movies (SQFlite)
-* [ ] Shimmer Loading
 * [ ] Unit Testing (Mockito)
 * [ ] Instrumentation Testing
 * [ ] Flavor on Android and iOS

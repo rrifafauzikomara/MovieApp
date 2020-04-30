@@ -1,0 +1,1 @@
+export 'shimmer_movies.dart';

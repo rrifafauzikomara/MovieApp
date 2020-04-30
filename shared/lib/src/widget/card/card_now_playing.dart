@@ -42,7 +42,7 @@ class CardNowPlaying extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: Container(
+                child: Padding(
                   padding: EdgeInsets.all(Sizes.dp10(context)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
