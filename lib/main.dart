@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:core/core.dart';
+import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:moviecatalogue/bloc/movie_bloc_delegate.dart';
-import 'package:moviecatalogue/common/color_palettes.dart';
-import 'package:moviecatalogue/cons/app_constant.dart';
 import 'package:moviecatalogue/ui/home/home_screen.dart';
 
 void main() async {

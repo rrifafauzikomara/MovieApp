@@ -1,9 +1,7 @@
+import 'package:core/core.dart';
+import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviecatalogue/bloc/movies/bloc.dart';
-import 'package:moviecatalogue/network/api/rest_client.dart';
-import 'package:moviecatalogue/widget/card_now_playing.dart';
-import 'package:moviecatalogue/widget/chip_genre_movies.dart';
 
 class PopularScreen extends StatefulWidget {
   @override

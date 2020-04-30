@@ -1,7 +1,6 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviecatalogue/bloc/movies/movies_bloc.dart';
-import 'package:moviecatalogue/network/repository/movie_repository.dart';
 import 'package:moviecatalogue/ui/favorite/favorite_screen.dart';
 import 'package:moviecatalogue/ui/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/popular/popular_screen.dart';

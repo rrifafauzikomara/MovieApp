@@ -14,6 +14,12 @@ dependencies:
   retrofit: any
   shared_preferences: any
 
+  # This is our modular
+  core:
+    path: core
+  shared:
+    path: shared
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

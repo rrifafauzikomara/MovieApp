@@ -36,6 +36,7 @@ extensible and open development model.
 * [Json Serializable](https://pub.dev/packages/json_serializable)
 * [Build Runner](https://pub.dev/packages/build_runner)
 * [Shared Preferences](https://pub.dev/packages/shared_preferences) for Cache Implementation
+* [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) for [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) and [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared) modules
 
 
 ## Todo
