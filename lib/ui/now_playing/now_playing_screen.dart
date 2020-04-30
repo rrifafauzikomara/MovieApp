@@ -37,7 +37,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
             },
           );
         } else if (state is MoviesLoading) {
-          return Center(child: CircularProgressIndicator());
+          return CircularProgress();
         } else if (state is MoviesNotLoaded) {
           return Center(child: Text(state.errorMessage));
         } else {

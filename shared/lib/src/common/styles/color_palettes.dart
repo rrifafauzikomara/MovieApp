@@ -12,6 +12,9 @@ class ColorPalettes{
   static Color lightBG = Color(0xfffcfcff);
   static Color darkBG = Color(0xff212121);
 
+  static Color white = Color(0xffffffff);
+  static Color greyBg = Color(0xfff0f0f0);
+
   static ThemeData lightTheme = ThemeData(
     fontFamily: 'IBMPlexSans',
     backgroundColor: lightBG,
