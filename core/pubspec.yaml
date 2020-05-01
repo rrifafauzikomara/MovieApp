@@ -14,6 +14,7 @@ dependencies:
   flutter_bloc: ^3.1.0
   equatable: ^1.1.1
   retrofit: any
+  sqflite: ^1.3.0
 
   # This is our modular
   shared:

@@ -1,4 +1,3 @@
-export 'movies/movies_bloc.dart';
-export 'movies/movies_event.dart';
-export 'movies/movies_state.dart';
+export 'favorite/favorite.dart';
+export 'movies/movies.dart';
 export 'movie_bloc_delegate.dart';

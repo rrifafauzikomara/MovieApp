@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
-
-import '../../network.dart';
+import 'package:core/core.dart';
 
 class ApiRepository implements Repository {
 

@@ -1,8 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../network/network.dart';
-import 'movies_event.dart';
-import 'movies_state.dart';
+import 'package:core/core.dart';
 
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   final Repository repository;

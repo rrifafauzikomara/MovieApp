@@ -1,4 +1,4 @@
-import '../network.dart';
+import 'package:core/core.dart';
 
 abstract class Repository {
   Future<Result> getNowPlaying([

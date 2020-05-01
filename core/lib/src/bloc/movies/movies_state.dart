@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-
-import '../../network/network.dart';
+import 'package:core/core.dart';
 
 abstract class MoviesState extends Equatable {
   const MoviesState();
@@ -12,8 +11,6 @@ abstract class MoviesState extends Equatable {
 class InitialMoviesState extends MoviesState {}
 
 class MoviesLoading extends MoviesState {}
-
-class MoviesLoadingMore extends MoviesState{}
 
 class MoviesLoaded extends MoviesState {
   final Result result;

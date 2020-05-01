@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
@@ -15,17 +14,26 @@ class ScreenArguments {
       this.rating, this.overview);
 }
 
-class DetailMovies extends StatelessWidget {
+class DetailMovies extends StatefulWidget {
   static const routeName = '/detail_movies';
-  static final GlobalKey<ScaffoldState> scaffoldKey =
-      new GlobalKey<ScaffoldState>();
+  @override
+  _DetailMoviesState createState() => _DetailMoviesState();
+}
+
+class _DetailMoviesState extends State<DetailMovies> {
+  static final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
     var theme = Theme.of(context);
     return Scaffold(
-      key: DetailMovies.scaffoldKey,
+      key: scaffoldKey,
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
@@ -34,9 +42,9 @@ class DetailMovies extends StatelessWidget {
                 CardMoviesHeader(
                   title: args.title,
                   imageBanner:
-                      'https://image.tmdb.org/t/p/original${args.imageBanner}',
+                  'https://image.tmdb.org/t/p/original${args.imageBanner}',
                   imagePoster:
-                      'https://image.tmdb.org/t/p/w185${args.imagePoster}',
+                  'https://image.tmdb.org/t/p/w185${args.imagePoster}',
                   rating: args.rating,
                   genre: args.genre,
                 ),
@@ -78,7 +86,7 @@ class DetailMovies extends StatelessWidget {
                         color: ColorPalettes.white,
                       ),
                     ),
-                    key: DetailMovies.scaffoldKey,
+                    key: scaffoldKey,
                   );
                 },
               ),

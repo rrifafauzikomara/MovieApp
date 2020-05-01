@@ -1,6 +1,5 @@
 import 'dart:convert';
-
-import '../../network.dart';
+import 'package:core/core.dart';
 import 'package:shared/shared.dart';
 
 class LocalRepository implements Repository {
