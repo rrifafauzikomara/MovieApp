@@ -42,36 +42,22 @@ class MoviesDb {
           "vote_average TEXT,"
           "popularity TEXT,"
           "poster_path TEXT,"
-          "backdrop_path TEXT"
+          "backdrop_path TEXT,"
+          "type TEXT"
           ")",
         );
       },
     );
   }
 
-  Future<List<Movies>> getFavoriteMovies() async {
+  Future<List<Movies>> getFavoriteMovies(String type) async {
     final db = await database;
-    var res = await db.query("favorite", columns: [
-      "id",
-      "idMovies",
-      "title",
-      "overview",
-      "release_date",
-      "genre_ids",
-      "vote_average",
-      "popularity",
-      "poster_path",
-      "backdrop_path"
-    ]);
-    var moviesList = List<Movies>();
-    res.forEach((currentMovies) {
-      Movies movies = Movies.fromJson(currentMovies);
-      moviesList.add(movies);
-    });
-    return moviesList;
+    var res = await db.query("favorite", where: "type = ?", whereArgs: [type]);
+    List<Movies> movies = res.isEmpty ? null : res.map((item) => Movies.fromJson(item)).toList();
+    return movies;
   }
 
-  Future<int> addFavoriteMovies(Movies movies) async {
+  addFavoriteMovies(Movies movies) async {
     final db = await database;
     var res = await db.insert("favorite", movies.toJson());
     return res;
@@ -84,7 +70,7 @@ class MoviesDb {
     return res.isEmpty ? null : Movies.fromJson(res.first);
   }
 
-  Future<int> deleteFavoriteMoviesById(int idMovies) async {
+  deleteFavoriteMoviesById(int idMovies) async {
     final db = await database;
     var res = await db
         .delete("favorite", where: "idMovies = ?", whereArgs: [idMovies]);
