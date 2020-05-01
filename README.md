@@ -11,9 +11,7 @@
 
 
 ## Example
-<pre>
 ![Android Gif](https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/android.gif "Android Gif" width="250" height="460")     ![iOS Gif](https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/ios.gif "iOS Gif" width="250" height="460")
-</pre>
 
 
 ## Quick start
