@@ -1,5 +1,5 @@
 # Movie Catalogue
-
+[![Star on GitHub](https://img.shields.io/github/stars/rrifafauzikomara/MovieCatalogue.svg?style=flat&logo=github&colorB=deeppink&label=stars)](https://github.com/rrifafauzikomara/MovieCatalogue)
 
 ## Features
 *  Support Dark Mode and Light Mode 🔥
@@ -69,10 +69,10 @@ flutter run --flavor production --target=lib/ui/launcher/main-prod.dart
 ```
 
 
-## How to run Flutter between Flavor for `development` and `production` with <img src="" alt="Run" />
-<img src="" alt="Run" />
-<img src="" alt="Run" />
-<img src="" alt="Run" />
+## How to run Flutter between Flavor for `development` and `production` with <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/running.png" alt="Run" />
+<img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/image1.png" alt="Tutor1" />
+<img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/image2.png" alt="Tutor2" />
+<img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/image3.png" alt="Tutor3" />
 
 
 If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) module first using `cd` command. For example `cd core`. Then you can run the command below.
