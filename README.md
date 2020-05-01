@@ -46,7 +46,7 @@ extensible and open development model.
 * [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) for [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) and [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared) modules
 * [Shimmer Loading](https://pub.dev/packages/shimmer)
 * [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons)
-* [Flavor](https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b) on Android and iOS
+* [Flavor](https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b) on Android and iOS (development and production)
 
 
 ## Todo
