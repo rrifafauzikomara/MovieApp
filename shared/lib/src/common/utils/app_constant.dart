@@ -1,6 +1,7 @@
 class AppConstant {
 
   static String appName = "Movie Catalogue";
+  static String appNameDev = "Movie Development";
 
   static const NOW_PLAYING = "/now_playing";
   static const POPULAR = "/popular";

@@ -46,21 +46,26 @@ extensible and open development model.
 * [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) for [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) and [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared) modules
 * [Shimmer Loading](https://pub.dev/packages/shimmer)
 * [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons)
+* [Flavor](https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b) on Android and iOS
 
 
 ## Todo
 * [ ] Favorite Movies (SQFlite)
-* [ ] Flavor on Android and iOS
 * [ ] Unit Testing (Mockito)
 * [ ] Instrumentation Testing
 * [ ] Build and Release for iOS
 
 
-## How to run
-To run the app, switch to that project's directory, and use `flutter run`. Make sure you have an emulator running, or a device connected over USB and debugging enabled on that device.
+## How to run Flavor with command prompt
+To run the app, make sure you have an emulator running, or a device connected over USB and debugging enabled on that device.
 
+Development
 ```console
-flutter run
+flutter run --flavor development --target=lib/ui/launcher/main-dev.dart
+```
+Production
+```console
+flutter run --flavor production --target=lib/ui/launcher/main-prod.dart
 ```
 
 If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) module first using `cd` command. For example `cd core`. Then you can run the command below.
