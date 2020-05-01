@@ -10,9 +10,9 @@
 *  Detail Movies
 
 
-## Screenshot
+## Example
 <pre>
-<img src="screenshot/Android.png" width="250" height="460">     <img src="screenshot/iOS.png" width="250" height="460">
+![Android Gif](https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/android.gif "Android Gif" width="250" height="460")     ![iOS Gif](https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/ios.gif "iOS Gif" width="250" height="460")
 </pre>
 
 
