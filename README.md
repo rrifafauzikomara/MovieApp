@@ -74,10 +74,6 @@ flutter pub run build_runner watch
 ```
 
 
-## I Want To Contribute!
-Feel free to contribute or create a new pull request!
-
-
 ## Author
 
 * **R Rifa Fauzi Komara**
