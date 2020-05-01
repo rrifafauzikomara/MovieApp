@@ -21,19 +21,27 @@ dev_dependencies:
   json_serializable: any
   shimmer: ^1.1.1
   cached_network_image: ^2.2.0
+  flutter_launcher_icons: ^0.7.5
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/movie_icon.png"
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
 
   fonts:
     - family: IBMPlexSans
       fonts:
-        - asset: fonts/IBMPlexSans-Regular.ttf
-        - asset: fonts/IBMPlexSans-Bold.ttf
+        - asset: assets/fonts/IBMPlexSans-Regular.ttf
+        - asset: assets/fonts/IBMPlexSans-Bold.ttf
           weight: 700
-        - asset: fonts/IBMPlexSans-Italic.ttf
+        - asset: assets/fonts/IBMPlexSans-Italic.ttf
           style: italic
-        - asset: fonts/IBMPlexSans-Light.ttf
+        - asset: assets/fonts/IBMPlexSans-Light.ttf
           weight: 300
-        - asset: fonts/IBMPlexSans-SemiBold.ttf
+        - asset: assets/fonts/IBMPlexSans-SemiBold.ttf
           weight: 600

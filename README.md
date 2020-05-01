@@ -45,13 +45,14 @@ extensible and open development model.
 * [Shared Preferences](https://pub.dev/packages/shared_preferences) for Cache Implementation
 * [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) for [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) and [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared) modules
 * [Shimmer Loading](https://pub.dev/packages/shimmer)
+* [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons)
 
 
 ## Todo
 * [ ] Favorite Movies (SQFlite)
+* [ ] Flavor on Android and iOS
 * [ ] Unit Testing (Mockito)
 * [ ] Instrumentation Testing
-* [ ] Flavor on Android and iOS
 * [ ] Build and Release for iOS
 
 
