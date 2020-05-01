@@ -56,8 +56,8 @@ extensible and open development model.
 * [ ] Build and Release for iOS
 
 
-## How to run Flavor with command prompt
-To run the app, make sure you have an emulator running, or a device connected over USB and debugging enabled on that device.
+## How to run Flutter between Flavor for `development` and `production` with command prompt
+Before run the app, make sure you have an emulator running, or a device connected over USB and debugging enabled on that device.
 
 Development
 ```console
@@ -67,6 +67,13 @@ Production
 ```console
 flutter run --flavor production --target=lib/ui/launcher/main-prod.dart
 ```
+
+
+## How to run Flutter between Flavor for `development` and `production` with <img src="" alt="Run" />
+<img src="" alt="Run" />
+<img src="" alt="Run" />
+<img src="" alt="Run" />
+
 
 If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) module first using `cd` command. For example `cd core`. Then you can run the command below.
 
