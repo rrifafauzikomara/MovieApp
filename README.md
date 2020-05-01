@@ -10,8 +10,16 @@
 *  Detail Movies
 
 
-## Example
-![Android Gif](https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/android.gif "Android Gif")     ![iOS Gif](https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/ios.gif "iOS Gif")
+## Example iOS
+<pre>
+<img src="screenshot/ios1.png" width="250" height="460">     <img src="screenshot/ios2.png" width="250" height="460">     <img src="screenshot/ios3.png" width="250" height="460">
+</pre>
+
+
+## Example Android
+<pre>
+<img src="screenshot/android1.png" width="250" height="460">     <img src="screenshot/android2.png" width="250" height="460">     <img src="screenshot/android3.png" width="250" height="460">
+</pre>
 
 
 ## Quick start
