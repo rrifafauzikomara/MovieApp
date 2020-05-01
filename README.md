@@ -25,6 +25,7 @@ You can do self-study about it in [here](https://github.com/rrifafauzikomara/flu
 *  Popular Movies
 *  Top Rated Movies
 *  Detail Movies
+*  Favorite (ala style 😜)
 
 
 ## Example iOS
