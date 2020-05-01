@@ -69,7 +69,7 @@ flutter run --flavor production --target=lib/ui/launcher/main-prod.dart
 ```
 
 
-## How to run Flutter between Flavor for development and production with <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/running.png" alt="Run" width="50" height="50"/>
+## How to run Flutter between Flavor for development and production with <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/running.png" alt="Run" width="20" height="20"/>
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/image1.png" alt="Tutor1" />
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/image2.png" alt="Tutor2" />
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/image3.png" alt="Tutor3" />
