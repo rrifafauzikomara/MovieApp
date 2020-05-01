@@ -1,6 +1,23 @@
 # Movie Catalogue
 [![Star on GitHub](https://img.shields.io/github/stars/rrifafauzikomara/MovieCatalogue.svg?style=flat&logo=github&colorB=deeppink&label=stars)](https://github.com/rrifafauzikomara/MovieCatalogue)
 
+
+## About Flutter
+Flutter is Google's SDK for crafting beautiful, fast user experiences for
+mobile, web and desktop from a single codebase. Flutter works with existing
+code, is used by developers and organizations around the world, and is free
+and open source. We think Flutter will help you create beautiful, fast apps, with a productive,
+extensible and open development model.
+
+
+## Quick start
+This is a normal flutter app. You should follow the instructions in the [official documentation](https://flutter.io/docs/get-started/install).
+This project uses **BLoC** (business logic component) to separate the business logic with UI itself.
+It's recommended to do self-study about it before jumping into the project [here](https://bloclibrary.dev/).
+And also on this project uses **Modularization** approach to separate each feature ([core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core), [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared), [ui](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/lib/ui) modules).
+You can do self-study about it in [here](https://github.com/rrifafauzikomara/flutter_modularization).
+
+
 ## Features
 *  Support Dark Mode and Light Mode 🔥
 *  Now Playing Movies
@@ -20,22 +37,6 @@
 <pre>
 <img src="screenshot/android1.png" width="250" height="460">     <img src="screenshot/android2.png" width="250" height="460">     <img src="screenshot/android3.png" width="250" height="460">
 </pre>
-
-
-## Quick start
-This is a normal flutter app. You should follow the instructions in the [official documentation](https://flutter.io/docs/get-started/install).
-This project uses **BLoC** (business logic component) to separate the business logic with UI itself.
-It's recommended to do self-study about it before jumping into the project [here](https://bloclibrary.dev/).
-And also on this project uses **Modularization** approach to separate each feature ([core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core), [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared), [ui](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/lib/ui) modules).
-You can do self-study about it in [here](https://github.com/rrifafauzikomara/flutter_modularization).
-
-
-## About Flutter
-Flutter is Google's SDK for crafting beautiful, fast user experiences for
-mobile, web and desktop from a single codebase. Flutter works with existing
-code, is used by developers and organizations around the world, and is free
-and open source. We think Flutter will help you create beautiful, fast apps, with a productive,
-extensible and open development model.
 
 
 ## Libraries
