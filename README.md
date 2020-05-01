@@ -56,9 +56,27 @@ extensible and open development model.
 * [ ] Build and Release for iOS
 
 
-## How to run Flutter between Flavor for development and production with command prompt
+## How to run Flutter App
 Before run the app, make sure you have an emulator running, or a device connected over USB and debugging enabled on that device.
+Then you need to register the `API_KEY` from www.themoviedb.org then enter the `API_KEY` into ***api_constant.dart*** file
 
+```
+static const apiKey = "HERE";
+```
+
+
+If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) module first using `cd` command. For example `cd core`. Then you can run the command below.
+One time build:
+```console
+flutter pub run build_runner build
+```
+or you can watch for changes and rebuild automatically
+```console
+flutter pub run build_runner watch
+```
+
+
+### Flutter App between Flavor for development and production with command prompt
 Development
 ```console
 flutter run --flavor development --target=lib/ui/launcher/main-dev.dart
@@ -69,22 +87,10 @@ flutter run --flavor production --target=lib/ui/launcher/main-prod.dart
 ```
 
 
-## How to run Flutter between Flavor for development and production with <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/running.png" alt="Run" width="20" height="20"/>
+### Flutter App between Flavor for development and production with <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/running.png" alt="Run" width="20" height="20"/>
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/tutor1.png" alt="Tutor1" />
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/tutor2.png" alt="Tutor2" />
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/tutor3.png" alt="Tutor3" />
-
-
-If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) module first using `cd` command. For example `cd core`. Then you can run the command below.
-
-One time build:
-```console
-flutter pub run build_runner build
-```
-or you can watch for changes and rebuild automatically
-```console
-flutter pub run build_runner watch
-```
 
 
 ## Author
