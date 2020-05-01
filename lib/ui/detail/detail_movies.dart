@@ -1,17 +1,11 @@
 import 'dart:io';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
 class ScreenArguments {
-  final List<Widget> genre;
-  final String title;
-  final String imageBanner;
-  final String imagePoster;
-  final double rating;
-  final String overview;
-
-  ScreenArguments(this.genre, this.title, this.imageBanner, this.imagePoster,
-      this.rating, this.overview);
+  final Movies movies;
+  ScreenArguments(this.movies);
 }
 
 class DetailMovies extends StatefulWidget {
@@ -21,17 +15,21 @@ class DetailMovies extends StatefulWidget {
 }
 
 class _DetailMoviesState extends State<DetailMovies> {
-  static final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  @override
-  void initState() {
-    super.initState();
-  }
+  static final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  SessionManager _sessionManager = SessionManager();
+  bool _isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
     var theme = Theme.of(context);
+    _sessionManager.getFavorite().then((value) {
+      if(value == args.movies.id) {
+        setState(() => _isFavorite = value != null);
+      }
+    });
+
     return Scaffold(
       key: scaffoldKey,
       body: SingleChildScrollView(
@@ -40,13 +38,13 @@ class _DetailMoviesState extends State<DetailMovies> {
             Column(
               children: [
                 CardMoviesHeader(
-                  title: args.title,
+                  title: args.movies.title,
                   imageBanner:
-                  'https://image.tmdb.org/t/p/original${args.imageBanner}',
+                  'https://image.tmdb.org/t/p/original${args.movies.backdrop_path}',
                   imagePoster:
-                  'https://image.tmdb.org/t/p/w185${args.imagePoster}',
-                  rating: args.rating,
-                  genre: args.genre,
+                  'https://image.tmdb.org/t/p/w185${args.movies.poster_path}',
+                  rating: args.movies.vote_average,
+                  genre: args.movies.genre_ids.take(3).map(buildGenreChip).toList(),
                 ),
                 Padding(
                     padding: EdgeInsets.all(Sizes.dp20(context)),
@@ -62,7 +60,7 @@ class _DetailMoviesState extends State<DetailMovies> {
                         ),
                         SizedBox(height: Sizes.dp8(context)),
                         Text(
-                          args.overview,
+                          args.movies.overview,
                         ),
                       ],
                     )),
@@ -72,24 +70,7 @@ class _DetailMoviesState extends State<DetailMovies> {
             Positioned(
               top: 40.0,
               right: Sizes.dp5(context),
-              child: IconButton(
-                iconSize: Sizes.dp30(context),
-                color: theme.accentColor,
-                icon: Icon(Icons.favorite_border),
-                onPressed: () {
-                  PopUp.showSnackBar(
-                    Text(
-                      "Favorite",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: Sizes.dp16(context),
-                        color: ColorPalettes.white,
-                      ),
-                    ),
-                    key: scaffoldKey,
-                  );
-                },
-              ),
+              child: _buildFavoriteIcon(theme, args.movies),
             ),
             Positioned(
               top: 40,
@@ -106,4 +87,51 @@ class _DetailMoviesState extends State<DetailMovies> {
       ),
     );
   }
+
+  Widget _buildFavoriteIcon(ThemeData theme, Movies movies) {
+    if (_isFavorite) {
+      return IconButton(
+        iconSize: Sizes.dp30(context),
+        color: theme.accentColor,
+        icon: Icon(Icons.favorite),
+        onPressed: () {
+          _sessionManager.deleteFromFavorite();
+          setState(() => _isFavorite = false);
+          PopUp.showSnackBar(
+            Text(
+              "Remove from Favorite",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: Sizes.dp16(context),
+                color: ColorPalettes.white,
+              ),
+            ),
+            key: scaffoldKey,
+          );
+        },
+      );
+    } else {
+      return IconButton(
+        iconSize: Sizes.dp30(context),
+        color: theme.accentColor,
+        icon: Icon(Icons.favorite_border),
+        onPressed: () {
+          _sessionManager.saveToFavorite(movies.id);
+          setState(() => _isFavorite = true);
+          PopUp.showSnackBar(
+            Text(
+              "Add to Favorite",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: Sizes.dp16(context),
+                color: ColorPalettes.white,
+              ),
+            ),
+            key: scaffoldKey,
+          );
+        },
+      );
+    }
+  }
+
 }

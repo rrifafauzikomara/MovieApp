@@ -493,7 +493,7 @@ packages:
     source: path
     version: "0.0.1"
   shared_preferences:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: shared_preferences
       url: "https://pub.dartlang.org"
@@ -561,7 +561,7 @@ packages:
     source: hosted
     version: "1.5.5"
   sqflite:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: sqflite
       url: "https://pub.dartlang.org"

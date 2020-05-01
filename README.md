@@ -53,7 +53,6 @@ You can do self-study about it in [here](https://github.com/rrifafauzikomara/flu
 
 
 ## Todo
-* [ ] Favorite Movies (SQFlite)
 * [ ] Unit Testing (Mockito)
 * [ ] Instrumentation Testing
 * [ ] Build and Release for iOS

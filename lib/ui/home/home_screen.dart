@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviecatalogue/ui/favorite/favorite_screen.dart';
+import 'package:moviecatalogue/ui/about/about_screen.dart';
 import 'package:moviecatalogue/ui/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/popular/popular_screen.dart';
 import 'package:moviecatalogue/ui/top_rated/top_rated_screen.dart';
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
             },
             child: TopRatedScreen(),
           ),
-          FavoriteScreen(),
+          AboutScreen(),
         ],
       ),
       bottomNavigationBar: Theme(
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.favorite,
+                Icons.account_circle,
               ),
               title: Container(height: 0),
             ),

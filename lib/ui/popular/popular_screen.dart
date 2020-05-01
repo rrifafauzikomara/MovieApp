@@ -37,14 +37,7 @@ class _PopularScreenState extends State<PopularScreen> {
                   Navigation.intentWithData(
                     context,
                     DetailMovies.routeName,
-                    ScreenArguments(
-                      movies.genre_ids.take(3).map(buildGenreChip).toList(),
-                      movies.title,
-                      movies.backdrop_path,
-                      movies.poster_path,
-                      movies.vote_average,
-                      movies.overview,
-                    ),
+                    ScreenArguments(movies),
                   );
                 },
               );
