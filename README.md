@@ -66,6 +66,7 @@ static const apiKey = "HERE";
 
 
 If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) module first using `cd` command. For example `cd core`. Then you can run the command below.
+
 One time build:
 ```console
 flutter pub run build_runner build
@@ -76,7 +77,7 @@ flutter pub run build_runner watch
 ```
 
 
-### Flutter App between Flavor for development and production with command prompt
+### Run Flutter App between Flavor for development and production with command prompt
 Development
 ```console
 flutter run --flavor development --target=lib/ui/launcher/main-dev.dart
@@ -87,7 +88,7 @@ flutter run --flavor production --target=lib/ui/launcher/main-prod.dart
 ```
 
 
-### Flutter App between Flavor for development and production with <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/running.png" alt="Run" width="20" height="20"/>
+### Run Flutter App between Flavor for development and production with <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/running.png" alt="Run" width="20" height="20"/>
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/tutor1.png" alt="Tutor1" />
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/tutor2.png" alt="Tutor2" />
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/tutor3.png" alt="Tutor3" />
