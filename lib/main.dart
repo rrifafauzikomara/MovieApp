@@ -4,6 +4,7 @@ import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moviecatalogue/ui/home/home_screen.dart';
+import 'package:moviecatalogue/ui/detail/detail_movies.dart';
 
 void main() async {
   // BlocSupervisor oversees Blocs and delegates to BlocDelegate.
@@ -42,6 +43,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: HomePage.routeName,
       routes: {
         HomePage.routeName: (context) => HomePage(title: AppConstant.appName),
+        DetailMovies.routeName: (context) => DetailMovies(),
       },
     );
   }

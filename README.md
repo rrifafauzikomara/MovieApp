@@ -7,6 +7,7 @@
 *  Up Coming Movies
 *  Popular Movies
 *  Top Rated Movies
+*  Detail Movies
 
 
 ## Screenshot
@@ -41,7 +42,6 @@ extensible and open development model.
 
 
 ## Todo
-* [ ] Detail Movies
 * [ ] Favorite Movies (SQFlite)
 * [ ] Unit Testing (Mockito)
 * [ ] Instrumentation Testing

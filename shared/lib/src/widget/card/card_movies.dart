@@ -1,9 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:shared/shared.dart';
 
-import '../../common/common.dart';
-import '../widget.dart';
-
-class CardNowPlaying extends StatelessWidget {
+class CardMovies extends StatelessWidget {
   final String image;
   final String vote;
   final String title;
@@ -12,7 +11,7 @@ class CardNowPlaying extends StatelessWidget {
   final String overview;
   final Function onTap;
 
-  const CardNowPlaying(
+  const CardMovies(
       {Key key,
       this.image,
       this.vote,
@@ -37,8 +36,10 @@ class CardNowPlaying extends StatelessWidget {
               Container(
                 width: Sizes.width(context) / 3,
                 height: Sizes.width(context) / 2,
-                child: Image.network(
-                    'https://image.tmdb.org/t/p/w185$image',
+                child: CachedNetworkImage(
+                  imageUrl: 'https://image.tmdb.org/t/p/w185$image',
+                  placeholder: (context, url) => LoadingIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
               ),
               Expanded(

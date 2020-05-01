@@ -21,7 +21,7 @@ class ShimmerMovies extends StatelessWidget {
                 Container(
                   width: Sizes.width(context) / 3,
                   height: Sizes.width(context) / 2,
-                  color: ColorPalettes.white,
+                  color: ColorPalettes.greyBg,
                 ),
                 Expanded(
                   child: Padding(
@@ -39,7 +39,7 @@ class ShimmerMovies extends StatelessWidget {
                               Container(
                                 height: 40,
                                 width: 40,
-                                color: ColorPalettes.white,
+                                color: ColorPalettes.greyBg,
                               ),
                               SizedBox(
                                 width: Sizes.dp10(context),
@@ -51,7 +51,7 @@ class ShimmerMovies extends StatelessWidget {
                                     Container(
                                       width: double.infinity,
                                       height: Sizes.dp16(context),
-                                      color: ColorPalettes.white,
+                                      color: ColorPalettes.greyBg,
                                     ),
                                     SizedBox(
                                       height: Sizes.dp12(context),
@@ -59,7 +59,7 @@ class ShimmerMovies extends StatelessWidget {
                                     Container(
                                       width: double.infinity,
                                       height: Sizes.dp12(context),
-                                      color: ColorPalettes.white,
+                                      color: ColorPalettes.greyBg,
                                     ),
                                   ],
                                 ),
@@ -76,7 +76,7 @@ class ShimmerMovies extends StatelessWidget {
                             Container(
                               height: Sizes.dp30(context),
                               width: 60,
-                              color: ColorPalettes.white,
+                              color: ColorPalettes.greyBg,
                             ),
                             SizedBox(
                               width: Sizes.dp10(context),
@@ -94,7 +94,7 @@ class ShimmerMovies extends StatelessWidget {
                         Container(
                           width: double.infinity,
                           height: Sizes.dp12(context),
-                          color: ColorPalettes.white,
+                          color: ColorPalettes.greyBg,
                         ),
                         SizedBox(
                           height: Sizes.dp10(context),
@@ -102,7 +102,7 @@ class ShimmerMovies extends StatelessWidget {
                         Container(
                           width: double.infinity,
                           height: Sizes.dp12(context),
-                          color: ColorPalettes.white,
+                          color: ColorPalettes.greyBg,
                         ),
                         SizedBox(
                           height: Sizes.dp10(context),
@@ -110,7 +110,7 @@ class ShimmerMovies extends StatelessWidget {
                         Container(
                           width: double.infinity,
                           height: Sizes.dp12(context),
-                          color: ColorPalettes.white,
+                          color: ColorPalettes.greyBg,
                         ),
                         SizedBox(
                           height: Sizes.dp10(context),
@@ -118,7 +118,7 @@ class ShimmerMovies extends StatelessWidget {
                         Container(
                           width: double.infinity,
                           height: Sizes.dp12(context),
-                          color: ColorPalettes.white,
+                          color: ColorPalettes.greyBg,
                         ),
                         SizedBox(
                           height: Sizes.dp10(context),
@@ -126,7 +126,7 @@ class ShimmerMovies extends StatelessWidget {
                         Container(
                           width: double.infinity,
                           height: Sizes.dp12(context),
-                          color: ColorPalettes.white,
+                          color: ColorPalettes.greyBg,
                         ),
                         SizedBox(
                           height: Sizes.dp10(context),

@@ -2,6 +2,7 @@ import 'package:core/core.dart';
 import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviecatalogue/ui/detail/detail_movies.dart';
 
 class PopularScreen extends StatefulWidget {
   @override
@@ -25,14 +26,27 @@ class _PopularScreenState extends State<PopularScreen> {
             itemCount: state.result.results == null ? 0 : state.result.results.length,
             itemBuilder: (BuildContext context, int index) {
               Movies movies = state.result.results[index];
-              return CardNowPlaying(
+              return CardMovies(
                 image: movies.poster_path,
                 title: movies.title,
                 vote: movies.vote_average.toString(),
                 releaseDate: movies.release_date,
                 overview: movies.overview,
                 genre: movies.genre_ids.take(3).map(buildGenreChip).toList(),
-                onTap: () => null,
+                onTap: () {
+                  Navigation.intentWithData(
+                    context,
+                    DetailMovies.routeName,
+                    ScreenArguments(
+                      movies.genre_ids.take(3).map(buildGenreChip).toList(),
+                      movies.title,
+                      movies.backdrop_path,
+                      movies.poster_path,
+                      movies.vote_average,
+                      movies.overview,
+                    ),
+                  );
+                },
               );
             },
           );

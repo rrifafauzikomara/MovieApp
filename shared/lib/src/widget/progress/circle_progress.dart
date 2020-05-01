@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../common/common.dart';
+import 'package:shared/shared.dart';
 
 class CircleProgress extends StatelessWidget {
   final String vote;

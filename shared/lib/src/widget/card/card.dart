@@ -1,1 +1,2 @@
-export 'card_now_playing.dart';
+export 'card_movies.dart';
+export 'card_movies_header.dart';
