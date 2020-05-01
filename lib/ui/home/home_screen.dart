@@ -6,6 +6,7 @@ import 'package:moviecatalogue/ui/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/popular/popular_screen.dart';
 import 'package:moviecatalogue/ui/top_rated/top_rated_screen.dart';
 import 'package:moviecatalogue/ui/up_coming/up_coming_screen.dart';
+import 'package:shared/shared.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/';
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
-        onPageChanged: onPageChanged,
+        onPageChanged: _onPageChanged,
         children: <Widget>[
           BlocProvider(
             create: (context) {
@@ -67,7 +68,7 @@ class _HomePageState extends State<HomePage> {
           // sets the active color of the `BottomNavigationBar` if `Brightness` is light
           primaryColor: Theme.of(context).accentColor,
           textTheme: Theme.of(context).textTheme.copyWith(
-                caption: TextStyle(color: Colors.grey[500]),
+                caption: TextStyle(color: ColorPalettes.setActive),
               ),
         ),
         child: BottomNavigationBar(
@@ -104,14 +105,14 @@ class _HomePageState extends State<HomePage> {
               title: Container(height: 0),
             ),
           ],
-          onTap: navigationTapped,
+          onTap: _navigationTapped,
           currentIndex: _page,
         ),
       ),
     );
   }
 
-  void navigationTapped(int page) {
+  void _navigationTapped(int page) {
     _pageController.jumpToPage(page);
   }
 
@@ -127,7 +128,7 @@ class _HomePageState extends State<HomePage> {
     _pageController.dispose();
   }
 
-  void onPageChanged(int page) {
+  void _onPageChanged(int page) {
     setState(() {
       this._page = page;
     });

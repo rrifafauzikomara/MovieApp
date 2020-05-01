@@ -18,7 +18,7 @@ class CircleProgress extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: Colors.blueGrey,
+                color: ColorPalettes.blueGrey,
                 borderRadius: BorderRadius.circular(
                   Sizes.dp20(context),
                 ),
@@ -27,8 +27,8 @@ class CircleProgress extends StatelessWidget {
           ),
           Center(
             child: Container(
-              width: 30,
-              height: 30,
+              width: Sizes.dp30(context),
+              height: Sizes.dp30(context),
               child: CircularProgressIndicator(
                 strokeWidth: 3.0,
                 valueColor: AlwaysStoppedAnimation<Color>(
@@ -36,22 +36,22 @@ class CircleProgress extends StatelessWidget {
                     double.parse(vote),
                   ),
                 ),
-                backgroundColor: Colors.grey,
+                backgroundColor: ColorPalettes.grey,
                 value: double.parse(vote) / 10.0,
               ),
             ),
           ),
           Center(
             child: Container(
-              width: 30,
-              height: 30,
+              width: Sizes.dp30(context),
+              height: Sizes.dp30(context),
               child: Center(
                 child: Text(
                   (double.parse(vote) * 10.0).floor().toString() + '%',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: Sizes.dp10(context),
-                    color: Colors.white,
+                    color: ColorPalettes.white,
                   ),
                 ),
               ),

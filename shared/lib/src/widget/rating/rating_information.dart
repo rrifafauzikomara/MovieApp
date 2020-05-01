@@ -10,7 +10,7 @@ class RatingInformation extends StatelessWidget {
     var stars = <Widget>[];
 
     for (var i = 1; i <= 5; i++) {
-      var color = i <= rating ? theme.accentColor : Colors.black12;
+      var color = i <= rating ? theme.accentColor : ColorPalettes.black12;
       var star = Icon(
         Icons.star,
         color: color,

@@ -1,6 +1,7 @@
 import 'dart:io';
-import 'package:shared/shared.dart';
+
 import 'package:flutter/material.dart';
+import 'package:shared/shared.dart';
 
 class ScreenArguments {
   final List<Widget> genre;
@@ -16,11 +17,15 @@ class ScreenArguments {
 
 class DetailMovies extends StatelessWidget {
   static const routeName = '/detail_movies';
+  static final GlobalKey<ScaffoldState> scaffoldKey =
+      new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+    var theme = Theme.of(context);
     return Scaffold(
+      key: DetailMovies.scaffoldKey,
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
@@ -36,32 +41,55 @@ class DetailMovies extends StatelessWidget {
                   genre: args.genre,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(Sizes.dp20(context)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Story line',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: Sizes.dp16(context),
+                    padding: EdgeInsets.all(Sizes.dp20(context)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Story line',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: Sizes.dp16(context),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: Sizes.dp8(context)),
-                      Text(
-                        args.overview,
-                      ),
-                    ],
-                  )
-                ),
+                        SizedBox(height: Sizes.dp8(context)),
+                        Text(
+                          args.overview,
+                        ),
+                      ],
+                    )),
                 SizedBox(height: 50.0),
               ],
             ),
             Positioned(
-              top: Sizes.dp30(context),
+              top: 40.0,
+              right: Sizes.dp5(context),
+              child: IconButton(
+                iconSize: Sizes.dp30(context),
+                color: theme.accentColor,
+                icon: Icon(Icons.favorite_border),
+                onPressed: () {
+                  PopUp.showSnackBar(
+                    Text(
+                      "Favorite",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: Sizes.dp16(context),
+                        color: ColorPalettes.white,
+                      ),
+                    ),
+                    key: DetailMovies.scaffoldKey,
+                  );
+                },
+              ),
+            ),
+            Positioned(
+              top: 40,
               left: Sizes.dp5(context),
               child: IconButton(
-                icon: Platform.isAndroid? Icon(Icons.arrow_back) : Icon(Icons.arrow_back_ios),
+                icon: Platform.isAndroid
+                    ? Icon(Icons.arrow_back)
+                    : Icon(Icons.arrow_back_ios),
                 onPressed: () => Navigator.pop(context),
               ),
             ),

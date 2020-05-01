@@ -13,7 +13,14 @@ class ColorPalettes{
   static Color darkBG = Color(0xff212121);
 
   static Color white = Color(0xffffffff);
+  static Color grey = Colors.grey;
   static Color greyBg = Color(0xfff0f0f0);
+  static Color red = Colors.red;
+  static Color yellow = Colors.yellow;
+  static Color green = Colors.green;
+  static Color setActive = Colors.grey[500];
+  static Color blueGrey = Colors.blueGrey;
+  static Color black12 = Colors.black12;
 
   static ThemeData lightTheme = ThemeData(
     fontFamily: 'IBMPlexSans',
@@ -56,10 +63,10 @@ class ColorPalettes{
   );
 
   static Color getColorCircleProgress(double s) {
-    Color r = Colors.red;
+    Color r = ColorPalettes.red;
     if (s > 4.5 && s < 7)
-      r = Colors.yellow;
-    else if (s >= 7) r = Colors.green;
+      r = ColorPalettes.yellow;
+    else if (s >= 7) r = ColorPalettes.green;
     return r;
   }
 
