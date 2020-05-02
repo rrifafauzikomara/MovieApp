@@ -1,11 +1,11 @@
 # Movie Catalogue
-![GitHub stars](https://img.shields.io/github/stars/rrifafauzikomara/MovieCatalogue.svg?style=flat&logo=github&colorB=deeppink&label=stars)
-![GitHub forks](https://img.shields.io/github/forks/rrifafauzikomara/MovieCatalogue?style=flat&logo=github&colorB=deeppink&label=stars)
-![GitHub watchers](https://img.shields.io/github/watchers/rrifafauzikomara/MovieCatalogue?style=flat&logo=github&colorB=deeppink&label=stars)
+![GitHub stars](https://img.shields.io/github/stars/rrifafauzikomara/MovieCatalogue?style=social)
+![GitHub forks](https://img.shields.io/github/forks/rrifafauzikomara/MovieCatalogue?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/rrifafauzikomara/MovieCatalogue?style=social)
 
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/rrifafauzikomara/MovieCatalogue)
 [![platform](https://img.shields.io/badge/platform-Flutter-blue.svg)](https://flutter.dev/)
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/rrifafauzikomara/MovieCatalogue)
 
 
 ## About Flutter
