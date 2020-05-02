@@ -1,4 +1,4 @@
-# Movie Catalogue
+# Movie App
 ![GitHub stars](https://img.shields.io/github/stars/rrifafauzikomara/MovieCatalogue?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/rrifafauzikomara/MovieCatalogue?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/rrifafauzikomara/MovieCatalogue?style=social)
