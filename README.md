@@ -61,11 +61,11 @@ You can do self-study about it in [here](https://github.com/rrifafauzikomara/flu
 
 ## Built With 🛠
 * [BLoC Pattern](https://bloclibrary.dev/) - Business logic component to separate the business logic with UI.
-* [Equatable](https://pub.dev/packages/equatable) - Being able to compare objects in `Dart` often involves having to override the `==` operator as well as hashCode.
+* [Equatable](https://pub.dev/packages/equatable) - Being able to compare objects in `Dart` often involves having to override the `==` operator.
 * [Retrofit](https://pub.dartlang.org/packages/retrofit) with [Dio](https://github.com/flutterchina/dio/) - A type-safe HTTP client.
 * [Json Serializable](https://pub.dev/packages/json_serializable) - Builders for handling JSON.
 * [Shared Preferences](https://pub.dev/packages/shared_preferences) - Cache implementation approach.
-* [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) - Separate functionality into independent, interchangeable modules, so that each contains everything necessary to execute a specific functionality.
+* [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) - Separate functionality into independent, interchangeable modules.
 * [Shimmer](https://pub.dev/packages/shimmer) - Loading handler.
 * [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons) - Launcher icons handler.
 * [Integration Testing](https://flutter.dev/docs/cookbook/testing/integration/introduction) - Automating UI/Integration Tests.
