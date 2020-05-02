@@ -17,19 +17,12 @@ class DetailMovies extends StatefulWidget {
 class _DetailMoviesState extends State<DetailMovies> {
 
   static final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  SessionManager _sessionManager = SessionManager();
   bool _isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
     var theme = Theme.of(context);
-    _sessionManager.getFavorite().then((value) {
-      if(value == args.movies.id) {
-        setState(() => _isFavorite = value != null);
-      }
-    });
-
     return Scaffold(
       key: scaffoldKey,
       body: SingleChildScrollView(
@@ -95,7 +88,6 @@ class _DetailMoviesState extends State<DetailMovies> {
         color: theme.accentColor,
         icon: Icon(Icons.favorite),
         onPressed: () {
-          _sessionManager.deleteFromFavorite();
           setState(() => _isFavorite = false);
           PopUp.showSnackBar(
             Text(
@@ -116,7 +108,6 @@ class _DetailMoviesState extends State<DetailMovies> {
         color: theme.accentColor,
         icon: Icon(Icons.favorite_border),
         onPressed: () {
-          _sessionManager.saveToFavorite(movies.id);
           setState(() => _isFavorite = true);
           PopUp.showSnackBar(
             Text(
