@@ -60,17 +60,16 @@ You can do self-study about it in [here](https://github.com/rrifafauzikomara/flu
 
 
 ## Built With 🛠
-* [BLoC Pattern](https://bloclibrary.dev/)
-* [Equatable](https://pub.dev/packages/equatable)
-* [Retrofit](https://pub.dartlang.org/packages/retrofit) with [Dio](https://github.com/flutterchina/dio/)
-* [Json Serializable](https://pub.dev/packages/json_serializable)
-* [Build Runner](https://pub.dev/packages/build_runner)
-* [Shared Preferences](https://pub.dev/packages/shared_preferences) for Cache Implementation
-* [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) for [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) and [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared) modules
-* [Shimmer Loading](https://pub.dev/packages/shimmer)
-* [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons)
-* [Integration Testing](https://flutter.dev/docs/cookbook/testing/integration/introduction) for development Flavor
-* [Flavor](https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b) on Android and iOS (development and production)
+* [BLoC Pattern](https://bloclibrary.dev/) - Business logic component to separate the business logic with UI.
+* [Equatable](https://pub.dev/packages/equatable) - Being able to compare objects in `Dart` often involves having to override the `==` operator as well as hashCode.
+* [Retrofit](https://pub.dartlang.org/packages/retrofit) with [Dio](https://github.com/flutterchina/dio/) - A type-safe HTTP client.
+* [Json Serializable](https://pub.dev/packages/json_serializable) - Builders for handling JSON.
+* [Shared Preferences](https://pub.dev/packages/shared_preferences) - Cache implementation approach.
+* [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) - Separate functionality into independent, interchangeable modules, so that each contains everything necessary to execute a specific functionality.
+* [Shimmer](https://pub.dev/packages/shimmer) - Loading handler.
+* [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons) - Launcher icons handler.
+* [Integration Testing](https://flutter.dev/docs/cookbook/testing/integration/introduction) - Automating UI/Integration Tests.
+* [Flavor](https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b) - Handling different development environments and production.
 
 
 ## Todo
