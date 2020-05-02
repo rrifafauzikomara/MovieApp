@@ -8,32 +8,16 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/rrifafauzikomara/MovieCatalogue)
 
 
-## Example iOS
+## 📸 Example iOS
 <pre>
 <img src="screenshot/ios1.png" width="250" height="460">     <img src="screenshot/ios2.png" width="250" height="460">     <img src="screenshot/ios3.png" width="250" height="460">
 </pre>
 
 
-## Example Android
+## 📸 Example Android
 <pre>
 <img src="screenshot/android1.png" width="250" height="460">     <img src="screenshot/android2.png" width="250" height="460">     <img src="screenshot/android3.png" width="250" height="460">
 </pre>
-
-
-## About Flutter
-Flutter is Google's SDK for crafting beautiful, fast user experiences for
-mobile, web and desktop from a single codebase. Flutter works with existing
-code, is used by developers and organizations around the world, and is free
-and open source. We think Flutter will help you create beautiful, fast apps, with a productive,
-extensible and open development model.
-
-
-## Quick start
-This is a normal flutter app. You should follow the instructions in the [official documentation](https://flutter.io/docs/get-started/install).
-This project uses **BLoC** (business logic component) to separate the business logic with UI itself.
-It's recommended to do self-study about it before jumping into the project [here](https://bloclibrary.dev/).
-And also on this project uses **Modularization** approach to separate each feature ([core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core), [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared), [ui](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/lib/ui) modules).
-You can do self-study about it in [here](https://github.com/rrifafauzikomara/flutter_modularization).
 
 
 ## Features
@@ -46,7 +30,36 @@ You can do self-study about it in [here](https://github.com/rrifafauzikomara/flu
 *  Favorite (ala style 😜)
 
 
-## Libraries
+## Quick start
+This is a normal flutter app. You should follow the instructions in the [official documentation](https://flutter.io/docs/get-started/install).
+This project uses **BLoC** (business logic component) to separate the business logic with UI itself.
+It's recommended to do self-study about it before jumping into the project [here](https://bloclibrary.dev/).
+And also on this project uses **Modularization** approach to separate each feature ([core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core), [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared), [ui](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/lib/ui) modules).
+You can do self-study about it in [here](https://github.com/rrifafauzikomara/flutter_modularization).
+
+
+## Modularization Structure 🔥
+
+    # Root Project
+    .
+    ├── core                   # Name of module (new package)
+    │   ├── bloc               # Business logic component.
+    │   └── network            # Remote Data Handlers
+    |       ├── api            # Retrofit API for remote end point, model using Equatable.
+    │       └── repository     # Single source of data and for handling data from network to cache.
+    |
+    ├── lib                    # Name of module (default from Flutter)
+    │   └── ui                 # Activity/View layer
+    |
+    └── shared                 # Name of module (new package)
+        ├── common             # Common shared.
+        │   ├── helpers        # Custom function, extension, etc which can be used repeatedly on each method.
+        │   ├── styles         # Custom style that will be used on each widget.
+        │   └── utils          # Utility classes.
+        └── widget             # Custom widget which can be used repeatedly.
+
+
+## Built With 🛠
 * [BLoC Pattern](https://bloclibrary.dev/)
 * [Equatable](https://pub.dev/packages/equatable)
 * [Retrofit](https://pub.dartlang.org/packages/retrofit) with [Dio](https://github.com/flutterchina/dio/)
@@ -112,6 +125,13 @@ flutter drive --target=test_driver/app.dart --flavor development
 ```
 
 
+## Author
+
+* **R Rifa Fauzi Komara**
+
+Don't forget to follow me, fork and give me a ⭐
+
+
 ## License
 
 ```
@@ -137,10 +157,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
-
-
-## Author
-
-* **R Rifa Fauzi Komara**
-
-Don't forget to follow me, fork and give me a ★
