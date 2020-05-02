@@ -69,6 +69,7 @@ class _DetailMoviesState extends State<DetailMovies> {
               top: 40,
               left: Sizes.dp5(context),
               child: IconButton(
+                key: Key(KEY_TAP_BACK_BUTTON),
                 icon: Platform.isAndroid
                     ? Icon(Icons.arrow_back)
                     : Icon(Icons.arrow_back_ios),
@@ -84,6 +85,7 @@ class _DetailMoviesState extends State<DetailMovies> {
   Widget _buildFavoriteIcon(ThemeData theme, Movies movies) {
     if (_isFavorite) {
       return IconButton(
+        key: Key(KEY_TAP_ITEM_FAVORITE),
         iconSize: Sizes.dp30(context),
         color: theme.accentColor,
         icon: Icon(Icons.favorite),
@@ -104,6 +106,7 @@ class _DetailMoviesState extends State<DetailMovies> {
       );
     } else {
       return IconButton(
+        key: Key(KEY_TAP_ITEM_FAVORITE),
         iconSize: Sizes.dp30(context),
         color: theme.accentColor,
         icon: Icon(Icons.favorite_border),

@@ -72,35 +72,41 @@ class _HomePageState extends State<HomePage> {
               ),
         ),
         child: BottomNavigationBar(
+          key: Key(KEY_BOTTOM_NAVIGATION),
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.play_circle_filled,
+                key: Key(KEY_BOTTOM_NAVIGATION_NOW_PLAYING),
               ),
               title: Container(height: 0),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.local_movies,
+                key: Key(KEY_BOTTOM_NAVIGATION_UP_COMING),
               ),
               title: Container(height: 0),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.movie_creation,
+                key: Key(KEY_BOTTOM_NAVIGATION_POPULAR),
               ),
               title: Container(height: 0),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.movie_filter,
+                key: Key(KEY_BOTTOM_NAVIGATION_TOP),
               ),
               title: Container(height: 0),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.account_circle,
+                key: Key(KEY_BOTTOM_NAVIGATION_ABOUT),
               ),
               title: Container(height: 0),
             ),

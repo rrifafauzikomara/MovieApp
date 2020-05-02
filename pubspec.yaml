@@ -18,6 +18,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  test: any
   json_serializable: any
   shimmer: ^1.1.1
   cached_network_image: ^2.2.0
