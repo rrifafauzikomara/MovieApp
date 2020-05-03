@@ -65,7 +65,7 @@ You can do self-study about it in [here](https://medium.com/@rifafauzi6/masterin
 * [Retrofit](https://pub.dartlang.org/packages/retrofit) with [Dio](https://github.com/flutterchina/dio/) - A type-safe HTTP client.
 * [Json Serializable](https://pub.dev/packages/json_serializable) - Builders for handling JSON.
 * [Shared Preferences](https://pub.dev/packages/shared_preferences) - Cache implementation approach.
-* [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) - Separate functionality into independent, interchangeable modules.
+* [Modularization](https://medium.com/@rifafauzi6/mastering-flutter-modularization-in-several-ways-c5db5ff5a54a) - Separate functionality into independent, interchangeable modules.
 * [Shimmer](https://pub.dev/packages/shimmer) - Loading handler.
 * [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons) - Launcher icons handler.
 * [Integration Testing](https://flutter.dev/docs/cookbook/testing/integration/introduction) - Automating UI/Integration Tests.
