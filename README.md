@@ -35,7 +35,7 @@ This is a normal flutter app. You should follow the instructions in the [officia
 This project uses **BLoC** (business logic component) to separate the business logic with UI itself.
 It's recommended to do self-study about it before jumping into the project [here](https://bloclibrary.dev/).
 And also on this project uses **Modularization** approach to separate each feature ([core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core), [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared), [ui](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/lib/ui) modules).
-You can do self-study about it in [here](https://github.com/rrifafauzikomara/flutter_modularization).
+You can do self-study about it in [here](https://medium.com/@rifafauzi6/mastering-flutter-modularization-in-several-ways-c5db5ff5a54a).
 
 
 ## Modularization Structure 🔥
