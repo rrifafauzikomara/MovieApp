@@ -8,6 +8,16 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/rrifafauzikomara/MovieCatalogue)
 
 
+## Features
+*  Support Dark Mode and Light Mode 🔥
+*  Now Playing Movies
+*  Up Coming Movies
+*  Popular Movies
+*  Top Rated Movies
+*  Detail Movies
+*  Favorite (ala style 😜)
+
+
 ## 📸 Example iOS
 <pre>
 <img src="screenshot/ios1.png" width="250" height="460">     <img src="screenshot/ios2.png" width="250" height="460">     <img src="screenshot/ios3.png" width="250" height="460">
@@ -18,16 +28,6 @@
 <pre>
 <img src="screenshot/android1.png" width="250" height="460">     <img src="screenshot/android2.png" width="250" height="460">     <img src="screenshot/android3.png" width="250" height="460">
 </pre>
-
-
-## Features
-*  Support Dark Mode and Light Mode 🔥
-*  Now Playing Movies
-*  Up Coming Movies
-*  Popular Movies
-*  Top Rated Movies
-*  Detail Movies
-*  Favorite (ala style 😜)
 
 
 ## Quick start
