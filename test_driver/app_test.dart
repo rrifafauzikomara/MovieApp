@@ -37,7 +37,7 @@ void main() {
     });
 
     test("show list up comming", () async {
-      await driver.waitFor(tapBottomUpComingKey);
+      await driver.tap(tapBottomUpComingKey);
       await Future.delayed(Duration(seconds: 3));
       await driver.waitFor(tapListViewUpComingKey);
       await Future.delayed(Duration(seconds: 1));
@@ -54,7 +54,7 @@ void main() {
     });
 
     test("show list popular", () async {
-      await driver.waitFor(tapBottomPopularKey);
+      await driver.tap(tapBottomPopularKey);
       await Future.delayed(Duration(seconds: 3));
       await driver.waitFor(tapListViewPopularKey);
       await Future.delayed(Duration(seconds: 1));
@@ -71,7 +71,7 @@ void main() {
     });
 
     test("show list top rated", () async {
-      await driver.waitFor(tapBottomTopKey);
+      await driver.tap(tapBottomTopKey);
       await Future.delayed(Duration(seconds: 3));
       await driver.waitFor(tapListViewTopRatedKey);
       await Future.delayed(Duration(seconds: 1));
@@ -88,7 +88,7 @@ void main() {
     });
 
     test("show about", () async {
-      await driver.waitFor(tapBottomAboutKey);
+      await driver.tap(tapBottomAboutKey);
     });
 
   });

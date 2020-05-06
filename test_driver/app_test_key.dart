@@ -1,5 +1,12 @@
 import 'package:flutter_driver/flutter_driver.dart';
-import 'package:shared/shared.dart';
+
+/**
+ * Please don't use "package:shared/shared.dart" imported
+ * You can check the reason and the issue from this:
+ * https://github.com/flutter/flutter/issues/56192#issuecomment-624101352
+ */
+
+import '../shared/lib/src/common/utils/movies_key.dart';
 
 // home screen
 final homeKey = find.byValueKey(KEY_BOTTOM_NAVIGATION);
