@@ -3,6 +3,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/rrifafauzikomara/MovieCatalogue?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/rrifafauzikomara/MovieCatalogue?style=social)
 
+[![Codemagic build status](https://api.codemagic.io/apps/5d9477f19ada5300122b24aa/5d9477f19ada5300122b24a9/status_badge.svg)](https://codemagic.io/app/5ec63ade43c9304d454e75e7/build/5ec647742de3b4445a0c42b9/)
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![platform](https://img.shields.io/badge/platform-Flutter-blue.svg)](https://flutter.dev/)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/rrifafauzikomara/MovieCatalogue)
@@ -69,7 +70,8 @@ You can do self-study about it in [here](https://medium.com/@rifafauzi6/masterin
 * [Shimmer](https://pub.dev/packages/shimmer) - Loading handler.
 * [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons) - Launcher icons handler.
 * [Integration Testing](https://flutter.dev/docs/cookbook/testing/integration/introduction) - Automating UI/Integration Tests.
-* [Flavor](https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b) - Handling different development environments and production.
+* [Flavor](https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b) - Handling different environments for development and production.
+* [Codemagic](https://blog.codemagic.io/environments-in-flutter-with-codemagic-cicd/) - Handling DevOps CI/CD.
 
 
 ## Todo
