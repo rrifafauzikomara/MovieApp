@@ -3,7 +3,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/rrifafauzikomara/MovieCatalogue?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/rrifafauzikomara/MovieCatalogue?style=social)
 
-[![Codemagic build status](https://api.codemagic.io/apps/5d9477f19ada5300122b24aa/5d9477f19ada5300122b24a9/status_badge.svg)](https://codemagic.io/app/5ec63ade43c9304d454e75e7/build/5ec647742de3b4445a0c42b9/)
+[![Codemagic build status](https://api.codemagic.io/apps/5ec63ade43c9304d454e75e7/5ec64f3243c9304d454e7682/status_badge.svg)](https://codemagic.io/apps/5ec63ade43c9304d454e75e7/5ec64f3243c9304d454e7682/latest_build)
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![platform](https://img.shields.io/badge/platform-Flutter-blue.svg)](https://flutter.dev/)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/rrifafauzikomara/MovieCatalogue)
