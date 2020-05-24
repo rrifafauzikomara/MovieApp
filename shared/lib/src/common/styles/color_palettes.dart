@@ -32,7 +32,7 @@ class ColorPalettes{
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
-        title: TextStyle(
+        headline6: TextStyle(
           color: darkBG,
           fontSize: 18.0,
           fontWeight: FontWeight.bold,
@@ -53,7 +53,7 @@ class ColorPalettes{
     appBarTheme: AppBarTheme(
       color: darkPrimary,
       textTheme: TextTheme(
-        title: TextStyle(
+        headline6: TextStyle(
           color: lightBG,
           fontSize: 18.0,
           fontWeight: FontWeight.w700,
