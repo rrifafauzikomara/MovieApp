@@ -36,7 +36,7 @@ This is a normal flutter app. You should follow the instructions in the [officia
 This project uses **BLoC** (business logic component) to separate the business logic with UI itself.
 It's recommended to do self-study about it before jumping into the project [here](https://bloclibrary.dev/).
 And also on this project uses **Modularization** approach to separate each feature ([core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core), [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared), [ui](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/lib/ui) modules).
-You can do self-study about it in [here](https://github.com/rrifafauzikomara/flutter_modularization).
+You can do self-study about it in [here](https://medium.com/flutter-community/mastering-flutter-modularization-in-several-ways-f5bced19101a).
 
 
 ## Modularization Structure 🔥
@@ -67,7 +67,7 @@ You can do self-study about it in [here](https://github.com/rrifafauzikomara/flu
 * [Retrofit](https://pub.dartlang.org/packages/retrofit) with [Dio](https://github.com/flutterchina/dio/) - A type-safe HTTP client.
 * [Json Serializable](https://pub.dev/packages/json_serializable) - Builders for handling JSON.
 * [Shared Preferences](https://pub.dev/packages/shared_preferences) - Cache implementation approach.
-* [Modularization](https://github.com/rrifafauzikomara/flutter_modularization) - Separate functionality into independent, interchangeable modules.
+* [Modularization](https://medium.com/flutter-community/mastering-flutter-modularization-in-several-ways-f5bced19101a) - Separate functionality into independent, interchangeable modules.
 * [Shimmer](https://pub.dev/packages/shimmer) - Loading handler.
 * [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons) - Launcher icons handler.
 * [Integration Testing](https://flutter.dev/docs/cookbook/testing/integration/introduction) - Automating UI/Integration Tests.
