@@ -78,7 +78,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 ## Todo
 * [ ] Unit Testing (Mockito)
 * [ ] Switch Theme by App
-* [ ] Build and Release for iOS
+* [ ] Build and Release
 
 
 ## How to run Flutter App
