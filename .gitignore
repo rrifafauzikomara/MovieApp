@@ -1,3 +1,7 @@
+api_constant.dart
+*.g.dart
+key.properties
+
 # Miscellaneous
 *.class
 *.log
