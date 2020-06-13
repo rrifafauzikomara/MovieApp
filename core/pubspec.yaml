@@ -14,6 +14,7 @@ dependencies:
   flutter_bloc: ^3.1.0
   equatable: ^1.1.1
   retrofit: any
+  connectivity: ^0.4.8+6
 
   # This is our modular
   shared:

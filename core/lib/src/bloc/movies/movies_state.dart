@@ -12,19 +12,23 @@ class InitialMoviesState extends MoviesState {}
 
 class MoviesLoading extends MoviesState {}
 
-class MoviesLoaded extends MoviesState {
+class MoviesHasData extends MoviesState {
   final Result result;
 
-  const MoviesLoaded([this.result]);
+  const MoviesHasData([this.result]);
 
   @override
   List<Object> get props => [result];
 }
 
-class MoviesNotLoaded extends MoviesState {
+class MoviesNoData extends MoviesState {}
+
+class MoviesNoInternetConnection extends MoviesState {}
+
+class MoviesError extends MoviesState {
   final String errorMessage;
 
-  const MoviesNotLoaded(this.errorMessage);
+  const MoviesError(this.errorMessage);
 
   @override
   List<Object> get props => [errorMessage];

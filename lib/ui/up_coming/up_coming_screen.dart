@@ -21,7 +21,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<MoviesBloc, MoviesState>(
       builder: (context, state) {
-        if (state is MoviesLoaded) {
+        if (state is MoviesHasData) {
           return ListView.builder(
             key: Key(KEY_LIST_VIEW_UP_COMING),
             itemCount: state.result.results == null ? 0 : state.result.results.length,
@@ -47,8 +47,17 @@ class _UpComingScreenState extends State<UpComingScreen> {
           );
         } else if (state is MoviesLoading) {
           return ShimmerMovies();
-        } else if (state is MoviesNotLoaded) {
-          return Center(child: Text(state.errorMessage));
+        } else if (state is MoviesError) {
+          return ErrorHandlerWidget(errorMessage: state.errorMessage);
+        } else if (state is MoviesNoInternetConnection) {
+          return NoInternetConnectionWidget(
+            message: 'No Internet Connection',
+            onPressed: () {
+              BlocProvider.of<MoviesBloc>(context).add(LoadUpComing());
+            },
+          );
+        } else if (state is MoviesNoData) {
+          return NoDataWidget(message: 'No Data');
         } else {
           return Center(child: Text(""));
         }

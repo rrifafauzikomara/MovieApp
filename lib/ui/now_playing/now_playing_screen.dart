@@ -1,8 +1,8 @@
 import 'package:core/core.dart';
-import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_movies.dart';
+import 'package:shared/shared.dart';
 
 class NowPlayingScreen extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<MoviesBloc, MoviesState>(
       builder: (context, state) {
-        if (state is MoviesLoaded) {
+        if (state is MoviesHasData) {
           return ListView.builder(
             key: Key(KEY_LIST_VIEW_NOW_PLAYING),
             itemCount:
@@ -47,8 +47,17 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
           );
         } else if (state is MoviesLoading) {
           return ShimmerMovies();
-        } else if (state is MoviesNotLoaded) {
-          return Center(child: Text(state.errorMessage));
+        } else if (state is MoviesError) {
+          return ErrorHandlerWidget(errorMessage: state.errorMessage);
+        } else if (state is MoviesNoInternetConnection) {
+          return NoInternetConnectionWidget(
+            message: 'No Internet Connection',
+            onPressed: () {
+              BlocProvider.of<MoviesBloc>(context).add(LoadNowPlaying());
+            },
+          );
+        } else if (state is MoviesNoData) {
+          return NoDataWidget(message: 'No Data');
         } else {
           return Center(child: Text(""));
         }
