@@ -1,6 +1,7 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:core/core.dart';
+import 'package:shared/shared.dart';
 
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   final Repository repository;
@@ -26,13 +27,13 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   Stream<MoviesState> _mapLoadNowPlayingToState() async* {
     var result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.none) {
-      yield MoviesNoInternetConnection();
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
     } else {
       try {
         yield MoviesLoading();
         var movies = await repository.getNowPlaying(ApiConstant.apiKey, ApiConstant.language);
         if (movies.results.isEmpty) {
-          yield MoviesNoData();
+          yield MoviesNoData(AppConstant.noData);
         } else {
           yield MoviesHasData(movies);
         }
@@ -45,13 +46,13 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   Stream<MoviesState> _mapLoadUpComingToState() async* {
     var result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.none) {
-      yield MoviesNoInternetConnection();
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
     } else {
       try {
         yield MoviesLoading();
         var movies = await repository.getUpComing(ApiConstant.apiKey, ApiConstant.language);
         if (movies.results.isEmpty) {
-          yield MoviesNoData();
+          yield MoviesNoData(AppConstant.noData);
         } else {
           yield MoviesHasData(movies);
         }
@@ -64,13 +65,13 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   Stream<MoviesState> _mapLoadPopularToState() async* {
     var result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.none) {
-      yield MoviesNoInternetConnection();
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
     } else {
       try {
         yield MoviesLoading();
         var movies = await repository.getPopular(ApiConstant.apiKey, ApiConstant.language);
         if (movies.results.isEmpty) {
-          yield MoviesNoData();
+          yield MoviesNoData(AppConstant.noData);
         } else {
           yield MoviesHasData(movies);
         }
@@ -83,13 +84,13 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   Stream<MoviesState> _mapLoadTopRatedToState() async* {
     var result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.none) {
-      yield MoviesNoInternetConnection();
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
     } else {
       try {
         yield MoviesLoading();
         var movies = await repository.getTopRated(ApiConstant.apiKey, ApiConstant.language);
         if (movies.results.isEmpty) {
-          yield MoviesNoData();
+          yield MoviesNoData(AppConstant.noData);
         } else {
           yield MoviesHasData(movies);
         }

@@ -51,13 +51,13 @@ class _PopularScreenState extends State<PopularScreen> {
           return ErrorHandlerWidget(errorMessage: state.errorMessage);
         } else if (state is MoviesNoInternetConnection) {
           return NoInternetConnectionWidget(
-            message: 'No Internet Connection',
+            message: state.message,
             onPressed: () {
               BlocProvider.of<MoviesBloc>(context).add(LoadPopular());
             },
           );
         } else if (state is MoviesNoData) {
-          return NoDataWidget(message: 'No Data');
+          return NoDataWidget(message: state.message);
         } else {
           return Center(child: Text(""));
         }

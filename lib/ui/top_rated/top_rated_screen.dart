@@ -51,13 +51,13 @@ class _TopRatedScreenState extends State<TopRatedScreen> {
           return ErrorHandlerWidget(errorMessage: state.errorMessage);
         } else if (state is MoviesNoInternetConnection) {
           return NoInternetConnectionWidget(
-            message: 'No Internet Connection',
+            message: state.message,
             onPressed: () {
               BlocProvider.of<MoviesBloc>(context).add(LoadTopRated());
             },
           );
         } else if (state is MoviesNoData) {
-          return NoDataWidget(message: 'No Data');
+          return NoDataWidget(message: state.message);
         } else {
           return Center(child: Text(""));
         }
