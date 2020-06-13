@@ -80,6 +80,8 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [ ] Unit Testing (Mockito)
 * [ ] Switch Theme by App
 * [ ] Redesign of UI
+* [ ] Pull To Refresh
+* [ ] Full Animation
 * [ ] Build and Release for Android
 
 
