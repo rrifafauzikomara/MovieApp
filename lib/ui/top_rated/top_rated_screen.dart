@@ -29,12 +29,12 @@ class _TopRatedScreenState extends State<TopRatedScreen> {
               Movies movies = state.result.results[index];
               return CardMovies(
                 key: Key("tap_movies_" + movies.id.toString()),
-                image: movies.poster_path,
+                image: movies.posterPath,
                 title: movies.title,
-                vote: movies.vote_average.toString(),
-                releaseDate: movies.release_date,
+                vote: movies.voteAverage.toString(),
+                releaseDate: movies.releaseDate,
                 overview: movies.overview,
-                genre: movies.genre_ids.take(3).map(buildGenreChip).toList(),
+                genre: movies.genreIds.take(3).map(buildGenreChip).toList(),
                 onTap: () {
                   Navigation.intentWithData(
                     context,

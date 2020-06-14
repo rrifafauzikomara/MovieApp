@@ -73,7 +73,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [Integration Testing](https://flutter.dev/docs/cookbook/testing/integration/introduction) - Automating UI/Integration Tests.
 * [Flavor](https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b) - Handling different environments for development and production.
 * [Codemagic](https://blog.codemagic.io/environments-in-flutter-with-codemagic-cicd/) - Handling DevOps CI/CD for pipeline and automatically build.
-* Handle State - (No Internet, Loading, No Data, Has Data, Error)
+* Handle State - (Loading, No Data, Has Data, No Internet Connection, Request Timeout, Error)
 
 
 ## Todo

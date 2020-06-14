@@ -1,4 +1,5 @@
-import 'package:connectivity/connectivity.dart';
+import 'dart:io';
+import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:core/core.dart';
 import 'package:shared/shared.dart';
@@ -25,78 +26,74 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   }
 
   Stream<MoviesState> _mapLoadNowPlayingToState() async* {
-    var result = await Connectivity().checkConnectivity();
-    if (result == ConnectivityResult.none) {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } else {
-      try {
-        yield MoviesLoading();
-        var movies = await repository.getNowPlaying(ApiConstant.apiKey, ApiConstant.language);
-        if (movies.results.isEmpty) {
-          yield MoviesNoData(AppConstant.noData);
-        } else {
-          yield MoviesHasData(movies);
-        }
-      } catch (e) {
-        yield MoviesError(e.toString());
+    yield MoviesLoading();
+    try {
+      var movies = await repository.getNowPlaying(ApiConstant.apiKey, ApiConstant.language);
+      if (movies.results.isEmpty) {
+        yield MoviesNoData(AppConstant.noData);
+      } else {
+        yield MoviesHasData(movies);
       }
+    } on IOException {
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+    } on TimeoutException {
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+    } catch (e) {
+      yield MoviesError(e.toString());
     }
   }
 
   Stream<MoviesState> _mapLoadUpComingToState() async* {
-    var result = await Connectivity().checkConnectivity();
-    if (result == ConnectivityResult.none) {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } else {
-      try {
-        yield MoviesLoading();
-        var movies = await repository.getUpComing(ApiConstant.apiKey, ApiConstant.language);
-        if (movies.results.isEmpty) {
-          yield MoviesNoData(AppConstant.noData);
-        } else {
-          yield MoviesHasData(movies);
-        }
-      } catch (e) {
-        yield MoviesError(e.toString());
+    yield MoviesLoading();
+    try {
+      var movies = await repository.getUpComing(ApiConstant.apiKey, ApiConstant.language);
+      if (movies.results.isEmpty) {
+        yield MoviesNoData(AppConstant.noData);
+      } else {
+        yield MoviesHasData(movies);
       }
+    } on IOException {
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+    } on TimeoutException {
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+    } catch (e) {
+      yield MoviesError(e.toString());
     }
   }
 
   Stream<MoviesState> _mapLoadPopularToState() async* {
-    var result = await Connectivity().checkConnectivity();
-    if (result == ConnectivityResult.none) {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } else {
-      try {
-        yield MoviesLoading();
-        var movies = await repository.getPopular(ApiConstant.apiKey, ApiConstant.language);
-        if (movies.results.isEmpty) {
-          yield MoviesNoData(AppConstant.noData);
-        } else {
-          yield MoviesHasData(movies);
-        }
-      } catch (e) {
-        yield MoviesError(e.toString());
+    yield MoviesLoading();
+    try {
+      var movies = await repository.getPopular(ApiConstant.apiKey, ApiConstant.language);
+      if (movies.results.isEmpty) {
+        yield MoviesNoData(AppConstant.noData);
+      } else {
+        yield MoviesHasData(movies);
       }
+    } on IOException {
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+    } on TimeoutException {
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+    } catch (e) {
+      yield MoviesError(e.toString());
     }
   }
 
   Stream<MoviesState> _mapLoadTopRatedToState() async* {
-    var result = await Connectivity().checkConnectivity();
-    if (result == ConnectivityResult.none) {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } else {
-      try {
-        yield MoviesLoading();
-        var movies = await repository.getTopRated(ApiConstant.apiKey, ApiConstant.language);
-        if (movies.results.isEmpty) {
-          yield MoviesNoData(AppConstant.noData);
-        } else {
-          yield MoviesHasData(movies);
-        }
-      } catch (e) {
-        yield MoviesError(e.toString());
+    yield MoviesLoading();
+    try {
+      var movies = await repository.getTopRated(ApiConstant.apiKey, ApiConstant.language);
+      if (movies.results.isEmpty) {
+        yield MoviesNoData(AppConstant.noData);
+      } else {
+        yield MoviesHasData(movies);
       }
+    } on IOException {
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+    } on TimeoutException {
+      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+    } catch (e) {
+      yield MoviesError(e.toString());
     }
   }
 }

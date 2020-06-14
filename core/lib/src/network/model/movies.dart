@@ -17,30 +17,47 @@ class Result extends Equatable {
 
 @JsonSerializable()
 class Movies extends Equatable {
+  @JsonKey(name: 'id')
   final int id;
-  final String title;
-  final String overview;
-  final String release_date;
-  final List<int> genre_ids;
-  final double vote_average;
-  final double popularity;
-  final String poster_path;
-  final String backdrop_path;
 
-  Movies(this.id, this.title, this.overview, this.release_date, this.genre_ids,
-      this.vote_average, this.popularity, this.poster_path, this.backdrop_path);
+  @JsonKey(name: 'title')
+  final String title;
+
+  @JsonKey(name: 'overview')
+  final String overview;
+
+  @JsonKey(name: 'release_date')
+  final String releaseDate;
+
+  @JsonKey(name: 'genre_ids')
+  final List<int> genreIds;
+
+  @JsonKey(name: 'vote_average')
+  final double voteAverage;
+
+  @JsonKey(name: 'popularity')
+  final double popularity;
+
+  @JsonKey(name: 'poster_path')
+  final String posterPath;
+
+  @JsonKey(name: 'backdrop_path')
+  final String backdropPath;
+
+  Movies(this.id, this.title, this.overview, this.releaseDate, this.genreIds,
+      this.voteAverage, this.popularity, this.posterPath, this.backdropPath);
 
   @override
   List<Object> get props => [
     id,
     title,
     overview,
-    release_date,
-    genre_ids,
-    vote_average,
+    releaseDate,
+    genreIds,
+    voteAverage,
     popularity,
-    poster_path,
-    backdrop_path
+    posterPath,
+    backdropPath
   ];
 
   factory Movies.fromJson(Map<String, dynamic> json) => _$MoviesFromJson(json);

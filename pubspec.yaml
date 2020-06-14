@@ -25,7 +25,6 @@ dev_dependencies:
   shimmer: ^1.1.1
   cached_network_image: ^2.2.0
   flutter_launcher_icons: ^0.7.5
-  connectivity: ^0.4.8+6
 
 flutter_icons:
   android: true

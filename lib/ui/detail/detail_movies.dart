@@ -33,11 +33,11 @@ class _DetailMoviesState extends State<DetailMovies> {
                 CardMoviesHeader(
                   title: args.movies.title,
                   imageBanner:
-                  'https://image.tmdb.org/t/p/original${args.movies.backdrop_path}',
+                  'https://image.tmdb.org/t/p/original${args.movies.backdropPath}',
                   imagePoster:
-                  'https://image.tmdb.org/t/p/w185${args.movies.poster_path}',
-                  rating: args.movies.vote_average,
-                  genre: args.movies.genre_ids.take(3).map(buildGenreChip).toList(),
+                  'https://image.tmdb.org/t/p/w185${args.movies.posterPath}',
+                  rating: args.movies.voteAverage,
+                  genre: args.movies.genreIds.take(3).map(buildGenreChip).toList(),
                 ),
                 Padding(
                     padding: EdgeInsets.all(Sizes.dp20(context)),
