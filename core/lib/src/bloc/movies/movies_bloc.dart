@@ -1,8 +1,8 @@
-import 'dart:io';
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:core/core.dart';
 import 'package:shared/shared.dart';
+import 'package:dio/dio.dart';
 
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   final Repository repository;
@@ -26,74 +26,82 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   }
 
   Stream<MoviesState> _mapLoadNowPlayingToState() async* {
-    yield MoviesLoading();
     try {
+      yield MoviesLoading();
       var movies = await repository.getNowPlaying(ApiConstant.apiKey, ApiConstant.language);
       if (movies.results.isEmpty) {
         yield MoviesNoData(AppConstant.noData);
       } else {
         yield MoviesHasData(movies);
       }
-    } on IOException {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } on TimeoutException {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } catch (e) {
-      yield MoviesError(e.toString());
+    } on DioError catch (e) {
+      if (e.type == DioErrorType.CONNECT_TIMEOUT || e.type == DioErrorType.RECEIVE_TIMEOUT) {
+        yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+      } else if (e.type == DioErrorType.DEFAULT) {
+        yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+      } else {
+        yield MoviesError(e.toString());
+      }
     }
   }
 
   Stream<MoviesState> _mapLoadUpComingToState() async* {
-    yield MoviesLoading();
     try {
+      yield MoviesLoading();
       var movies = await repository.getUpComing(ApiConstant.apiKey, ApiConstant.language);
       if (movies.results.isEmpty) {
         yield MoviesNoData(AppConstant.noData);
       } else {
         yield MoviesHasData(movies);
       }
-    } on IOException {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } on TimeoutException {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } catch (e) {
-      yield MoviesError(e.toString());
+    } on DioError catch (e) {
+      if (e.type == DioErrorType.CONNECT_TIMEOUT || e.type == DioErrorType.RECEIVE_TIMEOUT) {
+        yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+      } else if (e.type == DioErrorType.DEFAULT) {
+        yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+      } else {
+        yield MoviesError(e.toString());
+      }
     }
   }
 
   Stream<MoviesState> _mapLoadPopularToState() async* {
-    yield MoviesLoading();
     try {
+      yield MoviesLoading();
       var movies = await repository.getPopular(ApiConstant.apiKey, ApiConstant.language);
       if (movies.results.isEmpty) {
         yield MoviesNoData(AppConstant.noData);
       } else {
         yield MoviesHasData(movies);
       }
-    } on IOException {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } on TimeoutException {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } catch (e) {
-      yield MoviesError(e.toString());
+    } on DioError catch (e) {
+      if (e.type == DioErrorType.CONNECT_TIMEOUT || e.type == DioErrorType.RECEIVE_TIMEOUT) {
+        yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+      } else if (e.type == DioErrorType.DEFAULT) {
+        yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+      } else {
+        yield MoviesError(e.toString());
+      }
     }
   }
 
   Stream<MoviesState> _mapLoadTopRatedToState() async* {
-    yield MoviesLoading();
     try {
+      yield MoviesLoading();
       var movies = await repository.getTopRated(ApiConstant.apiKey, ApiConstant.language);
       if (movies.results.isEmpty) {
         yield MoviesNoData(AppConstant.noData);
       } else {
         yield MoviesHasData(movies);
       }
-    } on IOException {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } on TimeoutException {
-      yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
-    } catch (e) {
-      yield MoviesError(e.toString());
+    } on DioError catch (e) {
+      if (e.type == DioErrorType.CONNECT_TIMEOUT || e.type == DioErrorType.RECEIVE_TIMEOUT) {
+        yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+      } else if (e.type == DioErrorType.DEFAULT) {
+        yield MoviesNoInternetConnection(AppConstant.noInternetConnection);
+      } else {
+        yield MoviesError(e.toString());
+      }
     }
   }
 }
