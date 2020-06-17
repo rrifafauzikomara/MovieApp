@@ -77,12 +77,14 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 
 
 ## Todo
-* [ ] Unit Testing (Mockito)
 * [ ] Switch Theme by App
+* [ ] Build and Release for Android (First Launched)
 * [ ] Redesign of UI
 * [ ] Pull To Refresh
 * [ ] Full Animation
-* [ ] Build and Release for Android
+* [ ] Infinite Scroll (Pagination)
+* [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
+* [ ] Unit Testing (Mockito)
 
 
 ## How to run Flutter App
