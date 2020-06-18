@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 class Navigation {
 
+  static back(BuildContext context) {
+    Navigator.pop(context);
+  }
+
   static intent(BuildContext context, String nameRouted) {
     Navigator.pushNamed(context, nameRouted);
   }

@@ -10,7 +10,7 @@
 
 
 ## Features
-*  Support Dark Mode and Light Mode 🔥
+*  Switch Theme (Dark and Light Mode) by App 🔥
 *  Now Playing Movies
 *  Up Coming Movies
 *  Popular Movies
@@ -21,13 +21,13 @@
 
 ## 📸 Example iOS
 <pre>
-<img src="screenshot/ios1.png" width="250" height="460">     <img src="screenshot/ios2.png" width="250" height="460">     <img src="screenshot/ios3.png" width="250" height="460">
+<img src="screenshot/ios1.png" width="250" height="460">     <img src="screenshot/ios2.png" width="250" height="460">     <img src="screenshot/ios3.png" width="250" height="460">     <img src="screenshot/ios4.png" width="250" height="460">
 </pre>
 
 
 ## 📸 Example Android
 <pre>
-<img src="screenshot/android1.png" width="250" height="460">     <img src="screenshot/android2.png" width="250" height="460">     <img src="screenshot/android3.png" width="250" height="460">
+<img src="screenshot/android1.png" width="250" height="460">     <img src="screenshot/android2.png" width="250" height="460">     <img src="screenshot/android3.png" width="250" height="460">     <img src="screenshot/android4.png" width="250" height="460">
 </pre>
 
 
@@ -77,7 +77,6 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 
 
 ## Todo
-* [ ] Switch Theme by App
 * [ ] Build and Release for Android (First Launched)
 * [ ] Redesign of UI
 * [ ] Pull To Refresh

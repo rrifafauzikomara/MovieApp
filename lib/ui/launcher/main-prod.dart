@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:core/core.dart';
-
+import 'package:shared/shared.dart';
 import 'app_config.dart';
 import 'movie_app.dart';
 
@@ -10,8 +10,15 @@ void main() async {
   // We can set the BlocSupervisor's delegate to an instance of `SimpleBlocDelegate`.
   // This will allow us to handle all transitions and errors in SimpleBlocDelegate.
   BlocSupervisor.delegate = MovieBlocDelegate();
-
   Config.appFlavor = Flavor.RELEASE;
-
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  var _isDark;
+  await ThemeHelper().getTheme().then((value) => _isDark = value);
+  print('Theme is dark ---> $_isDark');
+  runApp(
+    CustomTheme(
+      initialThemeKey: _isDark ? ThemesKeys.DARK : ThemesKeys.LIGHT,
+      child: MyApp(),
+    ),
+  );
 }

@@ -4,9 +4,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/about/about_screen.dart';
 import 'package:moviecatalogue/ui/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/popular/popular_screen.dart';
+import 'package:moviecatalogue/ui/setting/setting_page.dart';
 import 'package:moviecatalogue/ui/top_rated/top_rated_screen.dart';
 import 'package:moviecatalogue/ui/up_coming/up_coming_screen.dart';
 import 'package:shared/shared.dart';
+
+class Menu {
+  const Menu({this.route, this.title});
+
+  final String route;
+  final String title;
+}
+
+const List<Menu> menus = const <Menu>[
+  const Menu(
+    route: SettingPage.routeName,
+    title: 'Setting',
+  ),
+];
 
 class HomePage extends StatefulWidget {
   static const routeName = '/';
@@ -22,12 +37,52 @@ class _HomePageState extends State<HomePage> {
   PageController _pageController;
   int _page = 0;
 
+  void _navigationTapped(int page) {
+    _pageController.jumpToPage(page);
+  }
+
+  void _onPageChanged(int page) {
+    setState(() {
+      this._page = page;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: 0);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
         centerTitle: true,
+        actions: <Widget>[
+          // overflow menu
+          PopupMenuButton<Menu>(
+            icon: Icon(Icons.more_vert),
+            onSelected: (Menu menu) {
+              // Causes the app to rebuild with the new _selectedChoice.
+              Navigation.intent(context, menu.route);
+            },
+            itemBuilder: (BuildContext context) {
+              return menus.map((Menu menu) {
+                return PopupMenuItem<Menu>(
+                  value: menu,
+                  child: Text(menu.title),
+                );
+              }).toList();
+            },
+          ),
+        ],
       ),
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
@@ -116,27 +171,5 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-
-  void _navigationTapped(int page) {
-    _pageController.jumpToPage(page);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(initialPage: 0);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _pageController.dispose();
-  }
-
-  void _onPageChanged(int page) {
-    setState(() {
-      this._page = page;
-    });
   }
 }

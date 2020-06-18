@@ -22,46 +22,6 @@ class ColorPalettes{
   static Color blueGrey = Colors.blueGrey;
   static Color black12 = Colors.black12;
 
-  static ThemeData lightTheme = ThemeData(
-    fontFamily: 'IBMPlexSans',
-    backgroundColor: lightBG,
-    primaryColor: lightPrimary,
-    accentColor:  lightAccent,
-    cursorColor: lightAccent,
-    dividerColor: darkBG,
-    scaffoldBackgroundColor: lightBG,
-    appBarTheme: AppBarTheme(
-      textTheme: TextTheme(
-        headline6: TextStyle(
-          color: darkBG,
-          fontSize: 18.0,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-  );
-
-  static ThemeData darkTheme = ThemeData(
-    fontFamily: 'IBMPlexSans',
-    brightness: Brightness.dark,
-    backgroundColor: darkBG,
-    primaryColor: darkPrimary,
-    accentColor: darkAccent,
-    dividerColor: lightPrimary,
-    scaffoldBackgroundColor: darkBG,
-    cursorColor: darkAccent,
-    appBarTheme: AppBarTheme(
-      color: darkPrimary,
-      textTheme: TextTheme(
-        headline6: TextStyle(
-          color: lightBG,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w700,
-        ),
-      ),
-    ),
-  );
-
   static Color getColorCircleProgress(double s) {
     Color r = ColorPalettes.red;
     if (s > 4.5 && s < 7)
