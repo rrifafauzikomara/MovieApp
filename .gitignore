@@ -1,7 +1,8 @@
-*api_constant.dart
+api_constant.dart
 *.g.dart
 key.properties
 *.lock
+key/key.jks
 
 # Miscellaneous
 *.class

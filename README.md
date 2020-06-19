@@ -91,7 +91,6 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 
 
 ## Todo
-* [ ] Build and Release for Android (First Launched)
 * [ ] Redesign of UI
 * [ ] Add Trailer and Movie Crew
 * [ ] Add TV Show
