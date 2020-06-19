@@ -21,13 +21,13 @@
 
 ## 📸 Example iOS
 <pre>
-<img src="screenshot/ios1.png" width="250" height="460">     <img src="screenshot/ios2.png" width="250" height="460">     <img src="screenshot/ios3.png" width="250" height="460">     <img src="screenshot/ios4.png" width="250" height="460">     <img src="screenshot/ios5.png" width="250" height="460">
+<img src="screenshot/ios1.png" width="200">     <img src="screenshot/ios2.png" width="200">     <img src="screenshot/ios3.png" width="200">     <img src="screenshot/ios4.png" width="200">     <img src="screenshot/ios5.png" width="200">
 </pre>
 
 
 ## 📸 Example Android
 <pre>
-<img src="screenshot/android1.png" width="250" height="460">     <img src="screenshot/android2.png" width="250" height="460">     <img src="screenshot/android3.png" width="250" height="460">     <img src="screenshot/android4.png" width="250" height="460">     <img src="screenshot/android5.png" width="250" height="460">
+<img src="screenshot/android1.png" width="200">     <img src="screenshot/android2.png" width="200">     <img src="screenshot/android3.png" width="200">     <img src="screenshot/android4.png" width="200">     <img src="screenshot/android5.png" width="200">
 </pre>
 
 ## 📸 Demo
