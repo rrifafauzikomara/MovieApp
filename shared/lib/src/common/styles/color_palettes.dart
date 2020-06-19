@@ -7,7 +7,7 @@ class ColorPalettes{
   //Colors for theme
   static Color lightPrimary = Color(0xfffcfcff);
   static Color darkPrimary = Color(0xff16161C);
-  static Color lightAccent = Colors.deepOrange;
+  static Color lightAccent = Colors.orange;
   static Color darkAccent = Colors.orange;
   static Color lightBG = Color(0xfffcfcff);
   static Color darkBG = Color(0xff212121);

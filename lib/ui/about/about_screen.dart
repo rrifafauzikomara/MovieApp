@@ -23,23 +23,28 @@ class _AboutScreenState extends State<AboutScreen> {
             color: !_isDarkTheme
                 ? ColorPalettes.darkAccent
                 : ColorPalettes.lightAccent,
-            height: 350,
+            height: Sizes.width(context),
             child: Padding(
-              padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 85),
+              padding: EdgeInsets.only(
+                  left: Sizes.dp20(context),
+                  right: Sizes.dp20(context),
+                  top: Sizes.width(context) / 4.5),
               child: Column(
                 children: <Widget>[
                   Row(
                     children: <Widget>[
                       Container(
-                        height: 100,
-                        width: 100,
+                        height: Sizes.width(context) / 4.5,
+                        width: Sizes.width(context) / 4.5,
                         decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: AssetImage(ImagesAssets.profile))),
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(ImagesAssets.profile),
+                          ),
+                        ),
                       ),
-                      SizedBox(width: 20),
+                      SizedBox(width: Sizes.dp20(context)),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,24 +52,24 @@ class _AboutScreenState extends State<AboutScreen> {
                             Text(
                               "R Rifa Fauzi Komara",
                               style: TextStyle(
-                                  fontSize: 28,
+                                  fontSize: Sizes.dp28(context),
                                   color: ColorPalettes.lightBG,
                                   fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: Sizes.dp5(context)),
                             Row(
                               children: <Widget>[
                                 Image.asset(
                                   ImagesAssets.instagram,
-                                  height: 13,
-                                  width: 13,
+                                  height: Sizes.dp13(context),
+                                  width: Sizes.dp13(context),
                                 ),
-                                SizedBox(width: 10),
+                                SizedBox(width: Sizes.dp10(context)),
                                 Text(
                                   "rifafauzi6",
                                   style: TextStyle(
                                     color: ColorPalettes.lightBG,
-                                    fontSize: 14,
+                                    fontSize: Sizes.dp14(context),
                                   ),
                                 ),
                               ],
@@ -75,7 +80,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: 30,
+                    height: Sizes.dp30(context),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -85,14 +90,15 @@ class _AboutScreenState extends State<AboutScreen> {
                           Text(
                             "25.3K",
                             style: TextStyle(
-                                fontSize: 26,
-                                color: ColorPalettes.lightBG,
-                                fontWeight: FontWeight.bold),
+                              fontSize: Sizes.dp26(context),
+                              color: ColorPalettes.lightBG,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           Text(
                             "Follower",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: Sizes.dp16(context),
                               color: ColorPalettes.lightBG,
                             ),
                           ),
@@ -103,14 +109,15 @@ class _AboutScreenState extends State<AboutScreen> {
                           Text(
                             "232",
                             style: TextStyle(
-                                fontSize: 26,
-                                color: ColorPalettes.lightBG,
-                                fontWeight: FontWeight.bold),
+                              fontSize: Sizes.dp26(context),
+                              color: ColorPalettes.lightBG,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           Text(
                             "Following",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: Sizes.dp16(context),
                               color: ColorPalettes.lightBG,
                             ),
                           ),
@@ -123,27 +130,30 @@ class _AboutScreenState extends State<AboutScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 300),
+            padding: EdgeInsets.only(top: Sizes.width(context) / 1.4),
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: double.infinity,
               decoration: BoxDecoration(
-                  color: !_isDarkTheme
-                      ? ColorPalettes.darkBG
-                      : ColorPalettes.lightBG,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(30.0),
-                    topLeft: Radius.circular(30.0),
-                  )),
+                color: !_isDarkTheme
+                    ? ColorPalettes.darkBG
+                    : ColorPalettes.lightBG,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(Sizes.dp30(context)),
+                  topLeft: Radius.circular(Sizes.dp30(context)),
+                ),
+              ),
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(top: 30),
+                      padding: EdgeInsets.only(top: Sizes.dp30(context)),
                       child: Text(
                         "My Portofolio",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 22),
+                          fontWeight: FontWeight.bold,
+                          fontSize: Sizes.dp22(context),
+                        ),
                       ),
                     ),
                   ],
