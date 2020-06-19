@@ -8,6 +8,7 @@ class AboutScreen extends StatefulWidget {
 }
 
 class _AboutScreenState extends State<AboutScreen> {
+
   ThemeData _themeData;
   bool _isDarkTheme;
 
@@ -147,14 +148,29 @@ class _AboutScreenState extends State<AboutScreen> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(top: Sizes.dp30(context)),
+                      padding: EdgeInsets.only(top: Sizes.dp30(context), bottom: Sizes.dp20(context)),
                       child: Text(
-                        "My Portofolio",
+                        "My Portfolio",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: Sizes.dp22(context),
                         ),
                       ),
+                    ),
+                    CardPortfolio(
+                      imageAsset: ImagesAssets.linkedIn,
+                      title: 'LinkedIn',
+                      url: UrlConstant.urlLinkedIn,
+                    ),
+                    CardPortfolio(
+                      imageAsset: ImagesAssets.github,
+                      title: 'GitHub',
+                      url: UrlConstant.urlLinkedIn,
+                    ),
+                    CardPortfolio(
+                      imageAsset: ImagesAssets.resume,
+                      title: 'Resume',
+                      url: UrlConstant.urlResume,
                     ),
                   ],
                 ),

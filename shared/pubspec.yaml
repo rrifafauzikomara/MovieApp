@@ -13,6 +13,7 @@ dependencies:
   shared_preferences: any
   shimmer: ^1.1.1
   cached_network_image: ^2.2.0
+  url_launcher: ^5.4.11
 
   # This is our modular
   core:
