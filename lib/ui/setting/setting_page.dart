@@ -54,7 +54,17 @@ class _SettingPageState extends State<SettingPage> {
           children: <Widget>[
             GestureDetector(
               onTap: () {
-                PopUp.showSnackBar(Text('Comming Soon'), key: scaffoldKey);
+                PopUp.showSnackBar(
+                  Text(
+                    'Comming Soon',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: Sizes.dp16(context),
+                      color: ColorPalettes.white,
+                    ),
+                  ),
+                  key: scaffoldKey,
+                );
               },
               child: Container(
                 padding: EdgeInsets.only(

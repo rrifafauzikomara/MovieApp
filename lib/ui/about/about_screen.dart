@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:moviecatalogue/ui/menu/menu.dart';
 import 'package:shared/shared.dart';
@@ -29,7 +30,7 @@ class _AboutScreenState extends State<AboutScreen> {
               padding: EdgeInsets.only(
                   left: Sizes.dp20(context),
                   right: Sizes.dp20(context),
-                  top: Sizes.width(context) / 4.5),
+                  top: Sizes.width(context) / 5),
               child: Column(
                 children: <Widget>[
                   Row(
@@ -58,22 +59,25 @@ class _AboutScreenState extends State<AboutScreen> {
                                   fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: Sizes.dp5(context)),
-                            Row(
-                              children: <Widget>[
-                                Image.asset(
-                                  ImagesAssets.instagram,
-                                  height: Sizes.dp13(context),
-                                  width: Sizes.dp13(context),
-                                ),
-                                SizedBox(width: Sizes.dp10(context)),
-                                Text(
-                                  "rifafauzi6",
-                                  style: TextStyle(
-                                    color: ColorPalettes.lightBG,
-                                    fontSize: Sizes.dp14(context),
+                            GestureDetector(
+                              onTap: () => Navigation.launchURL(UrlConstant.urlInstagram),
+                              child: Row(
+                                children: <Widget>[
+                                  Image.asset(
+                                    ImagesAssets.instagram,
+                                    height: Sizes.dp13(context),
+                                    width: Sizes.dp13(context),
                                   ),
-                                ),
-                              ],
+                                  SizedBox(width: Sizes.dp10(context)),
+                                  Text(
+                                    "rifafauzi6",
+                                    style: TextStyle(
+                                      color: ColorPalettes.lightBG,
+                                      fontSize: Sizes.dp14(context),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -165,7 +169,7 @@ class _AboutScreenState extends State<AboutScreen> {
                     CardPortfolio(
                       imageAsset: ImagesAssets.github,
                       title: 'GitHub',
-                      url: UrlConstant.urlLinkedIn,
+                      url: UrlConstant.urlGitHub,
                     ),
                     CardPortfolio(
                       imageAsset: ImagesAssets.resume,
@@ -178,7 +182,7 @@ class _AboutScreenState extends State<AboutScreen> {
             ),
           ),
           Positioned(
-            top: 48,
+            top: Platform.isAndroid ? 28 : 48,
             right: 0,
             child: PopupMenuButton<Menu>(
               icon: Icon(Icons.more_vert),
