@@ -21,14 +21,28 @@
 
 ## 📸 Example iOS
 <pre>
-<img src="screenshot/ios1.png" width="250" height="460">     <img src="screenshot/ios2.png" width="250" height="460">     <img src="screenshot/ios3.png" width="250" height="460">     <img src="screenshot/ios4.png" width="250" height="460">
+<img src="screenshot/ios1.png" width="250" height="460">     <img src="screenshot/ios2.png" width="250" height="460">     <img src="screenshot/ios3.png" width="250" height="460">     <img src="screenshot/ios4.png" width="250" height="460">     <img src="screenshot/ios5.png" width="250" height="460">
 </pre>
 
 
 ## 📸 Example Android
 <pre>
-<img src="screenshot/android1.png" width="250" height="460">     <img src="screenshot/android2.png" width="250" height="460">     <img src="screenshot/android3.png" width="250" height="460">     <img src="screenshot/android4.png" width="250" height="460">
+<img src="screenshot/android1.png" width="250" height="460">     <img src="screenshot/android2.png" width="250" height="460">     <img src="screenshot/android3.png" width="250" height="460">     <img src="screenshot/android4.png" width="250" height="460">     <img src="screenshot/android5.png" width="250" height="460">
 </pre>
+
+## 📸 Demo
+
+<div style="text-align: center">
+    <table>
+        <tr>
+            <td style="text-align: center">
+                <a href="https://bloclibrary.dev/#/fluttercountertutorial">
+                    <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/demo.gif" width="200"/>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
 
 
 ## Quick start
