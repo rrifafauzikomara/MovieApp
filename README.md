@@ -34,20 +34,6 @@
 <img src="screenshot/android1.png" width="200">     <img src="screenshot/android2.png" width="200">     <img src="screenshot/android3.png" width="200">     <img src="screenshot/android4.png" width="200">     <img src="screenshot/android5.png" width="200">
 </pre>
 
-## 📸 Demo
-
-<div style="text-align: center">
-    <table>
-        <tr>
-            <td style="text-align: center">
-                <a href="https://bloclibrary.dev/#/fluttercountertutorial">
-                    <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/demo.gif" width="200"/>
-                </a>
-            </td>
-        </tr>
-    </table>
-</div>
-
 
 ## Quick start
 This is a normal flutter app. You should follow the instructions in the [official documentation](https://flutter.io/docs/get-started/install).
