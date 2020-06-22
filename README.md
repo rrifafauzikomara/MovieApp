@@ -9,6 +9,10 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/rrifafauzikomara/MovieCatalogue)
 
 
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height=
+"80">](https://play.google.com/store/apps/details?id=com.mobile.moviecatalogue.prod)
+
+
 ## Features
 *  Switch Theme (Dark and Light Mode) by App 🔥
 *  Now Playing Movies
