@@ -10,7 +10,7 @@
 
 
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height=
-"80">](https://play.google.com/store/apps/details?id=com.mobile.moviecatalogue.prod)
+"80">](https://play.google.com/store/apps/details?id=id.rifafauzi.movie)
 
 
 ## Features
@@ -78,6 +78,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [Flavor](https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b) - Handling different environments for development and production.
 * [Codemagic](https://blog.codemagic.io/environments-in-flutter-with-codemagic-cicd/) - Handling DevOps CI/CD for pipeline and automatically build.
 * Handle State - (Loading, No Data, Has Data, No Internet Connection, Request Timeout, Error)
+* [Build Release for Android](https://flutter.dev/docs/deployment/android) - Available on the [Play Store](https://play.google.com/store/apps/details?id=id.rifafauzi.movie)
 
 
 ## Todo
