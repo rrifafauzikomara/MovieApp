@@ -9,6 +9,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+  shimmer: ^1.1.1
+  cached_network_image: ^2.2.0+1
+  url_launcher: ^5.5.0
+  flutter_launcher_icons: ^0.7.5
+
   # This is our modular
   core:
     path: core
@@ -22,10 +27,6 @@ dev_dependencies:
     sdk: flutter
   test: any
   json_serializable: any
-  shimmer: ^1.1.1
-  cached_network_image: ^2.2.0
-  flutter_launcher_icons: ^0.7.5
-  url_launcher: ^5.4.11
 
 flutter_icons:
   android: true
