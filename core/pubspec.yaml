@@ -10,8 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc: ^3.0.0
-  flutter_bloc: ^3.1.0
+  flutter_bloc: ^6.0.1
   equatable: ^1.2.3
   retrofit: any
   json_serializable: ^3.3.0

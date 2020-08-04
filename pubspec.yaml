@@ -13,6 +13,7 @@ dependencies:
   cached_network_image: ^2.2.0+1
   url_launcher: ^5.5.0
   flutter_launcher_icons: ^0.7.5
+  flutter_bloc: ^6.0.1
 
   # This is our modular
   core:

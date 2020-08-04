@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:core/core.dart';
 import 'package:shared/shared.dart';
@@ -7,10 +8,7 @@ import 'package:dio/dio.dart';
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   final Repository repository;
 
-  MoviesBloc(this.repository);
-
-  @override
-  MoviesState get initialState => InitialMoviesState();
+  MoviesBloc({@required this.repository}) : super(InitialMoviesState());
 
   @override
   Stream<MoviesState> mapEventToState(MoviesEvent event) async* {

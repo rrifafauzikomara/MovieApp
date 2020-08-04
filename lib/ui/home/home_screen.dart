@@ -54,25 +54,25 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           BlocProvider(
             create: (context) {
-              return MoviesBloc(MovieRepository());
+              return MoviesBloc(repository: MovieRepository());
             },
             child: NowPlayingScreen(),
           ),
           BlocProvider(
             create: (context) {
-              return MoviesBloc(MovieRepository());
+              return MoviesBloc(repository: MovieRepository());
             },
             child: UpComingScreen(),
           ),
           BlocProvider(
             create: (context) {
-              return MoviesBloc(MovieRepository());
+              return MoviesBloc(repository: MovieRepository());
             },
             child: PopularScreen(),
           ),
           BlocProvider(
             create: (context) {
-              return MoviesBloc(MovieRepository());
+              return MoviesBloc(repository: MovieRepository());
             },
             child: TopRatedScreen(),
           ),
