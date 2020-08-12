@@ -6,16 +6,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_movies.dart';
 
 class UpComingScreen extends StatefulWidget {
+  static const routeName = '/up_coming';
+
   @override
   _UpComingScreenState createState() => _UpComingScreenState();
 }
 
 class _UpComingScreenState extends State<UpComingScreen> {
-
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<MoviesBloc>(context).add(LoadUpComing());
+    context.bloc<UpComingBloc>().add(LoadUpComing());
   }
 
   @override
@@ -24,31 +25,15 @@ class _UpComingScreenState extends State<UpComingScreen> {
       appBar: AppBar(
         title: Text('Up Coming Movie'),
         centerTitle: true,
-        actions: <Widget>[
-          // overflow menu
-          PopupMenuButton<Menu>(
-            icon: Icon(Icons.more_vert),
-            onSelected: (Menu menu) {
-              // Causes the app to rebuild with the new _selectedChoice.
-              Navigation.intent(context, menu.route);
-            },
-            itemBuilder: (BuildContext context) {
-              return menus.map((Menu menu) {
-                return PopupMenuItem<Menu>(
-                  value: menu,
-                  child: Text(menu.title),
-                );
-              }).toList();
-            },
-          ),
-        ],
       ),
-      body: BlocBuilder<MoviesBloc, MoviesState>(
+      body: BlocBuilder<UpComingBloc, UpComingState>(
         builder: (context, state) {
-          if (state is MoviesHasData) {
+          if (state is UpComingHasData) {
             return ListView.builder(
               key: Key(KEY_LIST_VIEW_UP_COMING),
-              itemCount: state.result.results == null ? 0 : state.result.results.length,
+              itemCount: state.result.results == null
+                  ? 0
+                  : state.result.results.length,
               itemBuilder: (BuildContext context, int index) {
                 Movies movies = state.result.results[index];
                 return CardMovies(
@@ -69,19 +54,19 @@ class _UpComingScreenState extends State<UpComingScreen> {
                 );
               },
             );
-          } else if (state is MoviesLoading) {
+          } else if (state is UpComingLoading) {
             return ShimmerMovies();
-          } else if (state is MoviesError) {
+          } else if (state is UpComingError) {
             return ErrorHandlerWidget(errorMessage: state.errorMessage);
-          } else if (state is MoviesNoInternetConnection) {
+          } else if (state is UpComingNoData) {
+            return NoDataWidget(message: AppConstant.noData);
+          } else if (state is UpComingNoInternetConnection) {
             return NoInternetConnectionWidget(
-              message: state.message,
+              message: AppConstant.noInternetConnection,
               onPressed: () {
-                BlocProvider.of<MoviesBloc>(context).add(LoadUpComing());
+                context.bloc<UpComingBloc>().add(LoadUpComing());
               },
             );
-          } else if (state is MoviesNoData) {
-            return NoDataWidget(message: state.message);
           } else {
             return Center(child: Text(""));
           }

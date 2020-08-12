@@ -16,12 +16,12 @@ class NoInternetConnectionWidget extends StatelessWidget {
         children: <Widget>[
           Image.asset(
             ImagesAssets.noInternetConnection,
-            height: Sizes.width(context) / 2,
-            width: Sizes.width(context) / 2,
+            height: Sizes.width(context) / 4,
+            width: Sizes.width(context) / 4,
             fit: BoxFit.contain,
           ),
           SizedBox(
-            height: Sizes.dp30(context),
+            height: Sizes.dp10(context),
           ),
           Text(
             message,
@@ -32,7 +32,7 @@ class NoInternetConnectionWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: Sizes.dp30(context),
+            height: Sizes.dp10(context),
           ),
           RaisedButton(
             child: Text(

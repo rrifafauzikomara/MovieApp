@@ -13,6 +13,7 @@ class ColorPalettes{
   static Color darkBG = Color(0xff212121);
 
   static Color white = Color(0xffffffff);
+  static Color whiteSemiTransparent = Colors.white70;
   static Color grey = Colors.grey;
   static Color greyBg = Color(0xfff0f0f0);
   static Color red = Colors.red;
@@ -20,7 +21,9 @@ class ColorPalettes{
   static Color green = Colors.green;
   static Color setActive = Colors.grey[500];
   static Color blueGrey = Colors.blueGrey;
+  static Color blueSky = Color(0xff40b7ff);
   static Color black12 = Colors.black12;
+  static Color transparent = Color(0x00000000);
 
   static Color getColorCircleProgress(double s) {
     Color r = ColorPalettes.red;

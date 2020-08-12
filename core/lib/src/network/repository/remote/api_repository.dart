@@ -22,11 +22,6 @@ class ApiRepository implements Repository {
   }
 
   @override
-  Future<Result> getTopRated([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
-    return _restClient.getTopRated(apiKey, language);
-  }
-
-  @override
   Future<Result> getUpComing([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
     return _restClient.getUpComing(apiKey, language);
   }

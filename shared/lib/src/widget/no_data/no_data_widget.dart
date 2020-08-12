@@ -16,8 +16,8 @@ class NoDataWidget extends StatelessWidget {
         children: <Widget>[
           Image.asset(
             ImagesAssets.error,
-            height: Sizes.width(context) / 2,
-            width: Sizes.width(context) / 2,
+            height: Sizes.width(context) / 4,
+            width: Sizes.width(context) / 4,
             fit: BoxFit.contain,
           ),
           SizedBox(

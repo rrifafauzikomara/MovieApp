@@ -25,10 +25,4 @@ abstract class RestClient {
     @Query("api_key") String apiKey,
     @Query("language") String language
   );
-
-  @GET("top_rated")
-  Future<Result> getTopRated(
-    @Query("api_key") String apiKey,
-    @Query("language") String language
-  );
 }

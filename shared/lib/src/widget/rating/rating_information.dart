@@ -6,26 +6,9 @@ class RatingInformation extends StatelessWidget {
 
   const RatingInformation({Key key, this.rating}) : super(key: key);
 
-  Widget _buildRatingBar(ThemeData theme) {
-    var stars = <Widget>[];
-
-    for (var i = 1; i <= 5; i++) {
-      var color = i <= rating ? theme.accentColor : ColorPalettes.black12;
-      var star = Icon(
-        Icons.star,
-        color: color,
-      );
-
-      stars.add(star);
-    }
-
-    return Row(children: stars);
-  }
-
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-
     var numericRating = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,7 +30,7 @@ class RatingInformation extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildRatingBar(theme),
+        buildRatingBar(theme, context, rating),
         Padding(
           padding: EdgeInsets.only(
               top: Sizes.dp4(context), left: Sizes.dp4(context)),
@@ -67,4 +50,18 @@ class RatingInformation extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget buildRatingBar(ThemeData theme, BuildContext context, double rating) {
+  var stars = <Widget>[];
+  for (var i = 1; i <= 5; i++) {
+    var color = i <= rating/2 ? theme.accentColor : ColorPalettes.black12;
+    var star = Icon(
+      Icons.star,
+      color: color,
+      size: Sizes.dp18(context),
+    );
+    stars.add(star);
+  }
+  return Row(children: stars);
 }

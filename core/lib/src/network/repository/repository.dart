@@ -15,9 +15,4 @@ abstract class Repository {
     String apiKey = ApiConstant.apiKey,
     String language = ApiConstant.language
   ]);
-
-  Future<Result> getTopRated([
-    String apiKey = ApiConstant.apiKey,
-    String language = ApiConstant.language
-  ]);
 }

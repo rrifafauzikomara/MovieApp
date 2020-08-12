@@ -3,11 +3,6 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
-class ScreenArguments {
-  final Movies movies;
-  ScreenArguments(this.movies);
-}
-
 class DetailMovies extends StatefulWidget {
   static const routeName = '/detail_movies';
   @override

@@ -5,3 +5,4 @@ export 'movies_key.dart';
 export 'images_assets.dart';
 export 'pop_up.dart';
 export 'url_constant.dart';
+export 'argument.dart';

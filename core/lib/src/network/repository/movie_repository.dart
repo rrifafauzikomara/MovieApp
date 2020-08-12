@@ -52,24 +52,6 @@ class MovieRepository implements Repository {
   }
 
   @override
-  Future<Result> getTopRated(
-      [String apiKey = ApiConstant.apiKey,
-      String language = ApiConstant.language]) async {
-    try {
-      var fromLocal = await localRepository.getTopRated(apiKey, language);
-      if (fromLocal != null) {
-        return fromLocal;
-      } else {
-        throw Exception();
-      }
-    } catch (_) {
-      final data = await apiRepository.getTopRated(apiKey, language);
-      localRepository.saveTopRated(data);
-      return data;
-    }
-  }
-
-  @override
   Future<Result> getUpComing(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {

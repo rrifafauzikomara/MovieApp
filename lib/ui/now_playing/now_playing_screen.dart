@@ -2,10 +2,11 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_movies.dart';
-import 'package:moviecatalogue/ui/menu/menu.dart';
 import 'package:shared/shared.dart';
 
 class NowPlayingScreen extends StatefulWidget {
+  static const routeName = '/now_playing';
+
   @override
   _NowPlayingScreenState createState() => _NowPlayingScreenState();
 }
@@ -14,7 +15,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<MoviesBloc>(context).add(LoadNowPlaying());
+    context.bloc<NowPlayingBloc>().add(LoadNowPlaying());
   }
 
   @override
@@ -23,32 +24,15 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
       appBar: AppBar(
         title: Text('Now Playing Movies'),
         centerTitle: true,
-        actions: <Widget>[
-          // overflow menu
-          PopupMenuButton<Menu>(
-            icon: Icon(Icons.more_vert),
-            onSelected: (Menu menu) {
-              // Causes the app to rebuild with the new _selectedChoice.
-              Navigation.intent(context, menu.route);
-            },
-            itemBuilder: (BuildContext context) {
-              return menus.map((Menu menu) {
-                return PopupMenuItem<Menu>(
-                  value: menu,
-                  child: Text(menu.title),
-                );
-              }).toList();
-            },
-          ),
-        ],
       ),
-      body: BlocBuilder<MoviesBloc, MoviesState>(
+      body: BlocBuilder<NowPlayingBloc, NowPlayingState>(
         builder: (context, state) {
-          if (state is MoviesHasData) {
+          if (state is NowPlayingHasData) {
             return ListView.builder(
               key: Key(KEY_LIST_VIEW_NOW_PLAYING),
-              itemCount:
-                  state.result.results == null ? 0 : state.result.results.length,
+              itemCount: state.result.results == null
+                  ? 0
+                  : state.result.results.length,
               itemBuilder: (BuildContext context, int index) {
                 Movies movies = state.result.results[index];
                 return CardMovies(
@@ -69,19 +53,19 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                 );
               },
             );
-          } else if (state is MoviesLoading) {
+          } else if (state is NowPlayingLoading) {
             return ShimmerMovies();
-          } else if (state is MoviesError) {
+          } else if (state is NowPlayingError) {
             return ErrorHandlerWidget(errorMessage: state.errorMessage);
-          } else if (state is MoviesNoInternetConnection) {
+          } else if (state is NowPlayingNoData) {
+            return NoDataWidget(message: AppConstant.noData);
+          } else if (state is NowPlayingNoInternetConnection) {
             return NoInternetConnectionWidget(
-              message: state.message,
+              message: AppConstant.noInternetConnection,
               onPressed: () {
-                BlocProvider.of<MoviesBloc>(context).add(LoadNowPlaying());
+                context.bloc<NowPlayingBloc>().add(LoadNowPlaying());
               },
             );
-          } else if (state is MoviesNoData) {
-            return NoDataWidget(message: state.message);
           } else {
             return Center(child: Text(""));
           }

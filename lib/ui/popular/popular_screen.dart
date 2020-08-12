@@ -1,21 +1,21 @@
 import 'package:core/core.dart';
-import 'package:moviecatalogue/ui/menu/menu.dart';
 import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_movies.dart';
 
 class PopularScreen extends StatefulWidget {
+  static const routeName = '/popular';
+
   @override
   _PopularScreenState createState() => _PopularScreenState();
 }
 
 class _PopularScreenState extends State<PopularScreen> {
-
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<MoviesBloc>(context).add(LoadPopular());
+    context.bloc<PopularBloc>().add(LoadPopular());
   }
 
   @override
@@ -24,31 +24,15 @@ class _PopularScreenState extends State<PopularScreen> {
       appBar: AppBar(
         title: Text('Popular Movies'),
         centerTitle: true,
-        actions: <Widget>[
-          // overflow menu
-          PopupMenuButton<Menu>(
-            icon: Icon(Icons.more_vert),
-            onSelected: (Menu menu) {
-              // Causes the app to rebuild with the new _selectedChoice.
-              Navigation.intent(context, menu.route);
-            },
-            itemBuilder: (BuildContext context) {
-              return menus.map((Menu menu) {
-                return PopupMenuItem<Menu>(
-                  value: menu,
-                  child: Text(menu.title),
-                );
-              }).toList();
-            },
-          ),
-        ],
       ),
-      body: BlocBuilder<MoviesBloc, MoviesState>(
+      body: BlocBuilder<PopularBloc, PopularState>(
         builder: (context, state) {
-          if (state is MoviesHasData) {
+          if (state is PopularHasData) {
             return ListView.builder(
               key: Key(KEY_LIST_VIEW_POPULAR),
-              itemCount: state.result.results == null ? 0 : state.result.results.length,
+              itemCount: state.result.results == null
+                  ? 0
+                  : state.result.results.length,
               itemBuilder: (BuildContext context, int index) {
                 Movies movies = state.result.results[index];
                 return CardMovies(
@@ -69,19 +53,19 @@ class _PopularScreenState extends State<PopularScreen> {
                 );
               },
             );
-          } else if (state is MoviesLoading) {
+          } else if (state is PopularLoading) {
             return ShimmerMovies();
-          } else if (state is MoviesError) {
+          } else if (state is PopularError) {
             return ErrorHandlerWidget(errorMessage: state.errorMessage);
-          } else if (state is MoviesNoInternetConnection) {
+          } else if (state is PopularNoData) {
+            return NoDataWidget(message: AppConstant.noData);
+          } else if (state is PopularNoInternetConnection) {
             return NoInternetConnectionWidget(
-              message: state.message,
+              message: AppConstant.noInternetConnection,
               onPressed: () {
-                BlocProvider.of<MoviesBloc>(context).add(LoadPopular());
+                context.bloc<PopularBloc>().add(LoadPopular());
               },
             );
-          } else if (state is MoviesNoData) {
-            return NoDataWidget(message: state.message);
           } else {
             return Center(child: Text(""));
           }
