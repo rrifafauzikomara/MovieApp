@@ -1,4 +1,4 @@
-import 'package:moviecatalogue/ui/setting/setting_page.dart';
+import 'package:moviecatalogue/ui/setting/setting_screen.dart';
 
 class Menu {
   const Menu({this.route, this.title});
@@ -9,7 +9,7 @@ class Menu {
 
 const List<Menu> menus = const <Menu>[
   const Menu(
-    route: SettingPage.routeName,
+    route: SettingScreen.routeName,
     title: 'Setting',
   ),
 ];

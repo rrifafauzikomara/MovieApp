@@ -2,12 +2,12 @@ import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/popular/popular_screen.dart';
-import 'package:moviecatalogue/ui/setting/setting_page.dart';
+import 'package:moviecatalogue/ui/setting/setting_screen.dart';
 import 'package:moviecatalogue/ui/up_coming/up_coming_screen.dart';
 import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:moviecatalogue/ui/home/home_screen.dart';
-import 'package:moviecatalogue/ui/detail/detail_movies.dart';
+import 'package:moviecatalogue/ui/dashboard/dashboard_screen.dart';
+import 'package:moviecatalogue/ui/detail/detail_screen.dart';
 import 'app_config.dart';
 
 class MyApp extends StatelessWidget {
@@ -17,11 +17,11 @@ class MyApp extends StatelessWidget {
       title: Config.title,
       debugShowCheckedModeBanner: Config.isDebug,
       theme: CustomTheme.of(context),
-      initialRoute: HomePage.routeName,
+      initialRoute: DashBoardScreen.routeName,
       routes: {
-        HomePage.routeName: (context) => HomePage(title: Config.title),
-        DetailMovies.routeName: (context) => DetailMovies(),
-        SettingPage.routeName: (context) => SettingPage(),
+        DashBoardScreen.routeName: (context) => DashBoardScreen(title: Config.title),
+        DetailScreen.routeName: (context) => DetailScreen(),
+        SettingScreen.routeName: (context) => SettingScreen(),
         NowPlayingScreen.routeName: (context) => BlocProvider(
               create: (context) {
                 return NowPlayingBloc(repository: MovieRepository());

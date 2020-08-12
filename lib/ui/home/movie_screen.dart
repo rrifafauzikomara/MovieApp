@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviecatalogue/ui/detail/detail_movies.dart';
+import 'package:moviecatalogue/ui/detail/detail_screen.dart';
 import 'package:moviecatalogue/ui/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/popular/popular_screen.dart';
 import 'package:moviecatalogue/ui/up_coming/up_coming_screen.dart';
@@ -90,7 +90,7 @@ class _MovieScreenState extends State<MovieScreen> {
             },
             data: state.result,
             currentIndex: _current,
-            routeNameDetail: DetailMovies.routeName,
+            routeNameDetail: DetailScreen.routeName,
             routeNameAll: NowPlayingScreen.routeName,
           );
         } else if (state is NowPlayingLoading) {
@@ -164,7 +164,7 @@ class _MovieScreenState extends State<MovieScreen> {
                       onTap: () {
                         Navigation.intentWithData(
                           context,
-                          DetailMovies.routeName,
+                          DetailScreen.routeName,
                           ScreenArguments(movies),
                         );
                       },
@@ -245,7 +245,7 @@ class _MovieScreenState extends State<MovieScreen> {
                       onTap: () {
                         Navigation.intentWithData(
                           context,
-                          DetailMovies.routeName,
+                          DetailScreen.routeName,
                           ScreenArguments(movies),
                         );
                       },

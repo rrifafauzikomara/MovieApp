@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
-class SettingPage extends StatefulWidget {
+class SettingScreen extends StatefulWidget {
   static const routeName = '/theme';
 
   @override
-  _SettingPageState createState() => _SettingPageState();
+  _SettingScreenState createState() => _SettingScreenState();
 }
 
-class _SettingPageState extends State<SettingPage> {
+class _SettingScreenState extends State<SettingScreen> {
   static final GlobalKey<ScaffoldState> scaffoldKey =
       GlobalKey<ScaffoldState>();
 

@@ -1,9 +1,8 @@
 import 'package:core/core.dart';
-import 'package:moviecatalogue/ui/menu/menu.dart';
 import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviecatalogue/ui/detail/detail_movies.dart';
+import 'package:moviecatalogue/ui/detail/detail_screen.dart';
 
 class UpComingScreen extends StatefulWidget {
   static const routeName = '/up_coming';
@@ -47,7 +46,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
                   onTap: () {
                     Navigation.intentWithData(
                       context,
-                      DetailMovies.routeName,
+                      DetailScreen.routeName,
                       ScreenArguments(movies),
                     );
                   },

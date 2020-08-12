@@ -3,13 +3,13 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
-class DetailMovies extends StatefulWidget {
+class DetailScreen extends StatefulWidget {
   static const routeName = '/detail_movies';
   @override
-  _DetailMoviesState createState() => _DetailMoviesState();
+  _DetailScreenState createState() => _DetailScreenState();
 }
 
-class _DetailMoviesState extends State<DetailMovies> {
+class _DetailScreenState extends State<DetailScreen> {
 
   static final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   bool _isFavorite = false;

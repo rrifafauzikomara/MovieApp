@@ -1,22 +1,22 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviecatalogue/ui/about/about_screen.dart';
-import 'package:moviecatalogue/ui/movie/movie_screen.dart';
-import 'package:moviecatalogue/ui/tv_show/tv_show_screen.dart';
+import 'package:moviecatalogue/ui/home/about_screen.dart';
+import 'package:moviecatalogue/ui/home/movie_screen.dart';
+import 'package:moviecatalogue/ui/home/tv_show_screen.dart';
 import 'package:shared/shared.dart';
 
-class HomePage extends StatefulWidget {
+class DashBoardScreen extends StatefulWidget {
   static const routeName = '/';
   final String title;
 
-  const HomePage({Key key, this.title}) : super(key: key);
+  const DashBoardScreen({Key key, this.title}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _DashBoardScreenState createState() => _DashBoardScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DashBoardScreenState extends State<DashBoardScreen> {
   PageController _pageController;
   int _page = 0;
 

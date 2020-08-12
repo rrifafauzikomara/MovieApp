@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviecatalogue/ui/detail/detail_movies.dart';
+import 'package:moviecatalogue/ui/detail/detail_screen.dart';
 import 'package:shared/shared.dart';
 
 class NowPlayingScreen extends StatefulWidget {
@@ -46,7 +46,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                   onTap: () {
                     Navigation.intentWithData(
                       context,
-                      DetailMovies.routeName,
+                      DetailScreen.routeName,
                       ScreenArguments(movies),
                     );
                   },
