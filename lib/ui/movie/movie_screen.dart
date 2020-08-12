@@ -2,6 +2,7 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_movies.dart';
+import 'package:moviecatalogue/ui/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/popular/popular_screen.dart';
 import 'package:moviecatalogue/ui/up_coming/up_coming_screen.dart';
 import 'package:shared/shared.dart';
@@ -56,7 +57,7 @@ class _MovieScreenState extends State<MovieScreen> {
     return SingleChildScrollView(
       physics: ClampingScrollPhysics(), //kill bounce iOS
       child: Container(
-        margin: EdgeInsets.all(10),
+        margin: EdgeInsets.all(Sizes.dp10(context)),
         child: Column(
           children: <Widget>[
             _buildBanner(context),
@@ -89,13 +90,11 @@ class _MovieScreenState extends State<MovieScreen> {
             },
             data: state.result,
             currentIndex: _current,
-            routeName: DetailMovies.routeName,
+            routeNameDetail: DetailMovies.routeName,
+            routeNameAll: NowPlayingScreen.routeName,
           );
         } else if (state is NowPlayingLoading) {
-          return Container(
-            height: Sizes.width(context) / 2,
-            child: LoadingIndicator(),
-          );
+          return ShimmerBanner();
         } else if (state is NowPlayingError) {
           return ErrorHandlerWidget(errorMessage: state.errorMessage);
         } else if (state is NowPlayingNoData) {
@@ -173,7 +172,7 @@ class _MovieScreenState extends State<MovieScreen> {
                   },
                 );
               } else if (state is UpComingLoading) {
-                return LoadingIndicator();
+                return ShimmerCard();
               } else if (state is UpComingError) {
                 return ErrorHandlerWidget(errorMessage: state.errorMessage);
               } else if (state is UpComingNoData) {
@@ -254,7 +253,7 @@ class _MovieScreenState extends State<MovieScreen> {
                   },
                 );
               } else if (state is PopularLoading) {
-                return LoadingIndicator();
+                return ShimmerCard();
               } else if (state is PopularError) {
                 return ErrorHandlerWidget(errorMessage: state.errorMessage);
               } else if (state is PopularNoData) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 import 'package:shimmer/shimmer.dart';
 
-class ShimmerMovies extends StatelessWidget {
+class ShimmerList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

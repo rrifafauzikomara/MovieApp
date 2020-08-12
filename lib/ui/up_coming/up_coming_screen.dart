@@ -55,7 +55,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
               },
             );
           } else if (state is UpComingLoading) {
-            return ShimmerMovies();
+            return ShimmerList();
           } else if (state is UpComingError) {
             return ErrorHandlerWidget(errorMessage: state.errorMessage);
           } else if (state is UpComingNoData) {

@@ -27,7 +27,7 @@ class CardHome extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   child: CachedNetworkImage(
-                    imageUrl: 'https://image.tmdb.org/t/p/w185$image',
+                    imageUrl: image.imageOriginal,
                     height: Sizes.width(context) / 1.8,
                     width: Sizes.width(context) / 2.5,
                     fit: BoxFit.cover,

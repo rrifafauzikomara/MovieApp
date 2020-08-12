@@ -37,7 +37,7 @@ class CardMovies extends StatelessWidget {
                 width: Sizes.width(context) / 3,
                 height: Sizes.width(context) / 2,
                 child: CachedNetworkImage(
-                  imageUrl: 'https://image.tmdb.org/t/p/w185$image',
+                  imageUrl: image.imageOriginal,
                   placeholder: (context, url) => LoadingIndicator(),
                   errorWidget: (context, url, error) => Icon(Icons.error),
                 ),

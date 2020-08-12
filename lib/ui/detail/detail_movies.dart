@@ -27,10 +27,8 @@ class _DetailMoviesState extends State<DetailMovies> {
               children: [
                 CardMoviesHeader(
                   title: args.movies.title,
-                  imageBanner:
-                  'https://image.tmdb.org/t/p/original${args.movies.backdropPath}',
-                  imagePoster:
-                  'https://image.tmdb.org/t/p/w185${args.movies.posterPath}',
+                  imageBanner: args.movies.backdropPath.imageOriginal,
+                  imagePoster: args.movies.posterPath.imageOriginal,
                   rating: args.movies.voteAverage,
                   genre: args.movies.genreIds.take(3).map(buildGenreChip).toList(),
                 ),

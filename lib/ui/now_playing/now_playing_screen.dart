@@ -54,7 +54,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
               },
             );
           } else if (state is NowPlayingLoading) {
-            return ShimmerMovies();
+            return ShimmerList();
           } else if (state is NowPlayingError) {
             return ErrorHandlerWidget(errorMessage: state.errorMessage);
           } else if (state is NowPlayingNoData) {

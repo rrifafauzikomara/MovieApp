@@ -54,7 +54,7 @@ class _PopularScreenState extends State<PopularScreen> {
               },
             );
           } else if (state is PopularLoading) {
-            return ShimmerMovies();
+            return ShimmerList();
           } else if (state is PopularError) {
             return ErrorHandlerWidget(errorMessage: state.errorMessage);
           } else if (state is PopularNoData) {
