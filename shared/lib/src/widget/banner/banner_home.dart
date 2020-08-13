@@ -9,6 +9,7 @@ class BannerHome extends StatefulWidget {
   final Result data;
   final int currentIndex;
   final String routeNameDetail, routeNameAll;
+  final bool isFromMovie;
 
   const BannerHome(
       {Key key,
@@ -16,7 +17,8 @@ class BannerHome extends StatefulWidget {
       this.data,
       this.currentIndex,
       this.routeNameDetail,
-      this.routeNameAll})
+      this.routeNameAll,
+      @required this.isFromMovie})
       : super(key: key);
 
   @override
@@ -57,7 +59,8 @@ class _BannerHomeState extends State<BannerHome> {
                     },
                     child: GridTile(
                       child: CachedNetworkImage(
-                        imageUrl: widget.data.results[i].backdropPath.imageOriginal,
+                        imageUrl:
+                            widget.data.results[i].backdropPath.imageOriginal,
                         width: Sizes.width(context),
                         fit: BoxFit.fill,
                         placeholder: (context, url) => LoadingIndicator(),
@@ -67,7 +70,7 @@ class _BannerHomeState extends State<BannerHome> {
                         color: ColorPalettes.whiteSemiTransparent,
                         padding: EdgeInsets.all(5.0),
                         child: Text(
-                          widget.data.results[i].title,
+                          widget.isFromMovie ? widget.data.results[i].title : widget.data.results[i].tvName,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(

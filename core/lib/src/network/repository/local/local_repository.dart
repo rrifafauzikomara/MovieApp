@@ -66,10 +66,10 @@ class LocalRepository implements Repository {
   }
 
   @override
-  Future<Result> getTvOnTheAir(
+  Future<Result> getTvPopular(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {
-    var fromCache = await PrefHelper.getCache(AppConstant.TV_ON_THE_AIR);
+    var fromCache = await PrefHelper.getCache(AppConstant.TV_POPULAR);
     if (fromCache != null) {
       Map json = jsonDecode(fromCache);
       return Result.fromJson(json);
@@ -78,10 +78,10 @@ class LocalRepository implements Repository {
   }
 
   @override
-  Future<Result> getTvPopular(
+  Future<Result> getTvOnTheAir(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {
-    var fromCache = await PrefHelper.getCache(AppConstant.TV_POPULAR);
+    var fromCache = await PrefHelper.getCache(AppConstant.TV_ON_THE_AIR);
     if (fromCache != null) {
       Map json = jsonDecode(fromCache);
       return Result.fromJson(json);
@@ -94,11 +94,11 @@ class LocalRepository implements Repository {
         AppConstant.TV_AIRING_TODAY, jsonEncode(result));
   }
 
-  Future<bool> saveTvOnTheAir(Result result) {
-    return PrefHelper.storeCache(AppConstant.TV_ON_THE_AIR, jsonEncode(result));
-  }
-
   Future<bool> saveTvPopular(Result result) {
     return PrefHelper.storeCache(AppConstant.TV_POPULAR, jsonEncode(result));
+  }
+
+  Future<bool> saveTvOnTheAir(Result result) {
+    return PrefHelper.storeCache(AppConstant.TV_ON_THE_AIR, jsonEncode(result));
   }
 }

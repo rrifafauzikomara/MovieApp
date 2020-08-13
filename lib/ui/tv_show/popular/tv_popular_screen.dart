@@ -1,35 +1,34 @@
 import 'package:core/core.dart';
-import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_screen.dart';
+import 'package:shared/shared.dart';
 
-class PopularScreen extends StatefulWidget {
-  static const routeName = '/popular';
+class TvPopularScreen extends StatefulWidget {
+  static const routeName = '/tv_popular';
 
   @override
-  _PopularScreenState createState() => _PopularScreenState();
+  _TvPopularScreenState createState() => _TvPopularScreenState();
 }
 
-class _PopularScreenState extends State<PopularScreen> {
+class _TvPopularScreenState extends State<TvPopularScreen> {
   @override
   void initState() {
     super.initState();
-    context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
+    context.bloc<TvPopularBloc>().add(LoadTvPopular());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Popular Movies'),
+        title: Text('Popular'),
         centerTitle: true,
       ),
-      body: BlocBuilder<MoviePopularBloc, MoviePopularState>(
+      body: BlocBuilder<TvPopularBloc, TvPopularState>(
         builder: (context, state) {
-          if (state is MoviePopularHasData) {
+          if (state is TvPopularHasData) {
             return ListView.builder(
-              key: Key(KEY_LIST_VIEW_POPULAR),
+              key: Key(KEY_LIST_VIEW_NOW_PLAYING),
               itemCount: state.result.results == null
                   ? 0
                   : state.result.results.length,
@@ -38,9 +37,9 @@ class _PopularScreenState extends State<PopularScreen> {
                 return CardMovies(
                   key: Key("tap_movies_" + movies.id.toString()),
                   image: movies.posterPath,
-                  title: movies.title,
+                  title: movies.tvName,
                   vote: movies.voteAverage.toString(),
-                  releaseDate: movies.releaseDate,
+                  releaseDate: movies.tvRelease,
                   overview: movies.overview,
                   genre: movies.genreIds.take(3).map(buildGenreChip).toList(),
                   onTap: () {
@@ -53,17 +52,17 @@ class _PopularScreenState extends State<PopularScreen> {
                 );
               },
             );
-          } else if (state is MoviePopularLoading) {
+          } else if (state is TvPopularLoading) {
             return ShimmerList();
-          } else if (state is MoviePopularError) {
+          } else if (state is TvPopularError) {
             return ErrorHandlerWidget(errorMessage: state.errorMessage);
-          } else if (state is MoviePopularNoData) {
+          } else if (state is TvPopularNoData) {
             return NoDataWidget(message: AppConstant.noData);
-          } else if (state is MoviePopularNoInternetConnection) {
+          } else if (state is TvPopularNoInternetConnection) {
             return NoInternetConnectionWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {
-                context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
+                context.bloc<TvPopularBloc>().add(LoadTvPopular());
               },
             );
           } else {

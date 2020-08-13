@@ -1,9 +1,12 @@
 import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviecatalogue/ui/now_playing/now_playing_screen.dart';
-import 'package:moviecatalogue/ui/popular/popular_screen.dart';
+import 'package:moviecatalogue/ui/movie/now_playing/now_playing_screen.dart';
+import 'package:moviecatalogue/ui/movie/popular/movie_popular_screen.dart';
 import 'package:moviecatalogue/ui/setting/setting_screen.dart';
-import 'package:moviecatalogue/ui/up_coming/up_coming_screen.dart';
+import 'package:moviecatalogue/ui/movie/up_coming/up_coming_screen.dart';
+import 'package:moviecatalogue/ui/tv_show/airing_today/airing_today_screen.dart';
+import 'package:moviecatalogue/ui/tv_show/on_the_air/on_the_air_screen.dart';
+import 'package:moviecatalogue/ui/tv_show/popular/tv_popular_screen.dart';
 import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:moviecatalogue/ui/dashboard/dashboard_screen.dart';
@@ -19,7 +22,8 @@ class MyApp extends StatelessWidget {
       theme: CustomTheme.of(context),
       initialRoute: DashBoardScreen.routeName,
       routes: {
-        DashBoardScreen.routeName: (context) => DashBoardScreen(title: Config.title),
+        DashBoardScreen.routeName: (context) =>
+            DashBoardScreen(title: Config.title),
         DetailScreen.routeName: (context) => DetailScreen(),
         SettingScreen.routeName: (context) => SettingScreen(),
         NowPlayingScreen.routeName: (context) => BlocProvider(
@@ -28,17 +32,35 @@ class MyApp extends StatelessWidget {
               },
               child: NowPlayingScreen(),
             ),
-        PopularScreen.routeName: (context) => BlocProvider(
+        MoviePopularScreen.routeName: (context) => BlocProvider(
               create: (context) {
                 return MoviePopularBloc(repository: MovieRepository());
               },
-              child: PopularScreen(),
+              child: MoviePopularScreen(),
             ),
         UpComingScreen.routeName: (context) => BlocProvider(
               create: (context) {
                 return MovieUpComingBloc(repository: MovieRepository());
               },
               child: UpComingScreen(),
+            ),
+        AiringTodayScreen.routeName: (context) => BlocProvider(
+              create: (context) {
+                return TvAiringTodayBloc(repository: MovieRepository());
+              },
+              child: AiringTodayScreen(),
+            ),
+        OnTheAirScreen.routeName: (context) => BlocProvider(
+              create: (context) {
+                return TvOnTheAirBloc(repository: MovieRepository());
+              },
+              child: OnTheAirScreen(),
+            ),
+        TvPopularScreen.routeName: (context) => BlocProvider(
+              create: (context) {
+                return TvPopularBloc(repository: MovieRepository());
+              },
+              child: TvPopularScreen(),
             ),
       },
     );

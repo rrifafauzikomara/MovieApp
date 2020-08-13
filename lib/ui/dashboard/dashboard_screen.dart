@@ -53,18 +53,37 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           MultiBlocProvider(
             providers: [
               BlocProvider<MovieNowPlayingBloc>(
-                create: (BuildContext context) => MovieNowPlayingBloc(repository: MovieRepository()),
+                create: (BuildContext context) =>
+                    MovieNowPlayingBloc(repository: MovieRepository()),
               ),
               BlocProvider<MoviePopularBloc>(
-                create: (BuildContext context) => MoviePopularBloc(repository: MovieRepository()),
+                create: (BuildContext context) =>
+                    MoviePopularBloc(repository: MovieRepository()),
               ),
               BlocProvider<MovieUpComingBloc>(
-                create: (BuildContext context) => MovieUpComingBloc(repository: MovieRepository()),
+                create: (BuildContext context) =>
+                    MovieUpComingBloc(repository: MovieRepository()),
               ),
             ],
             child: MovieScreen(),
           ),
-          TvShowScreen(),
+          MultiBlocProvider(
+            providers: [
+              BlocProvider<TvOnTheAirBloc>(
+                create: (BuildContext context) =>
+                    TvOnTheAirBloc(repository: MovieRepository()),
+              ),
+              BlocProvider<TvAiringTodayBloc>(
+                create: (BuildContext context) =>
+                    TvAiringTodayBloc(repository: MovieRepository()),
+              ),
+              BlocProvider<TvPopularBloc>(
+                create: (BuildContext context) =>
+                    TvPopularBloc(repository: MovieRepository()),
+              ),
+            ],
+            child: TvShowScreen(),
+          ),
           AboutScreen(),
         ],
       ),

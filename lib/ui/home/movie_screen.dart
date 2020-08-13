@@ -2,9 +2,9 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_screen.dart';
-import 'package:moviecatalogue/ui/now_playing/now_playing_screen.dart';
-import 'package:moviecatalogue/ui/popular/popular_screen.dart';
-import 'package:moviecatalogue/ui/up_coming/up_coming_screen.dart';
+import 'package:moviecatalogue/ui/movie/now_playing/now_playing_screen.dart';
+import 'package:moviecatalogue/ui/movie/popular/movie_popular_screen.dart';
+import 'package:moviecatalogue/ui/movie/up_coming/up_coming_screen.dart';
 import 'package:shared/shared.dart';
 import 'package:moviecatalogue/ui/menu/menu.dart';
 
@@ -83,6 +83,7 @@ class _MovieScreenState extends State<MovieScreen> {
       builder: (context, state) {
         if (state is MovieNowPlayingHasData) {
           return BannerHome(
+            isFromMovie: true,
             onPageChanged: (index, reason) {
               setState(() {
                 _current = index;
@@ -216,7 +217,7 @@ class _MovieScreenState extends State<MovieScreen> {
                   size: Sizes.dp16(context),
                 ),
                 onPressed: () {
-                  Navigation.intent(context, PopularScreen.routeName);
+                  Navigation.intent(context, MoviePopularScreen.routeName);
                 },
               ),
             ],

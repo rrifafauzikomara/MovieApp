@@ -13,15 +13,15 @@ abstract class Repository {
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]);
 
-  Future<Result> getTvOnTheAir(
-      [String apiKey = ApiConstant.apiKey,
-      String language = ApiConstant.language]);
-
   Future<Result> getTvAiringToday(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]);
 
   Future<Result> getTvPopular(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]);
+
+  Future<Result> getTvOnTheAir(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]);
 }

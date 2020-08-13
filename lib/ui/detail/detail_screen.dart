@@ -5,13 +5,14 @@ import 'package:shared/shared.dart';
 
 class DetailScreen extends StatefulWidget {
   static const routeName = '/detail_movies';
+
   @override
   _DetailScreenState createState() => _DetailScreenState();
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-
-  static final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  static final GlobalKey<ScaffoldState> scaffoldKey =
+      GlobalKey<ScaffoldState>();
   bool _isFavorite = false;
 
   @override
@@ -26,11 +27,14 @@ class _DetailScreenState extends State<DetailScreen> {
             Column(
               children: [
                 CardMoviesHeader(
-                  title: args.movies.title,
+                  title: args.movies.title == null
+                      ? args.movies.tvName
+                      : args.movies.title,
                   imageBanner: args.movies.backdropPath.imageOriginal,
                   imagePoster: args.movies.posterPath.imageOriginal,
                   rating: args.movies.voteAverage,
-                  genre: args.movies.genreIds.take(3).map(buildGenreChip).toList(),
+                  genre:
+                      args.movies.genreIds.take(3).map(buildGenreChip).toList(),
                 ),
                 Padding(
                     padding: EdgeInsets.all(Sizes.dp20(context)),
@@ -120,5 +124,4 @@ class _DetailScreenState extends State<DetailScreen> {
       );
     }
   }
-
 }

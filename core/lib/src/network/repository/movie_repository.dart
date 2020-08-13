@@ -89,24 +89,6 @@ class MovieRepository implements Repository {
   }
 
   @override
-  Future<Result> getTvOnTheAir(
-      [String apiKey = ApiConstant.apiKey,
-      String language = ApiConstant.language]) async {
-    try {
-      var fromLocal = await localRepository.getTvOnTheAir(apiKey, language);
-      if (fromLocal != null) {
-        return fromLocal;
-      } else {
-        throw Exception();
-      }
-    } catch (_) {
-      final data = await apiRepository.getTvOnTheAir(apiKey, language);
-      localRepository.saveTvOnTheAir(data);
-      return data;
-    }
-  }
-
-  @override
   Future<Result> getTvPopular(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {
@@ -120,6 +102,24 @@ class MovieRepository implements Repository {
     } catch (_) {
       final data = await apiRepository.getTvPopular(apiKey, language);
       localRepository.saveTvPopular(data);
+      return data;
+    }
+  }
+
+  @override
+  Future<Result> getTvOnTheAir(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) async {
+    try {
+      var fromLocal = await localRepository.getTvOnTheAir(apiKey, language);
+      if (fromLocal != null) {
+        return fromLocal;
+      } else {
+        throw Exception();
+      }
+    } catch (_) {
+      final data = await apiRepository.getTvOnTheAir(apiKey, language);
+      localRepository.saveTvOnTheAir(data);
       return data;
     }
   }

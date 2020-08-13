@@ -20,15 +20,15 @@ abstract class RestClient {
   Future<Result> getMoviePopular(
       @Query("api_key") String apiKey, @Query("language") String language);
 
-  @GET("tv/on_the_air")
-  Future<Result> getTvOnTheAir(
-      @Query("api_key") String apiKey, @Query("language") String language);
-
   @GET("tv/airing_today")
   Future<Result> getTvAiringToday(
       @Query("api_key") String apiKey, @Query("language") String language);
 
   @GET("tv/popular")
   Future<Result> getTvPopular(
+      @Query("api_key") String apiKey, @Query("language") String language);
+
+  @GET("tv/on_the_air")
+  Future<Result> getTvOnTheAir(
       @Query("api_key") String apiKey, @Query("language") String language);
 }

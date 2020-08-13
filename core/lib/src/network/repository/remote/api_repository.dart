@@ -39,16 +39,16 @@ class ApiRepository implements Repository {
   }
 
   @override
-  Future<Result> getTvOnTheAir(
-      [String apiKey = ApiConstant.apiKey,
-      String language = ApiConstant.language]) {
-    return _restClient.getTvOnTheAir(apiKey, language);
-  }
-
-  @override
   Future<Result> getTvPopular(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) {
     return _restClient.getTvPopular(apiKey, language);
+  }
+
+  @override
+  Future<Result> getTvOnTheAir(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
+    return _restClient.getTvOnTheAir(apiKey, language);
   }
 }
