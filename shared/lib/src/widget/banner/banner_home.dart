@@ -61,7 +61,7 @@ class _BannerHomeState extends State<BannerHome> {
                         width: Sizes.width(context),
                         fit: BoxFit.fill,
                         placeholder: (context, url) => LoadingIndicator(),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
+                        errorWidget: (context, url, error) => ErrorImage(),
                       ),
                       footer: Container(
                         color: ColorPalettes.whiteSemiTransparent,

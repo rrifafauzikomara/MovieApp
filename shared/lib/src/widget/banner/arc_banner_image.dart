@@ -18,7 +18,7 @@ class ArcBannerImage extends StatelessWidget {
             fit: BoxFit.cover,
             imageUrl: imageUrl,
             placeholder: (context, url) => LoadingIndicator(),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+            errorWidget: (context, url, error) => ErrorImage(),
           ),
         )
     );

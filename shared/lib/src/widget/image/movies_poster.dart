@@ -26,7 +26,7 @@ class Poster extends StatelessWidget {
         fit: BoxFit.cover,
         imageUrl: posterUrl,
         placeholder: (context, url) => LoadingIndicator(),
-        errorWidget: (context, url, error) => Icon(Icons.error),
+        errorWidget: (context, url, error) => ErrorImage(),
       ),
     );
   }

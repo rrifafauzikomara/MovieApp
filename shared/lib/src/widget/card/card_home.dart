@@ -32,7 +32,7 @@ class CardHome extends StatelessWidget {
                     width: Sizes.width(context) / 2.5,
                     fit: BoxFit.cover,
                     placeholder: (context, url) => LoadingIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    errorWidget: (context, url, error) => ErrorImage(),
                   ),
                 ),
               ),

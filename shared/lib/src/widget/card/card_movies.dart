@@ -39,7 +39,7 @@ class CardMovies extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: image.imageOriginal,
                   placeholder: (context, url) => LoadingIndicator(),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => ErrorImage(),
                 ),
               ),
               Expanded(
