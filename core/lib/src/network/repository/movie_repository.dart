@@ -16,55 +16,110 @@ class MovieRepository implements Repository {
       {@required this.apiRepository, @required this.localRepository});
 
   @override
-  Future<Result> getNowPlaying(
+  Future<Result> getMovieNowPlaying(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {
     try {
-      var fromLocal = await localRepository.getNowPlaying(apiKey, language);
+      var fromLocal =
+          await localRepository.getMovieNowPlaying(apiKey, language);
       if (fromLocal != null) {
         return fromLocal;
       } else {
         throw Exception();
       }
     } catch (_) {
-      final data = await apiRepository.getNowPlaying(apiKey, language);
-      localRepository.saveNowPlaying(data);
+      final data = await apiRepository.getMovieNowPlaying(apiKey, language);
+      localRepository.saveMovieNowPlaying(data);
       return data;
     }
   }
 
   @override
-  Future<Result> getPopular(
+  Future<Result> getMovieUpComing(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {
     try {
-      var fromLocal = await localRepository.getPopular(apiKey, language);
+      var fromLocal = await localRepository.getMovieUpComing(apiKey, language);
       if (fromLocal != null) {
         return fromLocal;
       } else {
         throw Exception();
       }
     } catch (_) {
-      final data = await apiRepository.getPopular(apiKey, language);
-      localRepository.savePopular(data);
+      final data = await apiRepository.getMovieUpComing(apiKey, language);
+      localRepository.saveMovieUpComing(data);
       return data;
     }
   }
 
   @override
-  Future<Result> getUpComing(
+  Future<Result> getMoviePopular(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {
     try {
-      var fromLocal = await localRepository.getUpComing(apiKey, language);
+      var fromLocal = await localRepository.getMoviePopular(apiKey, language);
       if (fromLocal != null) {
         return fromLocal;
       } else {
         throw Exception();
       }
     } catch (_) {
-      final data = await apiRepository.getUpComing(apiKey, language);
-      localRepository.saveUpComing(data);
+      final data = await apiRepository.getMoviePopular(apiKey, language);
+      localRepository.saveMoviePopular(data);
+      return data;
+    }
+  }
+
+  @override
+  Future<Result> getTvAiringToday(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) async {
+    try {
+      var fromLocal = await localRepository.getTvAiringToday(apiKey, language);
+      if (fromLocal != null) {
+        return fromLocal;
+      } else {
+        throw Exception();
+      }
+    } catch (_) {
+      final data = await apiRepository.getTvAiringToday(apiKey, language);
+      localRepository.saveTvAiringToday(data);
+      return data;
+    }
+  }
+
+  @override
+  Future<Result> getTvOnTheAir(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) async {
+    try {
+      var fromLocal = await localRepository.getTvOnTheAir(apiKey, language);
+      if (fromLocal != null) {
+        return fromLocal;
+      } else {
+        throw Exception();
+      }
+    } catch (_) {
+      final data = await apiRepository.getTvOnTheAir(apiKey, language);
+      localRepository.saveTvOnTheAir(data);
+      return data;
+    }
+  }
+
+  @override
+  Future<Result> getTvPopular(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) async {
+    try {
+      var fromLocal = await localRepository.getTvPopular(apiKey, language);
+      if (fromLocal != null) {
+        return fromLocal;
+      } else {
+        throw Exception();
+      }
+    } catch (_) {
+      final data = await apiRepository.getTvPopular(apiKey, language);
+      localRepository.saveTvPopular(data);
       return data;
     }
   }

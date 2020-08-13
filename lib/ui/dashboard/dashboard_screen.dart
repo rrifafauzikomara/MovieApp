@@ -52,14 +52,14 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
         children: <Widget>[
           MultiBlocProvider(
             providers: [
-              BlocProvider<NowPlayingBloc>(
-                create: (BuildContext context) => NowPlayingBloc(repository: MovieRepository()),
+              BlocProvider<MovieNowPlayingBloc>(
+                create: (BuildContext context) => MovieNowPlayingBloc(repository: MovieRepository()),
               ),
-              BlocProvider<PopularBloc>(
-                create: (BuildContext context) => PopularBloc(repository: MovieRepository()),
+              BlocProvider<MoviePopularBloc>(
+                create: (BuildContext context) => MoviePopularBloc(repository: MovieRepository()),
               ),
-              BlocProvider<UpComingBloc>(
-                create: (BuildContext context) => UpComingBloc(repository: MovieRepository()),
+              BlocProvider<MovieUpComingBloc>(
+                create: (BuildContext context) => MovieUpComingBloc(repository: MovieRepository()),
               ),
             ],
             child: MovieScreen(),

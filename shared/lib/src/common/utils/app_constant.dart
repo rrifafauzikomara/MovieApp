@@ -5,8 +5,12 @@ class AppConstant {
   static String noInternetConnection = "No Internet Connection";
   static String noData = "Movies Not Found";
 
-  static const NOW_PLAYING = "/now_playing";
-  static const POPULAR = "/popular";
-  static const UP_COMING = "/up_coming";
+  static const MOVIE_NOW_PLAYING = "/movie_now_playing";
+  static const MOVIE_UP_COMING = "/movie_up_coming";
+  static const MOVIE_POPULAR = "/movie_popular";
+
+  static const TV_ON_THE_AIR = "/tv_on_the_air";
+  static const TV_AIRING_TODAY = "/tv_airing_today";
+  static const TV_POPULAR = "/tv_popular";
 
 }

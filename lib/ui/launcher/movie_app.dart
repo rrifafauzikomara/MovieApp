@@ -24,19 +24,19 @@ class MyApp extends StatelessWidget {
         SettingScreen.routeName: (context) => SettingScreen(),
         NowPlayingScreen.routeName: (context) => BlocProvider(
               create: (context) {
-                return NowPlayingBloc(repository: MovieRepository());
+                return MovieNowPlayingBloc(repository: MovieRepository());
               },
               child: NowPlayingScreen(),
             ),
         PopularScreen.routeName: (context) => BlocProvider(
               create: (context) {
-                return PopularBloc(repository: MovieRepository());
+                return MoviePopularBloc(repository: MovieRepository());
               },
               child: PopularScreen(),
             ),
         UpComingScreen.routeName: (context) => BlocProvider(
               create: (context) {
-                return UpComingBloc(repository: MovieRepository());
+                return MovieUpComingBloc(repository: MovieRepository());
               },
               child: UpComingScreen(),
             ),

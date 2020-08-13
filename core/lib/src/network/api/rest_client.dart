@@ -8,21 +8,27 @@ part 'rest_client.g.dart';
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
-  @GET("now_playing")
-  Future<Result> getNowPlaying(
-    @Query("api_key") String apiKey,
-    @Query("language") String language
-  );
+  @GET("movie/now_playing")
+  Future<Result> getMovieNowPlaying(
+      @Query("api_key") String apiKey, @Query("language") String language);
 
-  @GET("upcoming")
-  Future<Result> getUpComing(
-    @Query("api_key") String apiKey,
-    @Query("language") String language
-  );
+  @GET("movie/upcoming")
+  Future<Result> getMovieUpComing(
+      @Query("api_key") String apiKey, @Query("language") String language);
 
-  @GET("popular")
-  Future<Result> getPopular(
-    @Query("api_key") String apiKey,
-    @Query("language") String language
-  );
+  @GET("movie/popular")
+  Future<Result> getMoviePopular(
+      @Query("api_key") String apiKey, @Query("language") String language);
+
+  @GET("tv/on_the_air")
+  Future<Result> getTvOnTheAir(
+      @Query("api_key") String apiKey, @Query("language") String language);
+
+  @GET("tv/airing_today")
+  Future<Result> getTvAiringToday(
+      @Query("api_key") String apiKey, @Query("language") String language);
+
+  @GET("tv/popular")
+  Future<Result> getTvPopular(
+      @Query("api_key") String apiKey, @Query("language") String language);
 }

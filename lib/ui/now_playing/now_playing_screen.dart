@@ -15,7 +15,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
   @override
   void initState() {
     super.initState();
-    context.bloc<NowPlayingBloc>().add(LoadNowPlaying());
+    context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
   }
 
   @override
@@ -25,9 +25,9 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
         title: Text('Now Playing Movies'),
         centerTitle: true,
       ),
-      body: BlocBuilder<NowPlayingBloc, NowPlayingState>(
+      body: BlocBuilder<MovieNowPlayingBloc, MovieNowPlayingState>(
         builder: (context, state) {
-          if (state is NowPlayingHasData) {
+          if (state is MovieNowPlayingHasData) {
             return ListView.builder(
               key: Key(KEY_LIST_VIEW_NOW_PLAYING),
               itemCount: state.result.results == null
@@ -53,17 +53,17 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                 );
               },
             );
-          } else if (state is NowPlayingLoading) {
+          } else if (state is MovieNowPlayingLoading) {
             return ShimmerList();
-          } else if (state is NowPlayingError) {
+          } else if (state is MovieNowPlayingError) {
             return ErrorHandlerWidget(errorMessage: state.errorMessage);
-          } else if (state is NowPlayingNoData) {
+          } else if (state is MovieNowPlayingNoData) {
             return NoDataWidget(message: AppConstant.noData);
-          } else if (state is NowPlayingNoInternetConnection) {
+          } else if (state is MovieNowPlayingNoInternetConnection) {
             return NoInternetConnectionWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {
-                context.bloc<NowPlayingBloc>().add(LoadNowPlaying());
+                context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
               },
             );
           } else {

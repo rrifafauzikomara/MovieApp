@@ -19,9 +19,9 @@ class _MovieScreenState extends State<MovieScreen> {
   @override
   void initState() {
     super.initState();
-    context.bloc<NowPlayingBloc>().add(LoadNowPlaying());
-    context.bloc<PopularBloc>().add(LoadPopular());
-    context.bloc<UpComingBloc>().add(LoadUpComing());
+    context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
+    context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
+    context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
   }
 
   @override
@@ -79,9 +79,9 @@ class _MovieScreenState extends State<MovieScreen> {
   }
 
   Widget _buildBanner(BuildContext context) {
-    return BlocBuilder<NowPlayingBloc, NowPlayingState>(
+    return BlocBuilder<MovieNowPlayingBloc, MovieNowPlayingState>(
       builder: (context, state) {
-        if (state is NowPlayingHasData) {
+        if (state is MovieNowPlayingHasData) {
           return BannerHome(
             onPageChanged: (index, reason) {
               setState(() {
@@ -93,17 +93,17 @@ class _MovieScreenState extends State<MovieScreen> {
             routeNameDetail: DetailScreen.routeName,
             routeNameAll: NowPlayingScreen.routeName,
           );
-        } else if (state is NowPlayingLoading) {
+        } else if (state is MovieNowPlayingLoading) {
           return ShimmerBanner();
-        } else if (state is NowPlayingError) {
+        } else if (state is MovieNowPlayingError) {
           return ErrorHandlerWidget(errorMessage: state.errorMessage);
-        } else if (state is NowPlayingNoData) {
+        } else if (state is MovieNowPlayingNoData) {
           return NoDataWidget(message: AppConstant.noData);
-        } else if (state is NowPlayingNoInternetConnection) {
+        } else if (state is MovieNowPlayingNoInternetConnection) {
           return NoInternetConnectionWidget(
             message: AppConstant.noInternetConnection,
             onPressed: () {
-              context.bloc<NowPlayingBloc>().add(LoadNowPlaying());
+              context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
             },
           );
         } else {
@@ -144,9 +144,9 @@ class _MovieScreenState extends State<MovieScreen> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
-          child: BlocBuilder<UpComingBloc, UpComingState>(
+          child: BlocBuilder<MovieUpComingBloc, MovieUpComingState>(
             builder: (context, state) {
-              if (state is UpComingHasData) {
+              if (state is MovieUpComingHasData) {
                 return ListView.builder(
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
@@ -171,17 +171,17 @@ class _MovieScreenState extends State<MovieScreen> {
                     );
                   },
                 );
-              } else if (state is UpComingLoading) {
+              } else if (state is MovieUpComingLoading) {
                 return ShimmerCard();
-              } else if (state is UpComingError) {
+              } else if (state is MovieUpComingError) {
                 return ErrorHandlerWidget(errorMessage: state.errorMessage);
-              } else if (state is UpComingNoData) {
+              } else if (state is MovieUpComingNoData) {
                 return NoDataWidget(message: AppConstant.noData);
-              } else if (state is UpComingNoInternetConnection) {
+              } else if (state is MovieUpComingNoInternetConnection) {
                 return NoInternetConnectionWidget(
                   message: AppConstant.noInternetConnection,
                   onPressed: () {
-                    context.bloc<UpComingBloc>().add(LoadUpComing());
+                    context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
                   },
                 );
               } else {
@@ -225,9 +225,9 @@ class _MovieScreenState extends State<MovieScreen> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
-          child: BlocBuilder<PopularBloc, PopularState>(
+          child: BlocBuilder<MoviePopularBloc, MoviePopularState>(
             builder: (context, state) {
-              if (state is PopularHasData) {
+              if (state is MoviePopularHasData) {
                 return ListView.builder(
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
@@ -252,17 +252,17 @@ class _MovieScreenState extends State<MovieScreen> {
                     );
                   },
                 );
-              } else if (state is PopularLoading) {
+              } else if (state is MoviePopularLoading) {
                 return ShimmerCard();
-              } else if (state is PopularError) {
+              } else if (state is MoviePopularError) {
                 return ErrorHandlerWidget(errorMessage: state.errorMessage);
-              } else if (state is PopularNoData) {
+              } else if (state is MoviePopularNoData) {
                 return NoDataWidget(message: AppConstant.noData);
-              } else if (state is PopularNoInternetConnection) {
+              } else if (state is MoviePopularNoInternetConnection) {
                 return NoInternetConnectionWidget(
                   message: AppConstant.noInternetConnection,
                   onPressed: () {
-                    context.bloc<PopularBloc>().add(LoadPopular());
+                    context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
                   },
                 );
               } else {

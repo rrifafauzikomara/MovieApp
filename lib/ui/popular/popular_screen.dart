@@ -15,7 +15,7 @@ class _PopularScreenState extends State<PopularScreen> {
   @override
   void initState() {
     super.initState();
-    context.bloc<PopularBloc>().add(LoadPopular());
+    context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
   }
 
   @override
@@ -25,9 +25,9 @@ class _PopularScreenState extends State<PopularScreen> {
         title: Text('Popular Movies'),
         centerTitle: true,
       ),
-      body: BlocBuilder<PopularBloc, PopularState>(
+      body: BlocBuilder<MoviePopularBloc, MoviePopularState>(
         builder: (context, state) {
-          if (state is PopularHasData) {
+          if (state is MoviePopularHasData) {
             return ListView.builder(
               key: Key(KEY_LIST_VIEW_POPULAR),
               itemCount: state.result.results == null
@@ -53,17 +53,17 @@ class _PopularScreenState extends State<PopularScreen> {
                 );
               },
             );
-          } else if (state is PopularLoading) {
+          } else if (state is MoviePopularLoading) {
             return ShimmerList();
-          } else if (state is PopularError) {
+          } else if (state is MoviePopularError) {
             return ErrorHandlerWidget(errorMessage: state.errorMessage);
-          } else if (state is PopularNoData) {
+          } else if (state is MoviePopularNoData) {
             return NoDataWidget(message: AppConstant.noData);
-          } else if (state is PopularNoInternetConnection) {
+          } else if (state is MoviePopularNoInternetConnection) {
             return NoInternetConnectionWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {
-                context.bloc<PopularBloc>().add(LoadPopular());
+                context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
               },
             );
           } else {

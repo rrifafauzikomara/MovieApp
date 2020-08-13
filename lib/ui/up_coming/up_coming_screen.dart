@@ -15,7 +15,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
   @override
   void initState() {
     super.initState();
-    context.bloc<UpComingBloc>().add(LoadUpComing());
+    context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
   }
 
   @override
@@ -25,9 +25,9 @@ class _UpComingScreenState extends State<UpComingScreen> {
         title: Text('Up Coming Movie'),
         centerTitle: true,
       ),
-      body: BlocBuilder<UpComingBloc, UpComingState>(
+      body: BlocBuilder<MovieUpComingBloc, MovieUpComingState>(
         builder: (context, state) {
-          if (state is UpComingHasData) {
+          if (state is MovieUpComingHasData) {
             return ListView.builder(
               key: Key(KEY_LIST_VIEW_UP_COMING),
               itemCount: state.result.results == null
@@ -53,17 +53,17 @@ class _UpComingScreenState extends State<UpComingScreen> {
                 );
               },
             );
-          } else if (state is UpComingLoading) {
+          } else if (state is MovieUpComingLoading) {
             return ShimmerList();
-          } else if (state is UpComingError) {
+          } else if (state is MovieUpComingError) {
             return ErrorHandlerWidget(errorMessage: state.errorMessage);
-          } else if (state is UpComingNoData) {
+          } else if (state is MovieUpComingNoData) {
             return NoDataWidget(message: AppConstant.noData);
-          } else if (state is UpComingNoInternetConnection) {
+          } else if (state is MovieUpComingNoInternetConnection) {
             return NoInternetConnectionWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {
-                context.bloc<UpComingBloc>().add(LoadUpComing());
+                context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
               },
             );
           } else {

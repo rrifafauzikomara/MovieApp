@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:core/core.dart';
 
 class ApiRepository implements Repository {
-
   Dio _dio;
   RestClient _restClient;
 
@@ -12,18 +11,44 @@ class ApiRepository implements Repository {
   }
 
   @override
-  Future<Result> getNowPlaying([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
-    return _restClient.getNowPlaying(apiKey, language);
+  Future<Result> getMovieNowPlaying(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
+    return _restClient.getMovieNowPlaying(apiKey, language);
   }
 
   @override
-  Future<Result> getPopular([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
-    return _restClient.getPopular(apiKey, language);
+  Future<Result> getMovieUpComing(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
+    return _restClient.getMovieUpComing(apiKey, language);
   }
 
   @override
-  Future<Result> getUpComing([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
-    return _restClient.getUpComing(apiKey, language);
+  Future<Result> getMoviePopular(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
+    return _restClient.getMoviePopular(apiKey, language);
   }
 
+  @override
+  Future<Result> getTvAiringToday(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
+    return _restClient.getTvAiringToday(apiKey, language);
+  }
+
+  @override
+  Future<Result> getTvOnTheAir(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
+    return _restClient.getTvOnTheAir(apiKey, language);
+  }
+
+  @override
+  Future<Result> getTvPopular(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
+    return _restClient.getTvPopular(apiKey, language);
+  }
 }
