@@ -4,6 +4,7 @@ import 'package:moviecatalogue/ui/movie/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/movie/popular/movie_popular_screen.dart';
 import 'package:moviecatalogue/ui/setting/setting_screen.dart';
 import 'package:moviecatalogue/ui/movie/up_coming/up_coming_screen.dart';
+import 'package:moviecatalogue/ui/splash/splash_screen.dart';
 import 'package:moviecatalogue/ui/tv_show/airing_today/airing_today_screen.dart';
 import 'package:moviecatalogue/ui/tv_show/on_the_air/on_the_air_screen.dart';
 import 'package:moviecatalogue/ui/tv_show/popular/tv_popular_screen.dart';
@@ -20,8 +21,9 @@ class MyApp extends StatelessWidget {
       title: Config.title,
       debugShowCheckedModeBanner: Config.isDebug,
       theme: CustomTheme.of(context),
-      initialRoute: DashBoardScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: {
+        SplashScreen.routeName: (context) => SplashScreen(),
         DashBoardScreen.routeName: (context) =>
             DashBoardScreen(title: Config.title),
         DetailScreen.routeName: (context) => DetailScreen(),

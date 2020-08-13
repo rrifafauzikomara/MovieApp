@@ -28,6 +28,7 @@ class _MovieScreenState extends State<MovieScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Movies'),
         centerTitle: true,
         actions: <Widget>[

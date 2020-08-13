@@ -11,6 +11,10 @@ class Navigation {
     Navigator.pushNamed(context, nameRouted);
   }
 
+  static splashScreen(BuildContext context, String nameRouted) {
+    Navigator.pushReplacementNamed(context, nameRouted);
+  }
+
   static intentWithData(BuildContext context, String nameRouted, Object argumentClass) {
     Navigator.pushNamed(
         context,

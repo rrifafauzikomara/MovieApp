@@ -6,4 +6,5 @@ class ImagesAssets {
   static String github = 'assets/images/github.png';
   static String linkedIn = 'assets/images/linkedin.png';
   static String resume = 'assets/images/resume.png';
+  static String movieIcon = 'assets/images/movie_icon.png';
 }

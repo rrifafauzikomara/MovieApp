@@ -28,6 +28,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Tv Show'),
         centerTitle: true,
         actions: <Widget>[
