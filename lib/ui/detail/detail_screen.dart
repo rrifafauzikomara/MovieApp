@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/services.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
@@ -16,6 +17,7 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+    context.bloc<TrailerBloc>().add(LoadTrailer(args.movies.id, args.isFromMovie));
     context.bloc<CrewBloc>().add(LoadCrew(args.movies.id, args.isFromMovie));
     var theme = Theme.of(context);
     return Scaffold(
@@ -52,6 +54,26 @@ class _DetailScreenState extends State<DetailScreen> {
                       Text(
                         args.movies.overview,
                       ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: Sizes.dp20(context),
+                    right: Sizes.dp20(context),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Trailer',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: Sizes.dp16(context),
+                        ),
+                      ),
+                      SizedBox(height: Sizes.dp8(context)),
+                      _buildYoutube(args.movies.id, args.isFromMovie),
                     ],
                   ),
                 ),
@@ -114,6 +136,52 @@ class _DetailScreenState extends State<DetailScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildYoutube(int movieId, bool isFromMovie) {
+    return Container(
+      width: Sizes.width(context),
+      height: Sizes.width(context) / 1.5,
+      child: BlocBuilder<TrailerBloc, TrailerState>(
+        builder: (context, state) {
+          if (state is TrailerHasData) {
+            return ListView.builder(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              key: Key(KEY_LIST_VIEW_UP_COMING),
+              itemCount: state.trailer.trailer.length,
+              itemBuilder: (BuildContext context, int index) {
+                Trailer trailer = state.trailer.trailer[index];
+                return CardTrailer(
+                  title: trailer.title,
+                  youtube: trailer.youtubeId,
+                  onExitFullScreen: () {
+                    // The player forces portraitUp after exiting fullscreen. This overrides the behaviour.
+                    SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+                  },
+                );
+              },
+            );
+          } else if (state is TrailerLoading) {
+            return ShimmerCrew();
+          } else if (state is TrailerError) {
+            return CustomErrorWidget(message: state.errorMessage);
+          } else if (state is TrailerNoData) {
+            return CustomErrorWidget(message: AppConstant.noData);
+          } else if (state is TrailerNoInternetConnection) {
+            return NoInternetWidget(
+              message: AppConstant.noInternetConnection,
+              onPressed: () {
+                context.bloc<TrailerBloc>().add(LoadTrailer(movieId, isFromMovie));
+              },
+            );
+          } else {
+            return Center(child: Text(""));
+          }
+        },
       ),
     );
   }

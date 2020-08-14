@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
         applicationId "id.rifafauzi.movie"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
