@@ -54,7 +54,7 @@ class _BannerHomeState extends State<BannerHome> {
                       Navigation.intentWithData(
                         context,
                         widget.routeNameDetail,
-                        ScreenArguments(widget.data.results[i]),
+                        ScreenArguments(widget.data.results[i], true),
                       );
                     },
                     child: GridTile(

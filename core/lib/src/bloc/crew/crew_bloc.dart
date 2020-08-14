@@ -10,19 +10,28 @@ class CrewBloc extends Bloc<CrewEvent, CrewState> {
   @override
   Stream<CrewState> mapEventToState(CrewEvent event) async* {
     if (event is LoadCrew) {
-      yield* _mapLoadCrewToState(event.movieId);
+      yield* _mapLoadCrewToState(event.movieId, event.isFromMovie);
     }
   }
 
-  Stream<CrewState> _mapLoadCrewToState(int movieId) async* {
+  Stream<CrewState> _mapLoadCrewToState(int movieId, bool isFromMovie) async* {
     try {
       yield CrewLoading();
       var movies = await repository.getMovieCrew(
           movieId, ApiConstant.apiKey, ApiConstant.language);
-      if (movies.crew.isEmpty) {
-        yield CrewNoData();
+      var tvShow = await repository.getTvShowCrew(movieId, ApiConstant.apiKey, ApiConstant.language);
+      if (isFromMovie) {
+        if (movies.crew.isEmpty) {
+          yield CrewNoData();
+        } else {
+          yield CrewHasData(movies);
+        }
       } else {
-        yield CrewHasData(movies);
+        if (tvShow.crew.isEmpty) {
+          yield CrewNoData();
+        } else {
+          yield CrewHasData(tvShow);
+        }
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.CONNECT_TIMEOUT ||

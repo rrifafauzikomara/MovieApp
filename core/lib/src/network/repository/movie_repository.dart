@@ -140,4 +140,13 @@ class MovieRepository implements Repository {
     final data = await apiRepository.getMovieTrailer(movieId, apiKey, language);
     return data;
   }
+
+  @override
+  Future<ResultCrew> getTvShowCrew(
+      [int tvId,
+      String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) async {
+    final data = await apiRepository.getTvShowCrew(tvId, apiKey, language);
+    return data;
+  }
 }

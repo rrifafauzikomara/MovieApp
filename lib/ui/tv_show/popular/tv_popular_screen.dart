@@ -46,7 +46,7 @@ class _TvPopularScreenState extends State<TvPopularScreen> {
                     Navigation.intentWithData(
                       context,
                       DetailScreen.routeName,
-                      ScreenArguments(movies),
+                      ScreenArguments(movies, false),
                     );
                   },
                 );

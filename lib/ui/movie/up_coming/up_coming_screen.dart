@@ -47,7 +47,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
                     Navigation.intentWithData(
                       context,
                       DetailScreen.routeName,
-                      ScreenArguments(movies),
+                      ScreenArguments(movies, true),
                     );
                   },
                 );

@@ -167,7 +167,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
                         Navigation.intentWithData(
                           context,
                           DetailScreen.routeName,
-                          ScreenArguments(movies),
+                          ScreenArguments(movies, false),
                         );
                       },
                     );
@@ -248,7 +248,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
                         Navigation.intentWithData(
                           context,
                           DetailScreen.routeName,
-                          ScreenArguments(movies),
+                          ScreenArguments(movies, false),
                         );
                       },
                     );

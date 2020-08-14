@@ -103,12 +103,25 @@ class LocalRepository implements Repository {
   }
 
   @override
-  Future<ResultCrew> getMovieCrew([int movieId, String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
+  Future<ResultCrew> getMovieCrew(
+      [int movieId,
+      String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
     throw UnimplementedError();
   }
 
   @override
-  Future<ResultTrailer> getMovieTrailer(int movieId, [String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
+  Future<ResultTrailer> getMovieTrailer(int movieId,
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ResultCrew> getTvShowCrew(
+      [int tvId,
+      String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
     throw UnimplementedError();
   }
 }

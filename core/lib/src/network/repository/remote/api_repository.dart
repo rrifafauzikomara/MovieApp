@@ -53,12 +53,25 @@ class ApiRepository implements Repository {
   }
 
   @override
-  Future<ResultCrew> getMovieCrew([int movieId, String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
+  Future<ResultCrew> getMovieCrew(
+      [int movieId,
+      String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) async {
     return _restClient.getMovieCrews(movieId, apiKey, language);
   }
 
   @override
-  Future<ResultTrailer> getMovieTrailer(int movieId, [String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
+  Future<ResultTrailer> getMovieTrailer(int movieId,
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) async {
     return _restClient.getMovieTrailer(movieId, apiKey, language);
+  }
+
+  @override
+  Future<ResultCrew> getTvShowCrew(
+      [int tvId,
+      String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
+    return _restClient.getTvShowCrews(tvId, apiKey, language);
   }
 }

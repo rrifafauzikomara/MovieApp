@@ -16,7 +16,7 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
-    context.bloc<CrewBloc>().add(LoadCrew(args.movies.id));
+    context.bloc<CrewBloc>().add(LoadCrew(args.movies.id, args.isFromMovie));
     var theme = Theme.of(context);
     return Scaffold(
       key: scaffoldKey,
@@ -71,7 +71,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                       SizedBox(height: Sizes.dp8(context)),
-                      _buildCrew(args.movies.id),
+                      _buildCrew(args.movies.id, args.isFromMovie),
                     ],
                   ),
                 ),
@@ -118,7 +118,7 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-  Widget _buildCrew(int movieId) {
+  Widget _buildCrew(int movieId, bool isFromMovie) {
     return Container(
       width: Sizes.width(context),
       height: Sizes.width(context) / 3,
@@ -152,7 +152,7 @@ class _DetailScreenState extends State<DetailScreen> {
               onPressed: () {
                 context
                     .bloc<CrewBloc>()
-                    .add(LoadCrew(movieId));
+                    .add(LoadCrew(movieId, isFromMovie));
               },
             );
           } else {

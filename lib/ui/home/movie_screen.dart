@@ -167,7 +167,7 @@ class _MovieScreenState extends State<MovieScreen> {
                         Navigation.intentWithData(
                           context,
                           DetailScreen.routeName,
-                          ScreenArguments(movies),
+                          ScreenArguments(movies, true),
                         );
                       },
                     );
@@ -248,7 +248,7 @@ class _MovieScreenState extends State<MovieScreen> {
                         Navigation.intentWithData(
                           context,
                           DetailScreen.routeName,
-                          ScreenArguments(movies),
+                          ScreenArguments(movies, true),
                         );
                       },
                     );

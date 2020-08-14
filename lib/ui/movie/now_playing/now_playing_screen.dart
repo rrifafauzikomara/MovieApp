@@ -47,7 +47,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                     Navigation.intentWithData(
                       context,
                       DetailScreen.routeName,
-                      ScreenArguments(movies),
+                      ScreenArguments(movies, true),
                     );
                   },
                 );

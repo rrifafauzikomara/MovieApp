@@ -33,4 +33,9 @@ abstract class Repository {
   Future<ResultTrailer> getMovieTrailer(int movieId,
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]);
+
+  Future<ResultCrew> getTvShowCrew(
+      [int tvId,
+      String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]);
 }
