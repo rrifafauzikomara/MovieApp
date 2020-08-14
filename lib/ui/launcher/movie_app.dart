@@ -26,17 +26,10 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName: (context) => SplashScreen(),
         DashBoardScreen.routeName: (context) =>
             DashBoardScreen(title: Config.title),
-        DetailScreen.routeName: (context) => MultiBlocProvider(
-              providers: [
-                BlocProvider<TrailerBloc>(
-                  create: (BuildContext context) =>
-                      TrailerBloc(repository: MovieRepository()),
-                ),
-                BlocProvider<CrewBloc>(
-                  create: (BuildContext context) =>
-                      CrewBloc(repository: MovieRepository()),
-                ),
-              ],
+        DetailScreen.routeName: (context) => BlocProvider(
+              create: (context) {
+                return CrewBloc(repository: MovieRepository());
+              },
               child: DetailScreen(),
             ),
         SettingScreen.routeName: (context) => SettingScreen(),

@@ -11,14 +11,11 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
-  static final GlobalKey<ScaffoldState> scaffoldKey =
-      GlobalKey<ScaffoldState>();
-  bool _isFavorite = false;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
-    context.bloc<TrailerBloc>().add(LoadTrailer(args.movies.id));
     context.bloc<CrewBloc>().add(LoadCrew(args.movies.id));
     var theme = Theme.of(context);
     return Scaffold(
@@ -59,24 +56,10 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(Sizes.dp20(context)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Trailer',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: Sizes.dp16(context),
-                        ),
-                      ),
-                      SizedBox(height: Sizes.dp8(context)),
-                      _buildTrailer(),
-                    ],
+                  padding: EdgeInsets.only(
+                    left: Sizes.dp20(context),
+                    right: Sizes.dp20(context),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(Sizes.dp20(context)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -88,7 +71,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                       SizedBox(height: Sizes.dp8(context)),
-                      _buildCrew(),
+                      _buildCrew(args.movies.id),
                     ],
                   ),
                 ),
@@ -98,7 +81,25 @@ class _DetailScreenState extends State<DetailScreen> {
             Positioned(
               top: 40.0,
               right: Sizes.dp5(context),
-              child: _buildFavoriteIcon(theme, args.movies),
+              child: IconButton(
+                key: Key(KEY_TAP_ITEM_FAVORITE),
+                iconSize: Sizes.dp30(context),
+                color: theme.accentColor,
+                icon: Icon(Icons.favorite_border),
+                onPressed: () {
+                  PopUp.showSnackBar(
+                    Text(
+                      "Add to Favorite",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: Sizes.dp16(context),
+                        color: ColorPalettes.white,
+                      ),
+                    ),
+                    key: scaffoldKey,
+                  );
+                },
+              ),
             ),
             Positioned(
               top: 40,
@@ -117,82 +118,7 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-  Widget _buildFavoriteIcon(ThemeData theme, Movies movies) {
-    if (_isFavorite) {
-      return IconButton(
-        key: Key(KEY_TAP_ITEM_FAVORITE),
-        iconSize: Sizes.dp30(context),
-        color: theme.accentColor,
-        icon: Icon(Icons.favorite),
-        onPressed: () {
-          setState(() => _isFavorite = false);
-          PopUp.showSnackBar(
-            Text(
-              "Remove from Favorite",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: Sizes.dp16(context),
-                color: ColorPalettes.white,
-              ),
-            ),
-            key: scaffoldKey,
-          );
-        },
-      );
-    } else {
-      return IconButton(
-        key: Key(KEY_TAP_ITEM_FAVORITE),
-        iconSize: Sizes.dp30(context),
-        color: theme.accentColor,
-        icon: Icon(Icons.favorite_border),
-        onPressed: () {
-          setState(() => _isFavorite = true);
-          PopUp.showSnackBar(
-            Text(
-              "Add to Favorite",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: Sizes.dp16(context),
-                color: ColorPalettes.white,
-              ),
-            ),
-            key: scaffoldKey,
-          );
-        },
-      );
-    }
-  }
-
-  Widget _buildTrailer() {
-    return Container();
-    BlocBuilder<TrailerBloc, TrailerState>(
-      builder: (context, state) {
-        if (state is TrailerHasData) {
-          return Text(state.trailer.trailer[0].title);
-        } else if (state is TrailerLoading) {
-          return ShimmerBanner();
-        } else if (state is TrailerError) {
-          return ErrorHandlerWidget(
-              errorMessage: state.errorMessage);
-        } else if (state is TrailerNoData) {
-          return NoDataWidget(message: AppConstant.noData);
-        } else if (state is TrailerNoInternetConnection) {
-          return NoInternetConnectionWidget(
-            message: AppConstant.noInternetConnection,
-            onPressed: () {
-              context
-                  .bloc<MovieNowPlayingBloc>()
-                  .add(LoadMovieNowPlaying());
-            },
-          );
-        } else {
-          return Center(child: Text(""));
-        }
-      },
-    );
-  }
-
-  Widget _buildCrew() {
+  Widget _buildCrew(int movieId) {
     return Container(
       width: Sizes.width(context),
       height: Sizes.width(context) / 3,
@@ -214,7 +140,7 @@ class _DetailScreenState extends State<DetailScreen> {
               },
             );
           } else if (state is CrewLoading) {
-            return ShimmerCard();
+            return ShimmerCrew();
           } else if (state is CrewError) {
             return ErrorHandlerWidget(
                 errorMessage: state.errorMessage);
@@ -225,8 +151,8 @@ class _DetailScreenState extends State<DetailScreen> {
               message: AppConstant.noInternetConnection,
               onPressed: () {
                 context
-                    .bloc<MovieNowPlayingBloc>()
-                    .add(LoadMovieNowPlaying());
+                    .bloc<CrewBloc>()
+                    .add(LoadCrew(movieId));
               },
             );
           } else {
