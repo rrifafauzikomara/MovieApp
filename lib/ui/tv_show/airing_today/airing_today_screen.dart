@@ -55,11 +55,11 @@ class _AiringTodayScreenState extends State<AiringTodayScreen> {
           } else if (state is TvAiringTodayLoading) {
             return ShimmerList();
           } else if (state is TvAiringTodayError) {
-            return ErrorHandlerWidget(errorMessage: state.errorMessage);
+            return CustomErrorWidget(message: state.errorMessage);
           } else if (state is TvAiringTodayNoData) {
-            return NoDataWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: AppConstant.noData);
           } else if (state is TvAiringTodayNoInternetConnection) {
-            return NoInternetConnectionWidget(
+            return NoInternetWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {
                 context.bloc<TvAiringTodayBloc>().add(LoadTvAiringToday());

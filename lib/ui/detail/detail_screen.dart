@@ -142,17 +142,14 @@ class _DetailScreenState extends State<DetailScreen> {
           } else if (state is CrewLoading) {
             return ShimmerCrew();
           } else if (state is CrewError) {
-            return ErrorHandlerWidget(
-                errorMessage: state.errorMessage);
+            return CustomErrorWidget(message: state.errorMessage);
           } else if (state is CrewNoData) {
-            return NoDataWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: AppConstant.noData);
           } else if (state is CrewNoInternetConnection) {
-            return NoInternetConnectionWidget(
+            return NoInternetWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {
-                context
-                    .bloc<CrewBloc>()
-                    .add(LoadCrew(movieId, isFromMovie));
+                context.bloc<CrewBloc>().add(LoadCrew(movieId, isFromMovie));
               },
             );
           } else {

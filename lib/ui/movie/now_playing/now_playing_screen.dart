@@ -56,11 +56,11 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
           } else if (state is MovieNowPlayingLoading) {
             return ShimmerList();
           } else if (state is MovieNowPlayingError) {
-            return ErrorHandlerWidget(errorMessage: state.errorMessage);
+            return CustomErrorWidget(message: state.errorMessage);
           } else if (state is MovieNowPlayingNoData) {
-            return NoDataWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: AppConstant.noData);
           } else if (state is MovieNowPlayingNoInternetConnection) {
-            return NoInternetConnectionWidget(
+            return NoInternetWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {
                 context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());

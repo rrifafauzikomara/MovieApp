@@ -7,7 +7,5 @@ export 'rating/rating.dart';
 export 'clipper/clipper.dart';
 export 'image/image.dart';
 export 'error/error.dart';
-export 'no_data/no_data_widget.dart';
-export 'no_internet/no_internet_connection_widget.dart';
 export 'theme/themes.dart';
 export 'dialog/custom_dialog.dart';

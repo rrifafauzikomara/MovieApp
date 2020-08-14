@@ -124,4 +124,11 @@ class LocalRepository implements Repository {
       String language = ApiConstant.language]) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<ResultTrailer> getTvShowTrailer(int tvId,
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) {
+    throw UnimplementedError();
+  }
 }

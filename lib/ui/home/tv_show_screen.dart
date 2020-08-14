@@ -98,11 +98,11 @@ class _TvShowScreenState extends State<TvShowScreen> {
         } else if (state is TvOnTheAirLoading) {
           return ShimmerBanner();
         } else if (state is TvOnTheAirError) {
-          return ErrorHandlerWidget(errorMessage: state.errorMessage);
+          return CustomErrorWidget(message: state.errorMessage);
         } else if (state is TvOnTheAirNoData) {
-          return NoDataWidget(message: AppConstant.noData);
+          return CustomErrorWidget(message: AppConstant.noData);
         } else if (state is TvOnTheAirNoInternetConnection) {
-          return NoInternetConnectionWidget(
+          return NoInternetWidget(
             message: AppConstant.noInternetConnection,
             onPressed: () {
               context.bloc<TvOnTheAirBloc>().add(LoadTvOnTheAir());
@@ -176,11 +176,11 @@ class _TvShowScreenState extends State<TvShowScreen> {
               } else if (state is TvAiringTodayLoading) {
                 return ShimmerCard();
               } else if (state is TvAiringTodayError) {
-                return ErrorHandlerWidget(errorMessage: state.errorMessage);
+                return CustomErrorWidget(message: state.errorMessage);
               } else if (state is TvAiringTodayNoData) {
-                return NoDataWidget(message: AppConstant.noData);
+                return CustomErrorWidget(message: AppConstant.noData);
               } else if (state is TvAiringTodayNoInternetConnection) {
-                return NoInternetConnectionWidget(
+                return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
                   onPressed: () {
                     context.bloc<TvAiringTodayBloc>().add(LoadTvAiringToday());
@@ -257,11 +257,11 @@ class _TvShowScreenState extends State<TvShowScreen> {
               } else if (state is TvPopularLoading) {
                 return ShimmerCard();
               } else if (state is TvPopularError) {
-                return ErrorHandlerWidget(errorMessage: state.errorMessage);
+                return CustomErrorWidget(message: state.errorMessage);
               } else if (state is TvPopularNoData) {
-                return NoDataWidget(message: AppConstant.noData);
+                return CustomErrorWidget(message: AppConstant.noData);
               } else if (state is TvPopularNoInternetConnection) {
-                return NoInternetConnectionWidget(
+                return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
                   onPressed: () {
                     context.bloc<TvPopularBloc>().add(LoadTvPopular());

@@ -55,11 +55,11 @@ class _OnTheAirScreenState extends State<OnTheAirScreen> {
           } else if (state is TvOnTheAirLoading) {
             return ShimmerList();
           } else if (state is TvOnTheAirError) {
-            return ErrorHandlerWidget(errorMessage: state.errorMessage);
+            return CustomErrorWidget(message: state.errorMessage);
           } else if (state is TvOnTheAirNoData) {
-            return NoDataWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: AppConstant.noData);
           } else if (state is TvOnTheAirNoInternetConnection) {
-            return NoInternetConnectionWidget(
+            return NoInternetWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {
                 context.bloc<TvOnTheAirBloc>().add(LoadTvOnTheAir());

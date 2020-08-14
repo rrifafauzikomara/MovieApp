@@ -56,11 +56,11 @@ class _MoviePopularScreenState extends State<MoviePopularScreen> {
           } else if (state is MoviePopularLoading) {
             return ShimmerList();
           } else if (state is MoviePopularError) {
-            return ErrorHandlerWidget(errorMessage: state.errorMessage);
+            return CustomErrorWidget(message: state.errorMessage);
           } else if (state is MoviePopularNoData) {
-            return NoDataWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: AppConstant.noData);
           } else if (state is MoviePopularNoInternetConnection) {
-            return NoInternetConnectionWidget(
+            return NoInternetWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {
                 context.bloc<MoviePopularBloc>().add(LoadMoviePopular());

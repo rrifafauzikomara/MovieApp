@@ -56,11 +56,11 @@ class _UpComingScreenState extends State<UpComingScreen> {
           } else if (state is MovieUpComingLoading) {
             return ShimmerList();
           } else if (state is MovieUpComingError) {
-            return ErrorHandlerWidget(errorMessage: state.errorMessage);
+            return CustomErrorWidget(message: state.errorMessage);
           } else if (state is MovieUpComingNoData) {
-            return NoDataWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: AppConstant.noData);
           } else if (state is MovieUpComingNoInternetConnection) {
-            return NoInternetConnectionWidget(
+            return NoInternetWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {
                 context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());

@@ -98,11 +98,11 @@ class _MovieScreenState extends State<MovieScreen> {
         } else if (state is MovieNowPlayingLoading) {
           return ShimmerBanner();
         } else if (state is MovieNowPlayingError) {
-          return ErrorHandlerWidget(errorMessage: state.errorMessage);
+          return CustomErrorWidget(message: state.errorMessage);
         } else if (state is MovieNowPlayingNoData) {
-          return NoDataWidget(message: AppConstant.noData);
+          return CustomErrorWidget(message: AppConstant.noData);
         } else if (state is MovieNowPlayingNoInternetConnection) {
-          return NoInternetConnectionWidget(
+          return NoInternetWidget(
             message: AppConstant.noInternetConnection,
             onPressed: () {
               context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
@@ -176,11 +176,11 @@ class _MovieScreenState extends State<MovieScreen> {
               } else if (state is MovieUpComingLoading) {
                 return ShimmerCard();
               } else if (state is MovieUpComingError) {
-                return ErrorHandlerWidget(errorMessage: state.errorMessage);
+                return CustomErrorWidget(message: state.errorMessage);
               } else if (state is MovieUpComingNoData) {
-                return NoDataWidget(message: AppConstant.noData);
+                return CustomErrorWidget(message: AppConstant.noData);
               } else if (state is MovieUpComingNoInternetConnection) {
-                return NoInternetConnectionWidget(
+                return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
                   onPressed: () {
                     context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
@@ -257,11 +257,11 @@ class _MovieScreenState extends State<MovieScreen> {
               } else if (state is MoviePopularLoading) {
                 return ShimmerCard();
               } else if (state is MoviePopularError) {
-                return ErrorHandlerWidget(errorMessage: state.errorMessage);
+                return CustomErrorWidget(message: state.errorMessage);
               } else if (state is MoviePopularNoData) {
-                return NoDataWidget(message: AppConstant.noData);
+                return CustomErrorWidget(message: AppConstant.noData);
               } else if (state is MoviePopularNoInternetConnection) {
-                return NoInternetConnectionWidget(
+                return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
                   onPressed: () {
                     context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
