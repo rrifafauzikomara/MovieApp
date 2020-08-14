@@ -18,10 +18,13 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+    context.bloc<TrailerBloc>().add(LoadTrailer(args.movies.id));
+    context.bloc<CrewBloc>().add(LoadCrew(args.movies.id));
     var theme = Theme.of(context);
     return Scaffold(
       key: scaffoldKey,
       body: SingleChildScrollView(
+        physics: ClampingScrollPhysics(),
         child: Stack(
           children: <Widget>[
             Column(
@@ -37,23 +40,58 @@ class _DetailScreenState extends State<DetailScreen> {
                       args.movies.genreIds.take(3).map(buildGenreChip).toList(),
                 ),
                 Padding(
-                    padding: EdgeInsets.all(Sizes.dp20(context)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Story line',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: Sizes.dp16(context),
-                          ),
+                  padding: EdgeInsets.all(Sizes.dp20(context)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Story line',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: Sizes.dp16(context),
                         ),
-                        SizedBox(height: Sizes.dp8(context)),
-                        Text(
-                          args.movies.overview,
+                      ),
+                      SizedBox(height: Sizes.dp8(context)),
+                      Text(
+                        args.movies.overview,
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(Sizes.dp20(context)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Trailer',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: Sizes.dp16(context),
                         ),
-                      ],
-                    )),
+                      ),
+                      SizedBox(height: Sizes.dp8(context)),
+                      _buildTrailer(),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(Sizes.dp20(context)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Crew',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: Sizes.dp16(context),
+                        ),
+                      ),
+                      SizedBox(height: Sizes.dp8(context)),
+                      _buildCrew(),
+                    ],
+                  ),
+                ),
                 SizedBox(height: 50.0),
               ],
             ),
@@ -123,5 +161,79 @@ class _DetailScreenState extends State<DetailScreen> {
         },
       );
     }
+  }
+
+  Widget _buildTrailer() {
+    return Container();
+    BlocBuilder<TrailerBloc, TrailerState>(
+      builder: (context, state) {
+        if (state is TrailerHasData) {
+          return Text(state.trailer.trailer[0].title);
+        } else if (state is TrailerLoading) {
+          return ShimmerBanner();
+        } else if (state is TrailerError) {
+          return ErrorHandlerWidget(
+              errorMessage: state.errorMessage);
+        } else if (state is TrailerNoData) {
+          return NoDataWidget(message: AppConstant.noData);
+        } else if (state is TrailerNoInternetConnection) {
+          return NoInternetConnectionWidget(
+            message: AppConstant.noInternetConnection,
+            onPressed: () {
+              context
+                  .bloc<MovieNowPlayingBloc>()
+                  .add(LoadMovieNowPlaying());
+            },
+          );
+        } else {
+          return Center(child: Text(""));
+        }
+      },
+    );
+  }
+
+  Widget _buildCrew() {
+    return Container(
+      width: Sizes.width(context),
+      height: Sizes.width(context) / 3,
+      child: BlocBuilder<CrewBloc, CrewState>(
+        builder: (context, state) {
+          if (state is CrewHasData) {
+            return ListView.builder(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              key: Key(KEY_LIST_VIEW_UP_COMING),
+              itemCount: state.crew.crew.length,
+              itemBuilder: (BuildContext context, int index) {
+                Crew crew = state.crew.crew[index];
+                return CardCrew(
+                  image: crew.profile,
+                  name: crew.characterName,
+                );
+              },
+            );
+          } else if (state is CrewLoading) {
+            return ShimmerCard();
+          } else if (state is CrewError) {
+            return ErrorHandlerWidget(
+                errorMessage: state.errorMessage);
+          } else if (state is CrewNoData) {
+            return NoDataWidget(message: AppConstant.noData);
+          } else if (state is CrewNoInternetConnection) {
+            return NoInternetConnectionWidget(
+              message: AppConstant.noInternetConnection,
+              onPressed: () {
+                context
+                    .bloc<MovieNowPlayingBloc>()
+                    .add(LoadMovieNowPlaying());
+              },
+            );
+          } else {
+            return Center(child: Text(""));
+          }
+        },
+      ),
+    );
   }
 }

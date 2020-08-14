@@ -101,4 +101,14 @@ class LocalRepository implements Repository {
   Future<bool> saveTvOnTheAir(Result result) {
     return PrefHelper.storeCache(AppConstant.TV_ON_THE_AIR, jsonEncode(result));
   }
+
+  @override
+  Future<ResultCrew> getMovieCrew([int movieId, String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ResultTrailer> getMovieTrailer(int movieId, [String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
+    throw UnimplementedError();
+  }
 }

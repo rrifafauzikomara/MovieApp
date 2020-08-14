@@ -52,24 +52,21 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Positioned(
-                bottom: 0,
-                child: FutureBuilder<String>(
-                  future: _getVersion(),
-                  builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-                    var verInfo = "";
-                    if (snapshot.hasData) {
-                      verInfo = "v ${snapshot.data}";
-                    }
-                    return Container(
-                      margin: EdgeInsets.only(bottom: Sizes.dp30(context)),
-                      child: Text(
-                        verInfo,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    );
-                  },
-                ),
+              child: FutureBuilder<String>(
+                future: _getVersion(),
+                builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                  var verInfo = "";
+                  if (snapshot.hasData) {
+                    verInfo = "v ${snapshot.data}";
+                  }
+                  return Container(
+                    margin: EdgeInsets.only(bottom: Sizes.dp30(context)),
+                    child: Text(
+                      verInfo,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  );
+                },
               ),
             ),
           ],

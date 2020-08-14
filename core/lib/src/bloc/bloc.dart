@@ -5,3 +5,5 @@ export 'movie_bloc_observer.dart';
 export 'tv_show/airing_today/bloc.dart';
 export 'tv_show/popular/bloc.dart';
 export 'tv_show/tv_on_the_air/bloc.dart';
+export 'crew/bloc.dart';
+export 'trailer/bloc.dart';

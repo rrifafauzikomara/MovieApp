@@ -51,4 +51,14 @@ class ApiRepository implements Repository {
       String language = ApiConstant.language]) {
     return _restClient.getTvOnTheAir(apiKey, language);
   }
+
+  @override
+  Future<ResultCrew> getMovieCrew([int movieId, String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
+    return _restClient.getMovieCrews(movieId, apiKey, language);
+  }
+
+  @override
+  Future<ResultTrailer> getMovieTrailer(int movieId, [String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
+    return _restClient.getMovieTrailer(movieId, apiKey, language);
+  }
 }
