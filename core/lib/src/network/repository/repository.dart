@@ -42,4 +42,8 @@ abstract class Repository {
   Future<ResultTrailer> getTvShowTrailer(int tvId,
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]);
+
+  Future<Result> getDiscoverMovie(
+      [String apiKey = ApiConstant.apiKey,
+        String language = ApiConstant.language]);
 }

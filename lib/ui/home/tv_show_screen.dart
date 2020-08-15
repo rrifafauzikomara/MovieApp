@@ -153,7 +153,6 @@ class _TvShowScreenState extends State<TvShowScreen> {
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  key: Key(KEY_LIST_VIEW_UP_COMING),
                   itemCount: state.result.results.length > 5
                       ? 5
                       : state.result.results.length,
@@ -234,7 +233,6 @@ class _TvShowScreenState extends State<TvShowScreen> {
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  key: Key(KEY_LIST_VIEW_UP_COMING),
                   itemCount: state.result.results.length > 5
                       ? 5
                       : state.result.results.length,

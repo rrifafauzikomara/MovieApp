@@ -131,4 +131,21 @@ class LocalRepository implements Repository {
       String language = ApiConstant.language]) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<Result> getDiscoverMovie(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) async {
+    var fromCache = await PrefHelper.getCache(AppConstant.DISCOVER_MOVIE);
+    if (fromCache != null) {
+      Map json = jsonDecode(fromCache);
+      return Result.fromJson(json);
+    }
+    return null;
+  }
+
+  Future<bool> saveDiscoverMovie(Result result) {
+    return PrefHelper.storeCache(
+        AppConstant.DISCOVER_MOVIE, jsonEncode(result));
+  }
 }

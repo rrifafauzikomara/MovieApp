@@ -16,7 +16,6 @@ dependencies:
   flutter_bloc: ^6.0.1
   package_info: ^0.4.1
   youtube_player_flutter: ^7.0.0+7
-  scroll_snap_list: ^0.4.1
 
   # This is our modular
   core:

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviecatalogue/ui/detail/detail_screen.dart';
 import 'package:shared/shared.dart';
 
 class DiscoverScreen extends StatefulWidget {
@@ -12,17 +13,16 @@ class DiscoverScreen extends StatefulWidget {
 }
 
 class _DiscoverScreenState extends State<DiscoverScreen> {
-
   @override
   void initState() {
     super.initState();
-    context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
+    context.bloc<DiscoverMovieBloc>().add(LoadDiscoverMovie());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorPalettes.black,
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pop(context),
         child: Icon(
@@ -30,9 +30,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
           color: ColorPalettes.white,
         ),
       ),
-      body: BlocBuilder<MovieNowPlayingBloc, MovieNowPlayingState>(
+      body: BlocBuilder<DiscoverMovieBloc, DiscoverMovieState>(
         builder: (context, state) {
-          if (state is MovieNowPlayingHasData) {
+          if (state is DiscoverMovieHasData) {
             return PageView.builder(
               physics: ClampingScrollPhysics(),
               reverse: true,
@@ -40,7 +40,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 var movie = state.result.results[index];
-                var position = index +1;
+                var position = index + 1;
                 return Container(
                   width: Sizes.width(context),
                   height: Sizes.height(context),
@@ -77,10 +77,14 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                           image: movie.posterPath,
                           title: movie.title,
                           rating: movie.voteAverage,
-                          genre: movie.genreIds
-                              .take(3)
-                              .map(buildGenreChip)
-                              .toList(),
+                          genre: movie.genreIds,
+                          onTap: () {
+                            Navigation.intentWithData(
+                              context,
+                              DetailScreen.routeName,
+                              ScreenArguments(movie, true),
+                            );
+                          },
                         ),
                       ),
                       Positioned(
@@ -99,15 +103,15 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                               Text(
                                 '$position',
                                 style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25,
+                                    color: ColorPalettes.white,
+                                    fontSize: Sizes.dp25(context),
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 "/${state.result.results.length}",
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
+                                  color: ColorPalettes.white,
+                                  fontSize: Sizes.dp16(context),
                                   fontWeight: FontWeight.bold,
                                 ),
                               )
@@ -120,13 +124,13 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 );
               },
             );
-          } else if (state is MovieNowPlayingLoading) {
+          } else if (state is DiscoverMovieLoading) {
             return LoadingIndicator();
-          } else if (state is MovieNowPlayingError) {
+          } else if (state is DiscoverMovieError) {
             return CustomErrorWidget(message: state.errorMessage);
-          } else if (state is MovieNowPlayingNoData) {
+          } else if (state is DiscoverMovieNoData) {
             return CustomErrorWidget(message: state.message);
-          } else if (state is MovieNowPlayingNoInternetConnection) {
+          } else if (state is DiscoverMovieNoInternetConnection) {
             return NoInternetWidget(
               message: AppConstant.noInternetConnection,
               onPressed: () {

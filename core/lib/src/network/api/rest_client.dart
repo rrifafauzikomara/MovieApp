@@ -47,4 +47,8 @@ abstract class RestClient {
   @GET("tv/{tv_id}/videos")
   Future<ResultTrailer> getTvShowTrailer(@Path("tv_id") int tvId,
       @Query("api_key") String apiKey, @Query("language") String language);
+
+  @GET("discover/movie")
+  Future<Result> getDiscoverMovie(
+      @Query("api_key") String apiKey, @Query("language") String language);
 }

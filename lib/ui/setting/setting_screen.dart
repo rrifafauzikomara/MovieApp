@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:moviecatalogue/ui/home/about_screen.dart';
 import 'package:shared/shared.dart';
 import 'package:package_info/package_info.dart';
 
@@ -62,24 +63,14 @@ class _SettingScreenState extends State<SettingScreen> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('Language'),
+                Text('Developer'),
                 IconButton(
                   icon: Icon(
                     Icons.arrow_forward_ios,
                     size: Sizes.dp16(context),
                   ),
                   onPressed: () {
-                    PopUp.showSnackBar(
-                      Text(
-                        'Comming Soon',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: Sizes.dp16(context),
-                          color: ColorPalettes.white,
-                        ),
-                      ),
-                      key: scaffoldKey,
-                    );
+                    Navigation.intent(context, AboutScreen.routeName);
                   },
                 ),
               ],

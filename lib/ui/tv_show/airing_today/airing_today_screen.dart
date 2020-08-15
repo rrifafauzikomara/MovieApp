@@ -28,14 +28,12 @@ class _AiringTodayScreenState extends State<AiringTodayScreen> {
         builder: (context, state) {
           if (state is TvAiringTodayHasData) {
             return ListView.builder(
-              key: Key(KEY_LIST_VIEW_NOW_PLAYING),
               itemCount: state.result.results == null
                   ? 0
                   : state.result.results.length,
               itemBuilder: (BuildContext context, int index) {
                 Movies movies = state.result.results[index];
                 return CardMovies(
-                  key: Key("tap_movies_" + movies.id.toString()),
                   image: movies.posterPath,
                   title: movies.tvName,
                   vote: movies.voteAverage.toString(),

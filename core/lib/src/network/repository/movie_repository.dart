@@ -157,4 +157,21 @@ class MovieRepository implements Repository {
     final data = await apiRepository.getTvShowTrailer(tvId, apiKey, language);
     return data;
   }
+
+  @override
+  Future<Result> getDiscoverMovie([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
+    try {
+      var fromLocal =
+      await localRepository.getDiscoverMovie(apiKey, language);
+      if (fromLocal != null) {
+        return fromLocal;
+      } else {
+        throw Exception();
+      }
+    } catch (_) {
+      final data = await apiRepository.getDiscoverMovie(apiKey, language);
+      localRepository.saveDiscoverMovie(data);
+      return data;
+    }
+  }
 }

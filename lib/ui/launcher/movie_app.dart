@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviecatalogue/ui/home/about_screen.dart';
 import 'package:moviecatalogue/ui/home/discover_screen.dart';
 import 'package:moviecatalogue/ui/movie/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/movie/popular/movie_popular_screen.dart';
@@ -28,11 +29,11 @@ class MyApp extends StatelessWidget {
         DashBoardScreen.routeName: (context) =>
             DashBoardScreen(title: Config.title),
         DiscoverScreen.routeName: (context) => BlocProvider(
-          create: (context) {
-            return MovieNowPlayingBloc(repository: MovieRepository());
-          },
-          child: DiscoverScreen(),
-        ),
+              create: (context) {
+                return DiscoverMovieBloc(repository: MovieRepository());
+              },
+              child: DiscoverScreen(),
+            ),
         NowPlayingScreen.routeName: (context) => BlocProvider(
               create: (context) {
                 return MovieNowPlayingBloc(repository: MovieRepository());
@@ -70,19 +71,20 @@ class MyApp extends StatelessWidget {
               child: TvPopularScreen(),
             ),
         DetailScreen.routeName: (context) => MultiBlocProvider(
-          providers: [
-            BlocProvider<TrailerBloc>(
-              create: (BuildContext context) =>
-                  TrailerBloc(repository: MovieRepository()),
+              providers: [
+                BlocProvider<TrailerBloc>(
+                  create: (BuildContext context) =>
+                      TrailerBloc(repository: MovieRepository()),
+                ),
+                BlocProvider<CrewBloc>(
+                  create: (BuildContext context) =>
+                      CrewBloc(repository: MovieRepository()),
+                ),
+              ],
+              child: DetailScreen(),
             ),
-            BlocProvider<CrewBloc>(
-              create: (BuildContext context) =>
-                  CrewBloc(repository: MovieRepository()),
-            ),
-          ],
-          child: DetailScreen(),
-        ),
         SettingScreen.routeName: (context) => SettingScreen(),
+        AboutScreen.routeName: (context) => AboutScreen(),
       },
     );
   }

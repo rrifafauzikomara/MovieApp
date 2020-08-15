@@ -1,15 +1,15 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:moviecatalogue/ui/menu/menu.dart';
 import 'package:shared/shared.dart';
 
 class AboutScreen extends StatefulWidget {
+  static const routeName = '/about';
+
   @override
   _AboutScreenState createState() => _AboutScreenState();
 }
 
 class _AboutScreenState extends State<AboutScreen> {
-
   ThemeData _themeData;
   bool _isDarkTheme;
 
@@ -30,7 +30,7 @@ class _AboutScreenState extends State<AboutScreen> {
               padding: EdgeInsets.only(
                   left: Sizes.dp20(context),
                   right: Sizes.dp20(context),
-                  top: Sizes.width(context) / 5),
+                  top: Sizes.width(context) / 4),
               child: Column(
                 children: <Widget>[
                   Row(
@@ -60,7 +60,8 @@ class _AboutScreenState extends State<AboutScreen> {
                             ),
                             SizedBox(height: Sizes.dp5(context)),
                             GestureDetector(
-                              onTap: () => Navigation.launchURL(UrlConstant.urlInstagram),
+                              onTap: () => Navigation.launchURL(
+                                  UrlConstant.urlInstagram),
                               child: Row(
                                 children: <Widget>[
                                   Image.asset(
@@ -152,7 +153,9 @@ class _AboutScreenState extends State<AboutScreen> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(top: Sizes.dp30(context), bottom: Sizes.dp20(context)),
+                      padding: EdgeInsets.only(
+                          top: Sizes.dp30(context),
+                          bottom: Sizes.dp20(context)),
                       child: Text(
                         "My Portfolio",
                         style: TextStyle(
@@ -183,21 +186,12 @@ class _AboutScreenState extends State<AboutScreen> {
           ),
           Positioned(
             top: Platform.isAndroid ? 28 : 48,
-            right: 0,
-            child: PopupMenuButton<Menu>(
-              icon: Icon(Icons.more_vert),
-              onSelected: (Menu menu) {
-                // Causes the app to rebuild with the new _selectedChoice.
-                Navigation.intent(context, menu.route);
-              },
-              itemBuilder: (BuildContext context) {
-                return menus.map((Menu menu) {
-                  return PopupMenuItem<Menu>(
-                    value: menu,
-                    child: Text(menu.title),
-                  );
-                }).toList();
-              },
+            left: 0,
+            child: IconButton(
+              iconSize: Sizes.dp25(context),
+              icon: Icon(
+                  Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios),
+              onPressed: () => Navigator.pop(context),
             ),
           ),
         ],

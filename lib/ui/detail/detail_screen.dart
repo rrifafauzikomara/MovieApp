@@ -80,7 +80,6 @@ class _DetailScreenState extends State<DetailScreen> {
               top: 40.0,
               right: Sizes.dp5(context),
               child: IconButton(
-                key: Key(KEY_TAP_ITEM_FAVORITE),
                 iconSize: Sizes.dp30(context),
                 color: theme.accentColor,
                 icon: Icon(Icons.favorite_border),
@@ -103,7 +102,6 @@ class _DetailScreenState extends State<DetailScreen> {
               top: 40,
               left: Sizes.dp5(context),
               child: IconButton(
-                key: Key(KEY_TAP_BACK_BUTTON),
                 icon: Platform.isAndroid
                     ? Icon(Icons.arrow_back)
                     : Icon(Icons.arrow_back_ios),
@@ -138,7 +136,6 @@ class _DetailScreenState extends State<DetailScreen> {
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  key: Key(KEY_LIST_VIEW_UP_COMING),
                   itemCount: state.trailer.trailer.length,
                   itemBuilder: (BuildContext context, int index) {
                     Trailer trailer = state.trailer.trailer[index];
@@ -201,7 +198,6 @@ class _DetailScreenState extends State<DetailScreen> {
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  key: Key(KEY_LIST_VIEW_UP_COMING),
                   itemCount: state.crew.crew.length,
                   itemBuilder: (BuildContext context, int index) {
                     Crew crew = state.crew.crew[index];

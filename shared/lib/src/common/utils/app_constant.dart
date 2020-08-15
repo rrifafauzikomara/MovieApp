@@ -15,4 +15,6 @@ class AppConstant {
   static const TV_AIRING_TODAY = "/tv_airing_today";
   static const TV_POPULAR = "/tv_popular";
 
+  static const DISCOVER_MOVIE = "/discover_movie";
+
 }

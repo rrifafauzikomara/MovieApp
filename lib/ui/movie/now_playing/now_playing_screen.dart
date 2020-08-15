@@ -29,14 +29,12 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
         builder: (context, state) {
           if (state is MovieNowPlayingHasData) {
             return ListView.builder(
-              key: Key(KEY_LIST_VIEW_NOW_PLAYING),
               itemCount: state.result.results == null
                   ? 0
                   : state.result.results.length,
               itemBuilder: (BuildContext context, int index) {
                 Movies movies = state.result.results[index];
                 return CardMovies(
-                  key: Key("tap_movies_" + movies.id.toString()),
                   image: movies.posterPath,
                   title: movies.title,
                   vote: movies.voteAverage.toString(),

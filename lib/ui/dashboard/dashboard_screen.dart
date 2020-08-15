@@ -90,9 +90,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigation.intent(context, DiscoverScreen.routeName),
         child: Icon(
-          Icons.account_circle,
+          Icons.location_searching,
           color: ColorPalettes.white,
-          key: Key(KEY_BOTTOM_NAVIGATION_ABOUT),
         ),
       ),
       bottomNavigationBar: Theme(
@@ -101,12 +100,11 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           canvasColor: Theme.of(context).primaryColor,
           // sets the active color of the `BottomNavigationBar` if `Brightness` is light
           primaryColor: Theme.of(context).accentColor,
-          textTheme: Theme.of(context).textTheme.copyWith(
-                caption: TextStyle(color: ColorPalettes.setActive),
-              ),
+          textTheme: Theme.of(context)
+              .textTheme
+              .copyWith(caption: TextStyle(color: ColorPalettes.setActive)),
         ),
         child: BottomAppBar(
-          key: Key(KEY_BOTTOM_NAVIGATION),
           shape: CircularNotchedRectangle(),
           notchMargin: Sizes.dp8(context),
           child: Row(
