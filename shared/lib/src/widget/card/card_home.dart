@@ -13,6 +13,7 @@ class CardHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var isDarkTheme = theme.appBarTheme?.color == null;
     return Container(
       width: Sizes.width(context) / 2.5,
       child: GestureDetector(
@@ -49,7 +50,7 @@ class CardHome extends StatelessWidget {
                     stops: [0.1, 0.98],
                     colors: [
                       ColorPalettes.transparent,
-                      ColorPalettes.blueSky,
+                      !isDarkTheme ? ColorPalettes.white : ColorPalettes.darkBG,
                     ],
                   ),
                 ),
@@ -75,7 +76,7 @@ class CardHome extends StatelessWidget {
                         style: TextStyle(
                             fontSize: Sizes.dp14(context),
                             fontWeight: FontWeight.bold,
-                            color: ColorPalettes.white),
+                            color: !isDarkTheme ? ColorPalettes.darkBG : ColorPalettes.white),
                       ),
                       SizedBox(height: Sizes.dp4(context)),
 

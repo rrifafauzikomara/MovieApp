@@ -82,9 +82,10 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 
 
 ## Todo
-* [ ] Redesign of UI
-* [ ] Add Trailer and Movie Crew
-* [ ] Add TV Show
+* [x] Redesign of UI
+* [x] Add Trailer and Movie Crew
+* [x] Add TV Show
+* [ ] Booking Ticket Simulation
 * [ ] Pull To Refresh
 * [ ] Full Animation
 * [ ] Infinite Scroll (Pagination)
