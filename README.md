@@ -79,6 +79,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [Codemagic](https://blog.codemagic.io/environments-in-flutter-with-codemagic-cicd/) - Handling DevOps CI/CD for pipeline and automatically build.
 * Handle State - (Loading, No Data, Has Data, No Internet Connection, Request Timeout, Error)
 * [Build Release for Android](https://flutter.dev/docs/deployment/android) - Available on the [Play Store](https://play.google.com/store/apps/details?id=id.rifafauzi.movie)
+* [Youtube Player](https://pub.dev/packages/youtube_player_flutter) - Play Trailer Video.
 
 
 ## Todo
