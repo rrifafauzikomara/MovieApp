@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/dashboard/dashboard_screen.dart';
 import 'package:moviecatalogue/ui/detail/detail_screen.dart';
-import 'package:moviecatalogue/ui/home/about_screen.dart';
+import 'package:moviecatalogue/ui/abou/about_screen.dart';
 import 'package:moviecatalogue/ui/home/discover_screen.dart';
 import 'package:moviecatalogue/ui/movie/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/movie/popular/movie_popular_screen.dart';

@@ -88,8 +88,8 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [x] Add TV Show
 * [ ] Booking Ticket Simulation
 * [ ] Pull To Refresh
-* [ ] Full Animation
 * [ ] Infinite Scroll (Pagination)
+* [ ] Full Animation
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
 * [ ] Unit Testing (Mockito)
 
@@ -135,7 +135,7 @@ flutter run --flavor production --target=lib/ui/launcher/main-prod.dart
 
 
 ## How to run the Test
-### Integration Testing
+### Integration Testing (will be modified, for now it's not working)
 ```console
 flutter drive --target=test_driver/app.dart --flavor development
 ```

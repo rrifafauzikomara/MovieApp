@@ -48,7 +48,7 @@ class _BannerHomeState extends State<BannerHome> {
             items: <Widget>[
               for (var i = 0; i < data; i++)
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(Sizes.dp10(context)),
                   child: GestureDetector(
                     onTap: () {
                       Navigation.intentWithData(
@@ -68,9 +68,11 @@ class _BannerHomeState extends State<BannerHome> {
                       ),
                       footer: Container(
                         color: ColorPalettes.whiteSemiTransparent,
-                        padding: EdgeInsets.all(5.0),
+                        padding: EdgeInsets.all(Sizes.dp5(context)),
                         child: Text(
-                          widget.isFromMovie ? widget.data.results[i].title : widget.data.results[i].tvName,
+                          widget.isFromMovie
+                              ? widget.data.results[i].title
+                              : widget.data.results[i].tvName,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
@@ -97,10 +99,10 @@ class _BannerHomeState extends State<BannerHome> {
       children: [
         for (var i = 0; i < data; i++)
           Container(
-            width: 8.0,
-            height: 8.0,
+            width: Sizes.dp8(context),
+            height: Sizes.dp8(context),
             margin: EdgeInsets.symmetric(
-              vertical: 10.0,
+              vertical: Sizes.dp10(context),
               horizontal: 2.0,
             ),
             decoration: BoxDecoration(
@@ -118,7 +120,7 @@ class _BannerHomeState extends State<BannerHome> {
           child: Text(
             'See all',
             style: TextStyle(
-              fontSize: Sizes.dp14(context),
+              fontSize: Sizes.dp15(context),
               fontWeight: FontWeight.bold,
             ),
           ),

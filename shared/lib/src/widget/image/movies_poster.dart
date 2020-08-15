@@ -5,10 +5,7 @@ import 'package:shared/shared.dart';
 class Poster extends StatelessWidget {
   static const POSTER_RATIO = 0.7;
 
-  Poster(
-    this.posterUrl, {
-    this.height = 100.0,
-  });
+  Poster(this.posterUrl, this.height);
 
   final String posterUrl;
   final double height;
@@ -16,7 +13,6 @@ class Poster extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = POSTER_RATIO * height;
-
     return Material(
       borderRadius: BorderRadius.circular(Sizes.dp4(context)),
       elevation: 2.0,

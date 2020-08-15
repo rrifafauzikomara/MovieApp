@@ -25,7 +25,7 @@ class ShimmerBanner extends StatelessWidget {
                   width: Sizes.width(context) / 3,
                   height: Sizes.dp8(context),
                   margin: EdgeInsets.symmetric(
-                    vertical: 10.0,
+                    vertical: Sizes.dp10(context),
                     horizontal: 2.0,
                   ),
                   color: ColorPalettes.greyBg,

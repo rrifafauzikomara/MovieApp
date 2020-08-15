@@ -25,7 +25,7 @@ class CardMovies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(5),
+      margin: EdgeInsets.all(Sizes.dp5(context)),
       child: InkWell(
         onTap: onTap,
         child: Card(

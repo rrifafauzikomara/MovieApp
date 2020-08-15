@@ -24,7 +24,7 @@ class NoInternetWidget extends StatelessWidget {
         SizedBox(height: Sizes.dp10(context)),
         RaisedButton.icon(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(Sizes.dp10(context)),
           ),
           icon: Icon(Icons.wifi),
           onPressed: onPressed,

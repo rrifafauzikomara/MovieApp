@@ -19,7 +19,11 @@ class ShimmerCrew extends StatelessWidget {
               width: Sizes.width(context) / 4.4,
               decoration: BoxDecoration(
                 color: ColorPalettes.greyBg,
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    Sizes.dp10(context),
+                  ),
+                ),
               ),
             ),
             SizedBox(width: Sizes.dp10(context)),
@@ -28,7 +32,11 @@ class ShimmerCrew extends StatelessWidget {
               width: Sizes.width(context) / 4.4,
               decoration: BoxDecoration(
                 color: ColorPalettes.greyBg,
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    Sizes.dp10(context),
+                  ),
+                ),
               ),
             ),
             SizedBox(width: Sizes.dp10(context)),
@@ -37,7 +45,11 @@ class ShimmerCrew extends StatelessWidget {
               width: Sizes.width(context) / 4.4,
               decoration: BoxDecoration(
                 color: ColorPalettes.greyBg,
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    Sizes.dp10(context),
+                  ),
+                ),
               ),
             ),
             SizedBox(width: Sizes.dp10(context)),
@@ -46,7 +58,11 @@ class ShimmerCrew extends StatelessWidget {
               width: Sizes.width(context) / 4.4,
               decoration: BoxDecoration(
                 color: ColorPalettes.greyBg,
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    Sizes.dp10(context),
+                  ),
+                ),
               ),
             ),
           ],

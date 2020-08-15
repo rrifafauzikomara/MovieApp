@@ -49,7 +49,7 @@ class CardMoviesHeader extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: EdgeInsets.only(bottom: 140.0),
+          padding: EdgeInsets.only(bottom: Sizes.width(context) / 3),
           child: ArcBannerImage(imageBanner),
         ),
         Positioned(
@@ -62,7 +62,7 @@ class CardMoviesHeader extends StatelessWidget {
             children: [
               Poster(
                 imagePoster,
-                height: 180.0,
+                Sizes.width(context) / 2,
               ),
               SizedBox(width: Sizes.dp16(context)),
               Expanded(child: movieInformation),

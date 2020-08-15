@@ -9,7 +9,8 @@ class CardDiscover extends StatelessWidget {
   final List<int> genre;
   final Function onTap;
 
-  const CardDiscover({Key key, this.image, this.title, this.rating, this.genre, this.onTap})
+  const CardDiscover(
+      {Key key, this.image, this.title, this.rating, this.genre, this.onTap})
       : super(key: key);
 
   @override
@@ -19,7 +20,7 @@ class CardDiscover extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         ClipRRect(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(Sizes.dp20(context)),
           child: GestureDetector(
             onTap: onTap,
             child: CachedNetworkImage(
@@ -47,10 +48,7 @@ class CardDiscover extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: genre
-                .take(3)
-                .map(_buildGenreChip)
-                .toList(),
+            children: genre.take(3).map(_buildGenreChip).toList(),
           ),
         ),
         SizedBox(
@@ -85,5 +83,4 @@ class CardDiscover extends StatelessWidget {
       ),
     );
   }
-
 }

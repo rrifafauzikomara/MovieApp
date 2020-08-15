@@ -9,14 +9,14 @@ class CircleProgress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 40,
-      height: 40,
+      width: Sizes.width(context) / 10,
+      height: Sizes.width(context) / 10,
       child: Stack(
         children: <Widget>[
           Center(
             child: Container(
-              width: 40,
-              height: 40,
+              width: Sizes.width(context) / 10,
+              height: Sizes.width(context) / 10,
               decoration: BoxDecoration(
                 color: ColorPalettes.blueGrey,
                 borderRadius: BorderRadius.circular(

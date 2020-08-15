@@ -12,10 +12,10 @@ class CardCrew extends StatelessWidget {
     return Container(
       width: Sizes.width(context) / 4.4,
       child: Card(
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(Sizes.dp10(context))),
         child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(Sizes.dp10(context))),
           child: GridTile(
             child: CachedNetworkImage(
               imageUrl: image.imageOriginal,
@@ -27,7 +27,7 @@ class CardCrew extends StatelessWidget {
             ),
             footer: Container(
               color: ColorPalettes.whiteSemiTransparent,
-              padding: EdgeInsets.all(5.0),
+              padding: EdgeInsets.all(Sizes.dp5(context)),
               child: Text(
                 name,
                 textAlign: TextAlign.center,

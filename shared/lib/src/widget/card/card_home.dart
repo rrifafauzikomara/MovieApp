@@ -19,14 +19,15 @@ class CardHome extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(Sizes.dp10(context))),
           child: Stack(
             children: <Widget>[
               // Image
               Container(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderRadius:
+                      BorderRadius.all(Radius.circular(Sizes.dp10(context))),
                   child: CachedNetworkImage(
                     imageUrl: image.imageOriginal,
                     height: Sizes.width(context) / 1.8,
@@ -43,7 +44,8 @@ class CardHome extends StatelessWidget {
                 height: Sizes.width(context) / 1.8,
                 width: Sizes.width(context) / 2.5,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderRadius:
+                      BorderRadius.all(Radius.circular(Sizes.dp10(context))),
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
@@ -62,9 +64,11 @@ class CardHome extends StatelessWidget {
                 bottom: 0,
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderRadius:
+                        BorderRadius.all(Radius.circular(Sizes.dp10(context))),
                   ),
-                  padding: EdgeInsets.only(left: 6.0, bottom: 5.0),
+                  padding: EdgeInsets.only(
+                      left: Sizes.dp6(context), bottom: Sizes.dp5(context)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -76,7 +80,9 @@ class CardHome extends StatelessWidget {
                         style: TextStyle(
                             fontSize: Sizes.dp14(context),
                             fontWeight: FontWeight.bold,
-                            color: !isDarkTheme ? ColorPalettes.darkBG : ColorPalettes.white),
+                            color: !isDarkTheme
+                                ? ColorPalettes.darkBG
+                                : ColorPalettes.white),
                       ),
                       SizedBox(height: Sizes.dp4(context)),
 
@@ -93,5 +99,4 @@ class CardHome extends StatelessWidget {
       ),
     );
   }
-
 }

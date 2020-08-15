@@ -6,8 +6,7 @@ class CardPortfolio extends StatelessWidget {
   final String title;
   final String url;
 
-  const CardPortfolio(
-      {Key key, this.imageAsset, this.title, this.url})
+  const CardPortfolio({Key key, this.imageAsset, this.title, this.url})
       : super(key: key);
 
   @override

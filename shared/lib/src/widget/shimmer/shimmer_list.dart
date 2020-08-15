@@ -37,8 +37,8 @@ class ShimmerList extends StatelessWidget {
                             children: <Widget>[
                               // circle vote average
                               Container(
-                                height: 40,
-                                width: 40,
+                                height: Sizes.width(context) / 10,
+                                width: Sizes.width(context) / 10,
                                 color: ColorPalettes.greyBg,
                               ),
                               SizedBox(
@@ -75,7 +75,7 @@ class ShimmerList extends StatelessWidget {
                           children: <Widget>[
                             Container(
                               height: Sizes.dp30(context),
-                              width: 60,
+                              width: Sizes.width(context) / 7,
                               color: ColorPalettes.greyBg,
                             ),
                             SizedBox(
@@ -83,7 +83,7 @@ class ShimmerList extends StatelessWidget {
                             ),
                             Container(
                               height: Sizes.dp30(context),
-                              width: 60,
+                              width: Sizes.width(context) / 7,
                               color: ColorPalettes.white,
                             ),
                           ],

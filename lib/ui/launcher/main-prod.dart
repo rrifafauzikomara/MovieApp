@@ -15,7 +15,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var _isDark;
   await ThemeHelper().getTheme().then((value) => _isDark = value);
-  print('Theme is dark ---> $_isDark');
   runApp(
     CustomTheme(
       initialThemeKey: _isDark ? ThemesKeys.DARK : ThemesKeys.LIGHT,

@@ -64,9 +64,10 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
         children: [
           Card(
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
+                borderRadius: BorderRadius.circular(Sizes.dp10(context))),
             child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              borderRadius:
+                  BorderRadius.all(Radius.circular(Sizes.dp10(context))),
               child: YoutubePlayer(
                 controller: _controller,
                 showVideoProgressIndicator: true,

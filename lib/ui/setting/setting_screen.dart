@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moviecatalogue/ui/home/about_screen.dart';
+import 'package:moviecatalogue/ui/abou/about_screen.dart';
 import 'package:package_info/package_info.dart';
 import 'package:shared/shared.dart';
 
@@ -96,7 +96,6 @@ class _SettingScreenState extends State<SettingScreen> {
                             setState(() {
                               _isDark = value;
                               _handleRadioValueChange(_isDark);
-                              print('Theme is dark ---> $_isDark');
                             });
                           },
                         );

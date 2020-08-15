@@ -13,7 +13,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   Future<String> _getVersion() async {
     final PackageInfo info = await PackageInfo.fromPlatform();
     return info.version;
@@ -54,7 +53,8 @@ class _SplashScreenState extends State<SplashScreen> {
               alignment: Alignment.bottomCenter,
               child: FutureBuilder<String>(
                 future: _getVersion(),
-                builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                builder:
+                    (BuildContext context, AsyncSnapshot<String> snapshot) {
                   var verInfo = "";
                   if (snapshot.hasData) {
                     verInfo = "v ${snapshot.data}";

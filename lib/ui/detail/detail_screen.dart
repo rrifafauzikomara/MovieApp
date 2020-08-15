@@ -74,11 +74,11 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   child: _buildCrew(args.movies.id, args.isFromMovie),
                 ),
-                SizedBox(height: 50.0),
+                SizedBox(height: Sizes.width(context) / 8),
               ],
             ),
             Positioned(
-              top: 40.0,
+              top: Sizes.width(context) / 9,
               right: Sizes.dp5(context),
               child: IconButton(
                 iconSize: Sizes.dp30(context),
@@ -100,7 +100,7 @@ class _DetailScreenState extends State<DetailScreen> {
               ),
             ),
             Positioned(
-              top: 40,
+              top: Sizes.width(context) / 9,
               left: Sizes.dp5(context),
               child: IconButton(
                 icon: Platform.isAndroid
