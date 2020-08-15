@@ -22,6 +22,7 @@ class ColorPalettes{
   static Color setActive = Colors.grey[500];
   static Color blueGrey = Colors.blueGrey;
   static Color blueSky = Color(0xff40b7ff);
+  static Color black = Color(0xFF000000);
   static Color black12 = Colors.black12;
   static Color transparent = Color(0x00000000);
 

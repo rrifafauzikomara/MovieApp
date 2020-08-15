@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviecatalogue/ui/home/about_screen.dart';
+import 'package:moviecatalogue/ui/home/discover_screen.dart';
 import 'package:moviecatalogue/ui/home/movie_screen.dart';
 import 'package:moviecatalogue/ui/home/tv_show_screen.dart';
 import 'package:shared/shared.dart';
@@ -84,13 +84,11 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             ],
             child: TvShowScreen(),
           ),
-          AboutScreen(),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: _page == 2 ? ColorPalettes.darkAccent : ColorPalettes.blueSky,
-        onPressed: () => _navigationTapped(2),
+        onPressed: () => Navigation.intent(context, DiscoverScreen.routeName),
         child: Icon(
           Icons.account_circle,
           color: ColorPalettes.white,
@@ -115,12 +113,14 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                color: _page == 0 ? ColorPalettes.darkAccent : ColorPalettes.grey,
+                color:
+                    _page == 0 ? ColorPalettes.darkAccent : ColorPalettes.grey,
                 icon: Icon(Icons.movie_creation),
                 onPressed: () => _navigationTapped(0),
               ),
               IconButton(
-                color: _page == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
+                color:
+                    _page == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
                 icon: Icon(Icons.live_tv),
                 onPressed: () => _navigationTapped(1),
               ),

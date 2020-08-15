@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviecatalogue/ui/home/discover_screen.dart';
 import 'package:moviecatalogue/ui/movie/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/movie/popular/movie_popular_screen.dart';
 import 'package:moviecatalogue/ui/setting/setting_screen.dart';
@@ -26,20 +27,12 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName: (context) => SplashScreen(),
         DashBoardScreen.routeName: (context) =>
             DashBoardScreen(title: Config.title),
-        DetailScreen.routeName: (context) => MultiBlocProvider(
-          providers: [
-            BlocProvider<TrailerBloc>(
-              create: (BuildContext context) =>
-                  TrailerBloc(repository: MovieRepository()),
-            ),
-            BlocProvider<CrewBloc>(
-              create: (BuildContext context) =>
-                  CrewBloc(repository: MovieRepository()),
-            ),
-          ],
-          child: DetailScreen(),
+        DiscoverScreen.routeName: (context) => BlocProvider(
+          create: (context) {
+            return MovieNowPlayingBloc(repository: MovieRepository());
+          },
+          child: DiscoverScreen(),
         ),
-        SettingScreen.routeName: (context) => SettingScreen(),
         NowPlayingScreen.routeName: (context) => BlocProvider(
               create: (context) {
                 return MovieNowPlayingBloc(repository: MovieRepository());
@@ -76,6 +69,20 @@ class MyApp extends StatelessWidget {
               },
               child: TvPopularScreen(),
             ),
+        DetailScreen.routeName: (context) => MultiBlocProvider(
+          providers: [
+            BlocProvider<TrailerBloc>(
+              create: (BuildContext context) =>
+                  TrailerBloc(repository: MovieRepository()),
+            ),
+            BlocProvider<CrewBloc>(
+              create: (BuildContext context) =>
+                  CrewBloc(repository: MovieRepository()),
+            ),
+          ],
+          child: DetailScreen(),
+        ),
+        SettingScreen.routeName: (context) => SettingScreen(),
       },
     );
   }
