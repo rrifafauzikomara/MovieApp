@@ -25,13 +25,13 @@
 
 ## 📸 Example iOS
 <pre>
-<img src="screenshot/ios1.png" width="200">     <img src="screenshot/ios2.png" width="200">     <img src="screenshot/ios3.png" width="200">     <img src="screenshot/ios4.png" width="200">     <img src="screenshot/ios5.png" width="200">     <img src="screenshot/ios6.png" width="200">     <img src="screenshot/ios7.png" width="200">     <img src="screenshot/ios8.png" width="200">     <img src="screenshot/ios9.png" width="200">
+<img src="screenshot/ios1.png" width="30%">     <img src="screenshot/ios2.png" width="30%">     <img src="screenshot/ios3.png" width="30%">     <img src="screenshot/ios4.png" width="30%">     <img src="screenshot/ios5.png" width="30%">     <img src="screenshot/ios6.png" width="30%">     <img src="screenshot/ios7.png" width="30%">     <img src="screenshot/ios8.png" width="30%">     <img src="screenshot/ios9.png" width="30%">
 </pre>
 
 
 ## 📸 Example Android
 <pre>
-<img src="screenshot/android1.png" width="200">     <img src="screenshot/android2.png" width="200">     <img src="screenshot/android3.png" width="200">     <img src="screenshot/android4.png" width="200">     <img src="screenshot/android5.png" width="200">     <img src="screenshot/android6.png" width="200">     <img src="screenshot/android7.png" width="200">     <img src="screenshot/android8.png" width="200">     <img src="screenshot/android9.png" width="200">
+<img src="screenshot/android1.png" width="30%">     <img src="screenshot/android2.png" width="30%">     <img src="screenshot/android3.png" width="30%">     <img src="screenshot/android4.png" width="30%">     <img src="screenshot/android5.png" width="30%">     <img src="screenshot/android6.png" width="30%">     <img src="screenshot/android7.png" width="30%">     <img src="screenshot/android8.png" width="30%">     <img src="screenshot/android9.png" width="30%">
 </pre>
 
 
