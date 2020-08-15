@@ -87,6 +87,16 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           AboutScreen(),
         ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: _page == 2 ? ColorPalettes.darkAccent : ColorPalettes.blueSky,
+        onPressed: () => _navigationTapped(2),
+        child: Icon(
+          Icons.account_circle,
+          color: ColorPalettes.white,
+          key: Key(KEY_BOTTOM_NAVIGATION_ABOUT),
+        ),
+      ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           // sets the background color of the `BottomNavigationBar`
@@ -97,32 +107,25 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 caption: TextStyle(color: ColorPalettes.setActive),
               ),
         ),
-        child: BottomNavigationBar(
+        child: BottomAppBar(
           key: Key(KEY_BOTTOM_NAVIGATION),
-          type: BottomNavigationBarType.fixed,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.movie_creation,
+          shape: CircularNotchedRectangle(),
+          notchMargin: Sizes.dp8(context),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                color: _page == 0 ? ColorPalettes.darkAccent : ColorPalettes.grey,
+                icon: Icon(Icons.movie_creation),
+                onPressed: () => _navigationTapped(0),
               ),
-              title: Container(height: 0),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.live_tv,
+              IconButton(
+                color: _page == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
+                icon: Icon(Icons.live_tv),
+                onPressed: () => _navigationTapped(1),
               ),
-              title: Container(height: 0),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.account_circle,
-                key: Key(KEY_BOTTOM_NAVIGATION_ABOUT),
-              ),
-              title: Container(height: 0),
-            ),
-          ],
-          onTap: _navigationTapped,
-          currentIndex: _page,
+            ],
+          ),
         ),
       ),
     );

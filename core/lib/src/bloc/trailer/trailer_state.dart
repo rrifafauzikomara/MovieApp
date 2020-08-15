@@ -21,7 +21,14 @@ class TrailerHasData extends TrailerState {
   List<Object> get props => [trailer];
 }
 
-class TrailerNoData extends TrailerState {}
+class TrailerNoData extends TrailerState {
+  final String message;
+
+  const TrailerNoData(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
 
 class TrailerNoInternetConnection extends TrailerState {}
 

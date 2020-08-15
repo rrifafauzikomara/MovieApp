@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared/shared.dart';
 
 class MovieUpComingBloc extends Bloc<MovieUpComingEvent, MovieUpComingState> {
   final Repository repository;
@@ -20,7 +21,7 @@ class MovieUpComingBloc extends Bloc<MovieUpComingEvent, MovieUpComingState> {
       var movies = await repository.getMovieUpComing(
           ApiConstant.apiKey, ApiConstant.language);
       if (movies.results.isEmpty) {
-        yield MovieUpComingNoData();
+        yield MovieUpComingNoData(AppConstant.noData);
       } else {
         yield MovieUpComingHasData(movies);
       }

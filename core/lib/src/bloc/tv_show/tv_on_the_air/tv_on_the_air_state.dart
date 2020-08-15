@@ -21,7 +21,14 @@ class TvOnTheAirHasData extends TvOnTheAirState {
   List<Object> get props => [result];
 }
 
-class TvOnTheAirNoData extends TvOnTheAirState {}
+class TvOnTheAirNoData extends TvOnTheAirState {
+  final String message;
+
+  const TvOnTheAirNoData(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
 
 class TvOnTheAirNoInternetConnection extends TvOnTheAirState {}
 

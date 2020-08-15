@@ -58,7 +58,7 @@ class _MoviePopularScreenState extends State<MoviePopularScreen> {
           } else if (state is MoviePopularError) {
             return CustomErrorWidget(message: state.errorMessage);
           } else if (state is MoviePopularNoData) {
-            return CustomErrorWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: state.message);
           } else if (state is MoviePopularNoInternetConnection) {
             return NoInternetWidget(
               message: AppConstant.noInternetConnection,

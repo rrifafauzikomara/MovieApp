@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:shared/shared.dart';
 
 class TrailerBloc extends Bloc<TrailerEvent, TrailerState> {
   final Repository repository;
@@ -24,7 +25,7 @@ class TrailerBloc extends Bloc<TrailerEvent, TrailerState> {
       var movies = await repository.getMovieTrailer(
           movieId, ApiConstant.apiKey, ApiConstant.language);
       if (movies.trailer.isEmpty) {
-        yield TrailerNoData();
+        yield TrailerNoData(AppConstant.noTrailer);
       } else {
         yield TrailerHasData(movies);
       }
@@ -46,7 +47,7 @@ class TrailerBloc extends Bloc<TrailerEvent, TrailerState> {
       var tvShow = await repository.getTvShowTrailer(
           movieId, ApiConstant.apiKey, ApiConstant.language);
       if (tvShow.trailer.isEmpty) {
-        yield TrailerNoData();
+        yield TrailerNoData(AppConstant.noTrailer);
       } else {
         yield TrailerHasData(tvShow);
       }

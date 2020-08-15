@@ -100,7 +100,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
         } else if (state is TvOnTheAirError) {
           return CustomErrorWidget(message: state.errorMessage);
         } else if (state is TvOnTheAirNoData) {
-          return CustomErrorWidget(message: AppConstant.noData);
+          return CustomErrorWidget(message: state.message);
         } else if (state is TvOnTheAirNoInternetConnection) {
           return NoInternetWidget(
             message: AppConstant.noInternetConnection,
@@ -178,7 +178,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
               } else if (state is TvAiringTodayError) {
                 return CustomErrorWidget(message: state.errorMessage);
               } else if (state is TvAiringTodayNoData) {
-                return CustomErrorWidget(message: AppConstant.noData);
+                return CustomErrorWidget(message: state.message);
               } else if (state is TvAiringTodayNoInternetConnection) {
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
@@ -259,7 +259,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
               } else if (state is TvPopularError) {
                 return CustomErrorWidget(message: state.errorMessage);
               } else if (state is TvPopularNoData) {
-                return CustomErrorWidget(message: AppConstant.noData);
+                return CustomErrorWidget(message: state.message);
               } else if (state is TvPopularNoInternetConnection) {
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,

@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:shared/shared.dart';
 
 class CrewBloc extends Bloc<CrewEvent, CrewState> {
   final Repository repository;
@@ -24,7 +25,7 @@ class CrewBloc extends Bloc<CrewEvent, CrewState> {
       var movies = await repository.getMovieCrew(
           movieId, ApiConstant.apiKey, ApiConstant.language);
       if (movies.crew.isEmpty) {
-        yield CrewNoData();
+        yield CrewNoData(AppConstant.noCrew);
       } else {
         yield CrewHasData(movies);
       }
@@ -46,7 +47,7 @@ class CrewBloc extends Bloc<CrewEvent, CrewState> {
       var tvShow = await repository.getTvShowCrew(
           tvId, ApiConstant.apiKey, ApiConstant.language);
       if (tvShow.crew.isEmpty) {
-        yield CrewNoData();
+        yield CrewNoData(AppConstant.noCrew);
       } else {
         yield CrewHasData(tvShow);
       }

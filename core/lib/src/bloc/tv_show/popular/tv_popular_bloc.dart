@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:shared/shared.dart';
 
 class TvPopularBloc extends Bloc<TvPopularEvent, TvPopularState> {
   final Repository repository;
@@ -20,7 +21,7 @@ class TvPopularBloc extends Bloc<TvPopularEvent, TvPopularState> {
       var movies = await repository.getTvPopular(
           ApiConstant.apiKey, ApiConstant.language);
       if (movies.results.isEmpty) {
-        yield TvPopularNoData();
+        yield TvPopularNoData(AppConstant.noData);
       } else {
         yield TvPopularHasData(movies);
       }

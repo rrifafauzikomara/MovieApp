@@ -100,7 +100,7 @@ class _MovieScreenState extends State<MovieScreen> {
         } else if (state is MovieNowPlayingError) {
           return CustomErrorWidget(message: state.errorMessage);
         } else if (state is MovieNowPlayingNoData) {
-          return CustomErrorWidget(message: AppConstant.noData);
+          return CustomErrorWidget(message: state.message);
         } else if (state is MovieNowPlayingNoInternetConnection) {
           return NoInternetWidget(
             message: AppConstant.noInternetConnection,
@@ -178,7 +178,7 @@ class _MovieScreenState extends State<MovieScreen> {
               } else if (state is MovieUpComingError) {
                 return CustomErrorWidget(message: state.errorMessage);
               } else if (state is MovieUpComingNoData) {
-                return CustomErrorWidget(message: AppConstant.noData);
+                return CustomErrorWidget(message: state.message);
               } else if (state is MovieUpComingNoInternetConnection) {
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
@@ -259,7 +259,7 @@ class _MovieScreenState extends State<MovieScreen> {
               } else if (state is MoviePopularError) {
                 return CustomErrorWidget(message: state.errorMessage);
               } else if (state is MoviePopularNoData) {
-                return CustomErrorWidget(message: AppConstant.noData);
+                return CustomErrorWidget(message: state.message);
               } else if (state is MoviePopularNoInternetConnection) {
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,

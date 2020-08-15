@@ -21,7 +21,14 @@ class TvPopularHasData extends TvPopularState {
   List<Object> get props => [result];
 }
 
-class TvPopularNoData extends TvPopularState {}
+class TvPopularNoData extends TvPopularState {
+  final String message;
+
+  const TvPopularNoData(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
 
 class TvPopularNoInternetConnection extends TvPopularState {}
 

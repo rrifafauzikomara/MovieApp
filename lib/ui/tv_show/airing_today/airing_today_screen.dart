@@ -57,7 +57,7 @@ class _AiringTodayScreenState extends State<AiringTodayScreen> {
           } else if (state is TvAiringTodayError) {
             return CustomErrorWidget(message: state.errorMessage);
           } else if (state is TvAiringTodayNoData) {
-            return CustomErrorWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: state.message);
           } else if (state is TvAiringTodayNoInternetConnection) {
             return NoInternetWidget(
               message: AppConstant.noInternetConnection,

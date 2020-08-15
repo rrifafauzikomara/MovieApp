@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:shared/shared.dart';
 
 class MovieNowPlayingBloc extends Bloc<MovieNowPlayingEvent, MovieNowPlayingState> {
   final Repository repository;
@@ -20,7 +21,7 @@ class MovieNowPlayingBloc extends Bloc<MovieNowPlayingEvent, MovieNowPlayingStat
       var movies = await repository.getMovieNowPlaying(
           ApiConstant.apiKey, ApiConstant.language);
       if (movies.results.isEmpty) {
-        yield MovieNowPlayingNoData();
+        yield MovieNowPlayingNoData(AppConstant.noData);
       } else {
         yield MovieNowPlayingHasData(movies);
       }

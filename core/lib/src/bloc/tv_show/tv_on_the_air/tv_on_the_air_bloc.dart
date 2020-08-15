@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:shared/shared.dart';
 
 class TvOnTheAirBloc extends Bloc<TvOnTheAirEvent, TvOnTheAirState> {
   final Repository repository;
@@ -20,7 +21,7 @@ class TvOnTheAirBloc extends Bloc<TvOnTheAirEvent, TvOnTheAirState> {
       var movies = await repository.getTvOnTheAir(
           ApiConstant.apiKey, ApiConstant.language);
       if (movies.results.isEmpty) {
-        yield TvOnTheAirNoData();
+        yield TvOnTheAirNoData(AppConstant.noData);
       } else {
         yield TvOnTheAirHasData(movies);
       }

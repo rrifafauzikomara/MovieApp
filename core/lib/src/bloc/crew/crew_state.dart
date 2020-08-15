@@ -21,17 +21,22 @@ class CrewHasData extends CrewState {
   List<Object> get props => [crew];
 }
 
-class CrewNoData extends CrewState {}
+class CrewNoData extends CrewState {
+  final String message;
+
+  const CrewNoData(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
 
 class CrewNoInternetConnection extends CrewState {}
 
 class CrewError extends CrewState {
-
   final String errorMessage;
 
   const CrewError(this.errorMessage);
 
   @override
   List<Object> get props => [errorMessage];
-
 }

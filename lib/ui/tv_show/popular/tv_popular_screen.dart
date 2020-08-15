@@ -57,7 +57,7 @@ class _TvPopularScreenState extends State<TvPopularScreen> {
           } else if (state is TvPopularError) {
             return CustomErrorWidget(message: state.errorMessage);
           } else if (state is TvPopularNoData) {
-            return CustomErrorWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: state.message);
           } else if (state is TvPopularNoInternetConnection) {
             return NoInternetWidget(
               message: AppConstant.noInternetConnection,

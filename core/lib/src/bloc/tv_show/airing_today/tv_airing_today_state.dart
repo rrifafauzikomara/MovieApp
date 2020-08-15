@@ -21,7 +21,14 @@ class TvAiringTodayHasData extends TvAiringTodayState {
   List<Object> get props => [result];
 }
 
-class TvAiringTodayNoData extends TvAiringTodayState {}
+class TvAiringTodayNoData extends TvAiringTodayState {
+  final String message;
+
+  const TvAiringTodayNoData(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
 
 class TvAiringTodayNoInternetConnection extends TvAiringTodayState {}
 

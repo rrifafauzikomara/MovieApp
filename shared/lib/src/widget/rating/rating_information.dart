@@ -55,7 +55,7 @@ class RatingInformation extends StatelessWidget {
 Widget buildRatingBar(ThemeData theme, BuildContext context, double rating) {
   var stars = <Widget>[];
   for (var i = 1; i <= 5; i++) {
-    var color = i <= rating/2 ? theme.accentColor : ColorPalettes.black12;
+    var color = i <= rating/2 ? theme.accentColor : ColorPalettes.grey;
     var star = Icon(
       Icons.star,
       color: color,

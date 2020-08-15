@@ -58,7 +58,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
           } else if (state is MovieUpComingError) {
             return CustomErrorWidget(message: state.errorMessage);
           } else if (state is MovieUpComingNoData) {
-            return CustomErrorWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: state.message);
           } else if (state is MovieUpComingNoInternetConnection) {
             return NoInternetWidget(
               message: AppConstant.noInternetConnection,

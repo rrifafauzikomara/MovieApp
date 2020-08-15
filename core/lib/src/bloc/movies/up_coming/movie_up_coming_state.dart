@@ -21,7 +21,14 @@ class MovieUpComingHasData extends MovieUpComingState {
   List<Object> get props => [result];
 }
 
-class MovieUpComingNoData extends MovieUpComingState {}
+class MovieUpComingNoData extends MovieUpComingState {
+  final String message;
+
+  const MovieUpComingNoData(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
 
 class MovieUpComingNoInternetConnection extends MovieUpComingState {}
 

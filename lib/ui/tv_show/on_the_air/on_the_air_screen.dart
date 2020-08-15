@@ -57,7 +57,7 @@ class _OnTheAirScreenState extends State<OnTheAirScreen> {
           } else if (state is TvOnTheAirError) {
             return CustomErrorWidget(message: state.errorMessage);
           } else if (state is TvOnTheAirNoData) {
-            return CustomErrorWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: state.message);
           } else if (state is TvOnTheAirNoInternetConnection) {
             return NoInternetWidget(
               message: AppConstant.noInternetConnection,

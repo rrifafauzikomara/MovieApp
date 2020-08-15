@@ -3,7 +3,9 @@ class AppConstant {
   static String appName = "Movie App";
   static String appNameDev = "Movie Development";
   static String noInternetConnection = "No Internet Connection";
-  static String noData = "Movies Not Found";
+  static String noData = "Movies / Tv Show Not Found";
+  static String noTrailer = "Trailer Not Found for this Movie / Tv Show";
+  static String noCrew = "Crew Not Found for this Movie / Tv Show";
 
   static const MOVIE_NOW_PLAYING = "/movie_now_playing";
   static const MOVIE_UP_COMING = "/movie_up_coming";

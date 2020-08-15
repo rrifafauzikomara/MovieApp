@@ -58,7 +58,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
           } else if (state is MovieNowPlayingError) {
             return CustomErrorWidget(message: state.errorMessage);
           } else if (state is MovieNowPlayingNoData) {
-            return CustomErrorWidget(message: AppConstant.noData);
+            return CustomErrorWidget(message: state.message);
           } else if (state is MovieNowPlayingNoInternetConnection) {
             return NoInternetWidget(
               message: AppConstant.noInternetConnection,

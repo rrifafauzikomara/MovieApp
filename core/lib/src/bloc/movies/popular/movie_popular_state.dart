@@ -21,7 +21,14 @@ class MoviePopularHasData extends MoviePopularState {
   List<Object> get props => [result];
 }
 
-class MoviePopularNoData extends MoviePopularState {}
+class MoviePopularNoData extends MoviePopularState {
+  final String message;
+
+  const MoviePopularNoData(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
 
 class MoviePopularNoInternetConnection extends MoviePopularState {}
 

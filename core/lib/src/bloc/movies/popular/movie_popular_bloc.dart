@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:shared/shared.dart';
 
 class MoviePopularBloc extends Bloc<MoviePopularEvent, MoviePopularState> {
   final Repository repository;
@@ -20,7 +21,7 @@ class MoviePopularBloc extends Bloc<MoviePopularEvent, MoviePopularState> {
       var movies = await repository.getMoviePopular(
           ApiConstant.apiKey, ApiConstant.language);
       if (movies.results.isEmpty) {
-        yield MoviePopularNoData();
+        yield MoviePopularNoData(AppConstant.noData);
       } else {
         yield MoviePopularHasData(movies);
       }

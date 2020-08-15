@@ -6,8 +6,11 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 class CardTrailer extends StatefulWidget {
   final String title, youtube;
   final VoidCallback onExitFullScreen;
+  final int length;
 
-  const CardTrailer({Key key, this.title, this.youtube, this.onExitFullScreen}) : super(key: key);
+  const CardTrailer(
+      {Key key, this.title, this.youtube, this.onExitFullScreen, this.length})
+      : super(key: key);
 
   @override
   _CardTrailerState createState() => _CardTrailerState();
@@ -67,7 +70,7 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
               child: YoutubePlayer(
                 controller: _controller,
                 showVideoProgressIndicator: true,
-                progressIndicatorColor: Colors.blueAccent,
+                progressIndicatorColor: ColorPalettes.darkAccent,
                 topActions: <Widget>[
                   SizedBox(width: Sizes.dp8(context)),
                   Expanded(
@@ -85,21 +88,27 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
               ),
             ),
           ),
-          SizedBox(
-            height: Sizes.dp10(context),
+          Visibility(
+            visible: widget.length > 1 ? true : false,
+            child: SizedBox(
+              height: Sizes.dp10(context),
+            ),
           ),
-          Container(
-            height: Sizes.dp30(context),
-            width: Sizes.width(context),
-            color: ColorPalettes.lightAccent,
-            child: Center(
-              child: Text(
-                'You must swipe here!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: ColorPalettes.white,
-                  fontWeight: FontWeight.w600,
-                  fontSize: Sizes.dp16(context),
+          Visibility(
+            visible: widget.length > 1 ? true : false,
+            child: Container(
+              height: Sizes.dp30(context),
+              width: Sizes.width(context),
+              color: ColorPalettes.lightAccent,
+              child: Center(
+                child: Text(
+                  'You must swipe here!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: ColorPalettes.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: Sizes.dp16(context),
+                  ),
                 ),
               ),
             ),

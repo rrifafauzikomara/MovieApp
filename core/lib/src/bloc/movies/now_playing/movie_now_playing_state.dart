@@ -21,17 +21,22 @@ class MovieNowPlayingHasData extends MovieNowPlayingState {
   List<Object> get props => [result];
 }
 
-class MovieNowPlayingNoData extends MovieNowPlayingState {}
+class MovieNowPlayingNoData extends MovieNowPlayingState {
+  final String message;
+
+  const MovieNowPlayingNoData(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
 
 class MovieNowPlayingNoInternetConnection extends MovieNowPlayingState {}
 
 class MovieNowPlayingError extends MovieNowPlayingState {
-
   final String errorMessage;
 
   const MovieNowPlayingError(this.errorMessage);
 
   @override
   List<Object> get props => [errorMessage];
-
 }
