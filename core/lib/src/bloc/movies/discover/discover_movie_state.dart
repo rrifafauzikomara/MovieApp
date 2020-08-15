@@ -1,5 +1,5 @@
-import 'package:equatable/equatable.dart';
 import 'package:core/core.dart';
+import 'package:equatable/equatable.dart';
 
 abstract class DiscoverMovieState extends Equatable {
   const DiscoverMovieState();

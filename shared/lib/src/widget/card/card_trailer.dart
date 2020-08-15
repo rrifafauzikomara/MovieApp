@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shared/shared.dart';
 import 'package:flutter/services.dart';
+import 'package:shared/shared.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class CardTrailer extends StatefulWidget {

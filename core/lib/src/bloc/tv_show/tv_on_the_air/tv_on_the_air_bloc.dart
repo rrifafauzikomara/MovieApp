@@ -1,7 +1,8 @@
 import 'package:core/core.dart';
-export 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:shared/shared.dart';
+
+export 'package:flutter_bloc/flutter_bloc.dart';
 
 class TvOnTheAirBloc extends Bloc<TvOnTheAirEvent, TvOnTheAirState> {
   final Repository repository;

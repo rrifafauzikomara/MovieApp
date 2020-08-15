@@ -1,8 +1,8 @@
 import 'package:core/core.dart';
-import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_screen.dart';
+import 'package:shared/shared.dart';
 
 class MoviePopularScreen extends StatefulWidget {
   static const routeName = '/movie_popular';

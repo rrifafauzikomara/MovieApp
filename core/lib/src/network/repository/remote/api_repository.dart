@@ -1,5 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:core/core.dart';
+import 'package:dio/dio.dart';
 
 class ApiRepository implements Repository {
   Dio _dio;

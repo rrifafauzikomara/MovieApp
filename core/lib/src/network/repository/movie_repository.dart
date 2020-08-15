@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:core/core.dart';
+import 'package:flutter/cupertino.dart';
 
 class MovieRepository implements Repository {
   final ApiRepository apiRepository;

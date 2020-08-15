@@ -1,19 +1,20 @@
 import 'package:core/core.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviecatalogue/ui/dashboard/dashboard_screen.dart';
+import 'package:moviecatalogue/ui/detail/detail_screen.dart';
 import 'package:moviecatalogue/ui/home/about_screen.dart';
 import 'package:moviecatalogue/ui/home/discover_screen.dart';
 import 'package:moviecatalogue/ui/movie/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/movie/popular/movie_popular_screen.dart';
-import 'package:moviecatalogue/ui/setting/setting_screen.dart';
 import 'package:moviecatalogue/ui/movie/up_coming/up_coming_screen.dart';
+import 'package:moviecatalogue/ui/setting/setting_screen.dart';
 import 'package:moviecatalogue/ui/splash/splash_screen.dart';
 import 'package:moviecatalogue/ui/tv_show/airing_today/airing_today_screen.dart';
 import 'package:moviecatalogue/ui/tv_show/on_the_air/on_the_air_screen.dart';
 import 'package:moviecatalogue/ui/tv_show/popular/tv_popular_screen.dart';
 import 'package:shared/shared.dart';
-import 'package:flutter/material.dart';
-import 'package:moviecatalogue/ui/dashboard/dashboard_screen.dart';
-import 'package:moviecatalogue/ui/detail/detail_screen.dart';
+
 import 'app_config.dart';
 
 class MyApp extends StatelessWidget {

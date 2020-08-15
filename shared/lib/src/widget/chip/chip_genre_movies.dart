@@ -1,6 +1,6 @@
 import 'package:core/core.dart';
-import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
+import 'package:shared/shared.dart';
 
 Widget buildGenreChip(int id) {
   return Container(

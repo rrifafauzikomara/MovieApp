@@ -1,12 +1,12 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_screen.dart';
+import 'package:moviecatalogue/ui/menu/menu.dart';
 import 'package:moviecatalogue/ui/tv_show/airing_today/airing_today_screen.dart';
 import 'package:moviecatalogue/ui/tv_show/on_the_air/on_the_air_screen.dart';
 import 'package:moviecatalogue/ui/tv_show/popular/tv_popular_screen.dart';
 import 'package:shared/shared.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:core/core.dart';
-import 'package:moviecatalogue/ui/menu/menu.dart';
 
 class TvShowScreen extends StatefulWidget {
   @override

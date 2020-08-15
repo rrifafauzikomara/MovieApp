@@ -2,11 +2,11 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_screen.dart';
+import 'package:moviecatalogue/ui/menu/menu.dart';
 import 'package:moviecatalogue/ui/movie/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/movie/popular/movie_popular_screen.dart';
 import 'package:moviecatalogue/ui/movie/up_coming/up_coming_screen.dart';
 import 'package:shared/shared.dart';
-import 'package:moviecatalogue/ui/menu/menu.dart';
 
 class MovieScreen extends StatefulWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:core/core.dart';
-import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart' hide Headers;
+import 'package:retrofit/retrofit.dart';
 
 part 'rest_client.g.dart';
 
