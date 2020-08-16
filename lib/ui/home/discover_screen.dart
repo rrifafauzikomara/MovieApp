@@ -35,7 +35,6 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
           if (state is DiscoverMovieHasData) {
             return PageView.builder(
               physics: ClampingScrollPhysics(),
-              reverse: true,
               itemCount: state.result.results.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {

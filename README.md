@@ -15,12 +15,12 @@
 
 ## Features
 *  Switch Theme (Dark and Light Mode) by App 🔥
-*  Now Playing Movies
-*  Up Coming Movies
-*  Popular Movies
-*  Top Rated Movies
-*  Detail Movies
+*  Movies
+*  Tv Show
+*  Discover
+*  Detail Movies & Tv Show (Trailer and Crew)
 *  Favorite (ala style 😜)
+*  [Booking Ticket Simulation](https://github.com/triannoviandi/movie-ticketing-app) (I modified from the original code 😁)
 
 
 ## 📸 Example iOS
@@ -84,12 +84,10 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 
 ## Todo
 * [x] Redesign of UI
-* [x] Add Trailer and Movie Crew
-* [x] Add TV Show
-* [x] [Booking Ticket Simulation](https://github.com/triannoviandi/movie-ticketing-app) (I modified from the original code 😁)
 * [ ] Pull To Refresh
 * [ ] Infinite Scroll (Pagination)
 * [ ] Full Animation
+* [ ] Play Trailer with Full Screen
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
 * [ ] Unit Testing (Mockito)
 
