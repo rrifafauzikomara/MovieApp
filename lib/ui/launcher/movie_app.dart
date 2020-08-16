@@ -1,9 +1,10 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moviecatalogue/ui/booking/booking_screen.dart';
 import 'package:moviecatalogue/ui/dashboard/dashboard_screen.dart';
 import 'package:moviecatalogue/ui/detail/detail_screen.dart';
-import 'package:moviecatalogue/ui/abou/about_screen.dart';
+import 'package:moviecatalogue/ui/about/about_screen.dart';
 import 'package:moviecatalogue/ui/home/discover_screen.dart';
 import 'package:moviecatalogue/ui/movie/now_playing/now_playing_screen.dart';
 import 'package:moviecatalogue/ui/movie/popular/movie_popular_screen.dart';
@@ -86,6 +87,7 @@ class MyApp extends StatelessWidget {
             ),
         SettingScreen.routeName: (context) => SettingScreen(),
         AboutScreen.routeName: (context) => AboutScreen(),
+        BookingScreen.routeName: (context) => BookingScreen(),
       },
     );
   }

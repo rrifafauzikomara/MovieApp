@@ -11,8 +11,12 @@ class Navigation {
     Navigator.pushNamed(context, nameRouted);
   }
 
-  static splashScreen(BuildContext context, String nameRouted) {
+  static intentWithoutBack(BuildContext context, String nameRouted) {
     Navigator.pushReplacementNamed(context, nameRouted);
+  }
+
+  static intentWithClearAllRoutes(BuildContext context, String nameRouted) {
+    Navigator.of(context).pushNamedAndRemoveUntil(nameRouted, (Route<dynamic> route) => false);
   }
 
   static intentWithData(BuildContext context, String nameRouted, Object argumentClass) {

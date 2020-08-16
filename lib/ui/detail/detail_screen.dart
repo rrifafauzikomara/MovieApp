@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:moviecatalogue/ui/booking/booking_screen.dart';
 import 'package:shared/shared.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -25,92 +26,109 @@ class _DetailScreenState extends State<DetailScreen> {
     var theme = Theme.of(context);
     return Scaffold(
       key: scaffoldKey,
-      body: SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
-        child: Stack(
-          children: <Widget>[
-            Column(
-              children: [
-                CardMoviesHeader(
-                  title: args.movies.title == null
-                      ? args.movies.tvName
-                      : args.movies.title,
-                  imageBanner: args.movies.backdropPath.imageOriginal,
-                  imagePoster: args.movies.posterPath.imageOriginal,
-                  rating: args.movies.voteAverage,
-                  genre:
-                      args.movies.genreIds.take(3).map(buildGenreChip).toList(),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(Sizes.dp20(context)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Story line',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: Sizes.dp16(context),
-                        ),
-                      ),
-                      SizedBox(height: Sizes.dp8(context)),
-                      Text(
-                        args.movies.overview,
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: Sizes.dp20(context),
-                    right: Sizes.dp20(context),
-                  ),
-                  child: _buildYoutube(args.movies.id, args.isFromMovie),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: Sizes.dp20(context),
-                    right: Sizes.dp20(context),
-                  ),
-                  child: _buildCrew(args.movies.id, args.isFromMovie),
-                ),
-                SizedBox(height: Sizes.width(context) / 8),
-              ],
-            ),
-            Positioned(
-              top: Sizes.width(context) / 9,
-              right: Sizes.dp5(context),
-              child: IconButton(
-                iconSize: Sizes.dp30(context),
-                color: theme.accentColor,
-                icon: Icon(Icons.favorite_border),
-                onPressed: () {
-                  PopUp.showSnackBar(
-                    Text(
-                      "Add to Favorite",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: Sizes.dp16(context),
-                        color: ColorPalettes.white,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            physics: ClampingScrollPhysics(),
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Column(
+                  children: [
+                    CardMoviesHeader(
+                      title: args.movies.title == null
+                          ? args.movies.tvName
+                          : args.movies.title,
+                      imageBanner: args.movies.backdropPath.imageOriginal,
+                      imagePoster: args.movies.posterPath.imageOriginal,
+                      rating: args.movies.voteAverage,
+                      genre: args.movies.genreIds
+                          .take(3)
+                          .map(buildGenreChip)
+                          .toList(),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(Sizes.dp20(context)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Story line',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: Sizes.dp16(context),
+                            ),
+                          ),
+                          SizedBox(height: Sizes.dp8(context)),
+                          Text(
+                            args.movies.overview,
+                          ),
+                        ],
                       ),
                     ),
-                    key: scaffoldKey,
-                  );
-                },
-              ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: Sizes.dp20(context),
+                        right: Sizes.dp20(context),
+                      ),
+                      child: _buildYoutube(args.movies.id, args.isFromMovie),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: Sizes.dp20(context),
+                        right: Sizes.dp20(context),
+                      ),
+                      child: _buildCrew(args.movies.id, args.isFromMovie),
+                    ),
+                    SizedBox(height: Sizes.width(context) / 4),
+                  ],
+                ),
+                Positioned(
+                  top: Sizes.width(context) / 9,
+                  right: Sizes.dp5(context),
+                  child: IconButton(
+                    iconSize: Sizes.dp30(context),
+                    color: theme.accentColor,
+                    icon: Icon(Icons.favorite_border),
+                    onPressed: () {
+                      PopUp.showSnackBar(
+                        Text(
+                          "Add to Favorite",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: Sizes.dp16(context),
+                            color: ColorPalettes.white,
+                          ),
+                        ),
+                        key: scaffoldKey,
+                      );
+                    },
+                  ),
+                ),
+                Positioned(
+                  top: Sizes.width(context) / 9,
+                  left: Sizes.dp5(context),
+                  child: IconButton(
+                    icon: Platform.isAndroid
+                        ? Icon(Icons.arrow_back)
+                        : Icon(Icons.arrow_back_ios),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ),
+              ],
             ),
-            Positioned(
-              top: Sizes.width(context) / 9,
-              left: Sizes.dp5(context),
-              child: IconButton(
-                icon: Platform.isAndroid
-                    ? Icon(Icons.arrow_back)
-                    : Icon(Icons.arrow_back_ios),
-                onPressed: () => Navigator.pop(context),
-              ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: CustomButton(
+              text: "Booking Ticket",
+              onPressed: () {
+                Navigation.intentWithData(context, BookingScreen.routeName,
+                    ScreenArguments(args.movies, true));
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

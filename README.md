@@ -25,13 +25,13 @@
 
 ## 📸 Example iOS
 <pre>
-<img src="screenshot/ios1.png" width="28.5%">     <img src="screenshot/ios2.png" width="30%">     <img src="screenshot/ios3.png" width="28.5%">     <img src="screenshot/ios4.png" width="30%">     <img src="screenshot/ios5.png" width="30%">     <img src="screenshot/ios6.png" width="30%">     <img src="screenshot/ios7.png" width="30%">     <img src="screenshot/ios8.png" width="30%">     <img src="screenshot/ios9.png" width="30%">
+<img src="screenshot/ios1.png" width="28.5%">     <img src="screenshot/ios2.png" width="30%">     <img src="screenshot/ios3.png" width="28.5%">     <img src="screenshot/ios4.png" width="30%">     <img src="screenshot/ios5.png" width="30%">     <img src="screenshot/ios6.png" width="30%">     <img src="screenshot/ios7.png" width="30%">     <img src="screenshot/ios8.png" width="30%">     <img src="screenshot/ios9.png" width="30%">     <img src="screenshot/ios10.png" width="30%">     <img src="screenshot/ios11.png" width="30%">
 </pre>
 
 
 ## 📸 Example Android
 <pre>
-<img src="screenshot/android1.png" width="30%">     <img src="screenshot/android2.png" width="30%">     <img src="screenshot/android3.png" width="30%">     <img src="screenshot/android4.png" width="30%">     <img src="screenshot/android5.png" width="30%">     <img src="screenshot/android6.png" width="30%">     <img src="screenshot/android7.png" width="30%">     <img src="screenshot/android8.png" width="30%">     <img src="screenshot/android9.png" width="30%">
+<img src="screenshot/android1.png" width="30%">     <img src="screenshot/android2.png" width="30%">     <img src="screenshot/android3.png" width="30%">     <img src="screenshot/android4.png" width="30%">     <img src="screenshot/android5.png" width="30%">     <img src="screenshot/android6.png" width="30%">     <img src="screenshot/android7.png" width="30%">     <img src="screenshot/android8.png" width="30%">     <img src="screenshot/android9.png" width="30%">     <img src="screenshot/android10.png" width="30%">     <img src="screenshot/android11.png" width="30%">
 </pre>
 
 
@@ -86,7 +86,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [x] Redesign of UI
 * [x] Add Trailer and Movie Crew
 * [x] Add TV Show
-* [ ] Booking Ticket Simulation
+* [x] [Booking Ticket Simulation](https://github.com/triannoviandi/movie-ticketing-app) (I modified from the original code 😁)
 * [ ] Pull To Refresh
 * [ ] Infinite Scroll (Pagination)
 * [ ] Full Animation

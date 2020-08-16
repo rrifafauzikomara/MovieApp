@@ -11,21 +11,18 @@ class AboutScreen extends StatefulWidget {
 }
 
 class _AboutScreenState extends State<AboutScreen> {
-  ThemeData _themeData;
   bool _isDarkTheme;
 
   @override
   Widget build(BuildContext context) {
-    _themeData = Theme.of(context);
-    _isDarkTheme = _themeData.appBarTheme?.color == null;
+    var themeData = Theme.of(context);
+    _isDarkTheme = themeData.appBarTheme?.color == null;
     return Scaffold(
       body: Stack(
         overflow: Overflow.visible,
         children: <Widget>[
           Container(
-            color: !_isDarkTheme
-                ? ColorPalettes.darkAccent
-                : ColorPalettes.lightAccent,
+            color: ColorPalettes.lightAccent,
             height: Sizes.width(context),
             child: Padding(
               padding: EdgeInsets.only(

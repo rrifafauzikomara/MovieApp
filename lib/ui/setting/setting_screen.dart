@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moviecatalogue/ui/abou/about_screen.dart';
+import 'package:moviecatalogue/ui/about/about_screen.dart';
 import 'package:package_info/package_info.dart';
 import 'package:shared/shared.dart';
 

@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _navigationPage() {
-    Navigation.splashScreen(context, DashBoardScreen.routeName);
+    Navigation.intentWithClearAllRoutes(context, DashBoardScreen.routeName);
   }
 
   @override

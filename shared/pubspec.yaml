@@ -16,6 +16,8 @@ dependencies:
   url_launcher: ^5.5.0
   carousel_slider: ^2.2.1
   youtube_player_flutter: ^7.0.0+7
+  flutter_svg: 0.18.0
+  lottie: ^0.5.1
 
   # This is our modular
   core:
