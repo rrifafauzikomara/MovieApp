@@ -68,10 +68,7 @@ class _DateWidgetState extends State<DateWidget> {
             child: Container(
               decoration: BoxDecoration(
                 color: _backgroundColor(),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(Sizes.dp10(context)),
-                  bottomLeft: Radius.circular(Sizes.dp10(context)),
-                ),
+                borderRadius: BorderRadius.all(Radius.circular(Sizes.dp10(context))),
               ),
             ),
           ),

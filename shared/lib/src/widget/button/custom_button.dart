@@ -12,8 +12,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Sizes.width(context) * .9,
-      height: Sizes.height(context) * .08,
-      margin: EdgeInsets.only(bottom: Sizes.dp20(context)),
+      height: Sizes.width(context) / 7,
       child: FlatButton(
         color: ColorPalettes.darkAccent,
         shape: RoundedRectangleBorder(

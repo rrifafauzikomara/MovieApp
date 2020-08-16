@@ -89,42 +89,38 @@ class _BookingScreenState extends State<BookingScreen>
     _isDarkTheme = themeData.appBarTheme?.color == null;
     final ScreenArguments args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
-      backgroundColor: !_isDarkTheme ? ColorPalettes.darkPrimary : ColorPalettes.white,
+      backgroundColor:
+          !_isDarkTheme ? ColorPalettes.darkPrimary : ColorPalettes.white,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
         title: Text(args.movies.title),
       ),
-      body: Stack(
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: Sizes.dp20(context), left: Sizes.dp20(context), bottom: Sizes.dp20(context)),
-            child: SingleChildScrollView(
-              child: Expanded(
-                child: Column(
-                  children: <Widget>[
-                    DateWidget(
-                      dateBackgroundAc: _dateBackgroundAc,
-                      dateBackgroundTween: _dateBackgroundTween,
-                      dateSelectorAcList: _dateSelectorAcList,
-                      dateSelectorTweenList: _dateSelectorTweenList,
-                    ),
-                    TimeWidget(
-                      timeSelectorAcList: _timeSelectorAcList,
-                      timeSelectorTweenList: _timeSelectorTweenList,
-                    ),
-                    CinemaWidget(movieBackground: args.movies.backdropPath),
-                    SizedBox(height: Sizes.width(context) / 5),
-                  ],
-                ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(Sizes.dp20(context)),
+          child: Column(
+            children: <Widget>[
+              DateWidget(
+                dateBackgroundAc: _dateBackgroundAc,
+                dateBackgroundTween: _dateBackgroundTween,
+                dateSelectorAcList: _dateSelectorAcList,
+                dateSelectorTweenList: _dateSelectorTweenList,
               ),
-            ),
+              TimeWidget(
+                timeSelectorAcList: _timeSelectorAcList,
+                timeSelectorTweenList: _timeSelectorTweenList,
+              ),
+              CinemaWidget(movieBackground: args.movies.backdropPath),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: Sizes.dp20(context),
+                ),
+                child: _payButton(),
+              ),
+            ],
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: _payButton(),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -139,6 +135,7 @@ class _BookingScreenState extends State<BookingScreen>
           }
           return 1;
         }
+
         return Transform.translate(
           offset: Offset(0, _payButtonTween.value * 200),
           child: Opacity(opacity: opacity(), child: child),
@@ -154,7 +151,8 @@ class _BookingScreenState extends State<BookingScreen>
             content: "Thanks for your movie ticket order",
             title: "Payment Successful!",
             submit: () {
-              Navigation.intentWithClearAllRoutes(context, DashBoardScreen.routeName);
+              Navigation.intentWithClearAllRoutes(
+                  context, DashBoardScreen.routeName);
             },
           );
         },
