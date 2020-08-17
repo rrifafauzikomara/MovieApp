@@ -40,10 +40,8 @@ class _DetailScreenState extends State<DetailScreen> {
                   imageBanner: args.movies.backdropPath.imageOriginal,
                   imagePoster: args.movies.posterPath.imageOriginal,
                   rating: args.movies.voteAverage,
-                  genre: args.movies.genreIds
-                      .take(3)
-                      .map(buildGenreChip)
-                      .toList(),
+                  genre:
+                      args.movies.genreIds.take(3).map(buildGenreChip).toList(),
                 ),
                 Padding(
                   padding: EdgeInsets.all(Sizes.dp20(context)),
@@ -86,7 +84,9 @@ class _DetailScreenState extends State<DetailScreen> {
                   child: CustomButton(
                     text: "Booking Ticket",
                     onPressed: () {
-                      Navigation.intentWithData(context, BookingScreen.routeName,
+                      Navigation.intentWithData(
+                          context,
+                          BookingScreen.routeName,
                           ScreenArguments(args.movies, true));
                     },
                   ),

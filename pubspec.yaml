@@ -17,6 +17,7 @@ dependencies:
   package_info: ^0.4.1
   youtube_player_flutter: ^7.0.0+7
   flutter_svg: 0.18.0
+  liquid_pull_to_refresh: ^2.0.0
 
   # This is our modular
   core:
