@@ -2,20 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
 class TimeWidget extends StatefulWidget {
-  final List<AnimationController> timeSelectorAcList;
-  final List<Animation<double>> timeSelectorTweenList;
-
-  const TimeWidget(
-      {Key key,
-      @required this.timeSelectorAcList,
-      @required this.timeSelectorTweenList})
-      : super(key: key);
-
   @override
   _TimeWidgetState createState() => _TimeWidgetState();
 }
 
-class _TimeWidgetState extends State<TimeWidget> {
+class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
+  var _timeSelectorAcList = List<AnimationController>();
+  var _timeSelectorTweenList = List<Animation<double>>();
   bool _isDarkTheme;
 
   var _time = [
@@ -24,6 +17,22 @@ class _TimeWidgetState extends State<TimeWidget> {
     ["10.30", 45]
   ];
   var _timeIndexSelected = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    // initialize timeSelector List
+    for (int i = 0; i < 3; i++) {
+      _timeSelectorAcList.add(AnimationController(
+          vsync: this, duration: Duration(milliseconds: 500)));
+      _timeSelectorTweenList.add(Tween<double>(begin: 1000, end: 0)
+          .chain(CurveTween(curve: Curves.easeOutCubic))
+          .animate(_timeSelectorAcList[i]));
+      Future.delayed(Duration(milliseconds: i * 25 + 100), () {
+        _timeSelectorAcList[i].forward();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +48,10 @@ class _TimeWidgetState extends State<TimeWidget> {
         itemCount: 3,
         itemBuilder: (ctx, index) {
           return AnimatedBuilder(
-            animation: widget.timeSelectorAcList[index],
+            animation: _timeSelectorAcList[index],
             builder: (ctx, child) {
               return Transform.translate(
-                offset: Offset(widget.timeSelectorTweenList[index].value, 0),
+                offset: Offset(_timeSelectorTweenList[index].value, 0),
                 child: child,
               );
             },

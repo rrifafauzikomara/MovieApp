@@ -14,10 +14,10 @@ class CinemaWidget extends StatefulWidget {
 
 class _CinemaWidgetState extends State<CinemaWidget>
     with TickerProviderStateMixin {
-  AnimationController _reflectionAc;
-  Animation<double> _reflectionTween;
   AnimationController _cinemaChairAc;
   Animation<double> _cinemaChairTween;
+  AnimationController _cinemaScreenAc;
+  Animation<double> _cinemaScreenTween;
   bool _isDarkTheme;
 
   var _chairStatus = [
@@ -32,14 +32,15 @@ class _CinemaWidgetState extends State<CinemaWidget>
   @override
   void initState() {
     super.initState();
-    // initialize reflection
-    _reflectionAc =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
-    _reflectionTween = Tween<double>(begin: 0, end: 1)
+
+    // initialize cinemaScreen
+    _cinemaScreenAc = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 2000));
+    _cinemaScreenTween = Tween<double>(begin: 0, end: 1)
         .chain(CurveTween(curve: Curves.easeInOutQuart))
-        .animate(_reflectionAc);
-    Future.delayed(Duration(milliseconds: 1800), () {
-      _reflectionAc.forward();
+        .animate(_cinemaScreenAc);
+    Future.delayed(Duration(milliseconds: 800), () {
+      _cinemaScreenAc.forward();
     });
 
     // chair
@@ -60,10 +61,14 @@ class _CinemaWidgetState extends State<CinemaWidget>
     return Column(
       children: <Widget>[
         AnimatedBuilder(
-          animation: _reflectionAc,
+          animation: _cinemaScreenAc,
           builder: (ctx, child) {
-            return Opacity(
-              opacity: _reflectionTween.value,
+            double perspective = 0.004 * _cinemaScreenTween.value;
+            return Transform(
+              alignment: Alignment.topCenter,
+              transform: Matrix4.identity()
+                ..setEntry(3, 2, perspective)
+                ..rotateX(_cinemaScreenTween.value),
               child: child,
             );
           },
@@ -71,15 +76,14 @@ class _CinemaWidgetState extends State<CinemaWidget>
             borderRadius: BorderRadius.circular(Sizes.dp10(context)),
             child: CachedNetworkImage(
               imageUrl: widget.movieBackground.imageOriginal,
-              width: Sizes.width(context) / 2.2,
+              width: Sizes.width(context),
               fit: BoxFit.fill,
               placeholder: (context, url) => LoadingIndicator(),
               errorWidget: (context, url, error) => ErrorImage(),
             ),
           ),
         ),
-        SizedBox(
-          height: Sizes.dp20(context)),
+        SizedBox(height: Sizes.dp20(context)),
         AnimatedBuilder(
           animation: _cinemaChairAc,
           builder: (ctx, child) {

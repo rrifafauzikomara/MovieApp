@@ -2,27 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
 class DateWidget extends StatefulWidget {
-  final AnimationController dateBackgroundAc;
-  final Animation<double> dateBackgroundTween;
-  final List<AnimationController> dateSelectorAcList;
-  final List<Animation<double>> dateSelectorTweenList;
-
-  const DateWidget(
-      {Key key,
-      @required this.dateBackgroundAc,
-      @required this.dateBackgroundTween,
-      @required this.dateSelectorAcList,
-      @required this.dateSelectorTweenList})
-      : super(key: key);
-
   @override
   _DateWidgetState createState() => _DateWidgetState();
 }
 
-class _DateWidgetState extends State<DateWidget> {
+class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
+  var _dateSelectorAcList = List<AnimationController>();
+  var _dateSelectorTweenList = List<Animation<double>>();
+
+  AnimationController _dateBackgroundAc;
+  Animation<double> _dateBackgroundTween;
+
   var _currentDate = DateTime.now();
   var _dateIndexSelected = 1;
   bool _isDarkTheme;
+
+  @override
+  void initState() {
+    super.initState();
+    // initialize dateSelector List
+    for (int i = 0; i < 7; i++) {
+      _dateSelectorAcList.add(AnimationController(
+          vsync: this, duration: Duration(milliseconds: 500)));
+      _dateSelectorTweenList.add(Tween<double>(begin: 1000, end: 0)
+          .chain(CurveTween(curve: Curves.easeOutCubic))
+          .animate(_dateSelectorAcList[i]));
+      Future.delayed(Duration(milliseconds: i * 50 + 170), () {
+        _dateSelectorAcList[i].forward();
+      });
+    }
+
+    // initialize dateSelector Background
+    _dateBackgroundAc =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 700));
+    _dateBackgroundTween = Tween<double>(begin: 1000, end: 0)
+        .chain(CurveTween(curve: Curves.easeOutCubic))
+        .animate(_dateBackgroundAc);
+    Future.delayed(Duration(milliseconds: 150), () {
+      _dateBackgroundAc.forward();
+    });
+  }
 
   Color _textDateColor(int index) {
     if (!_isDarkTheme) {
@@ -58,17 +77,18 @@ class _DateWidgetState extends State<DateWidget> {
         alignment: Alignment.centerLeft,
         children: <Widget>[
           AnimatedBuilder(
-            animation: widget.dateBackgroundAc,
+            animation: _dateBackgroundAc,
             builder: (ctx, child) {
               return Transform.translate(
-                offset: Offset(widget.dateBackgroundTween.value, 0),
+                offset: Offset(_dateBackgroundTween.value, 0),
                 child: child,
               );
             },
             child: Container(
               decoration: BoxDecoration(
                 color: _backgroundColor(),
-                borderRadius: BorderRadius.all(Radius.circular(Sizes.dp10(context))),
+                borderRadius:
+                    BorderRadius.all(Radius.circular(Sizes.dp10(context))),
               ),
             ),
           ),
@@ -79,11 +99,10 @@ class _DateWidgetState extends State<DateWidget> {
             itemBuilder: (ctx, index) {
               var date = _currentDate.add(Duration(days: index));
               return AnimatedBuilder(
-                animation: widget.dateSelectorAcList[index],
+                animation: _dateSelectorAcList[index],
                 builder: (ctx, child) {
                   return Transform.translate(
-                    offset:
-                        Offset(widget.dateSelectorTweenList[index].value, 0),
+                    offset: Offset(_dateSelectorTweenList[index].value, 0),
                     child: child,
                   );
                 },

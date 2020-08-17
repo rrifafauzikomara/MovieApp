@@ -100,9 +100,9 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           canvasColor: Theme.of(context).primaryColor,
           // sets the active color of the `BottomNavigationBar` if `Brightness` is light
           primaryColor: Theme.of(context).accentColor,
-          textTheme: Theme.of(context)
-              .textTheme
-              .copyWith(caption: TextStyle(color: ColorPalettes.setActive)),
+          textTheme: Theme.of(context).textTheme.copyWith(
+                caption: TextStyle(color: ColorPalettes.setActive),
+              ),
         ),
         child: BottomAppBar(
           shape: CircularNotchedRectangle(),
