@@ -93,6 +93,8 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [ ] Remove boilerplate BLoC
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
 * [ ] Unit Testing (Mockito with BLoC)
+* [ ] Add Fastlane
+* [ ] Automatically publish to Google Play Store
 
 
 ## How to run Flutter App
