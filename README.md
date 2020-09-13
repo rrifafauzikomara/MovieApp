@@ -58,6 +58,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
     |
     └── shared                 # Name of module (new package)
         ├── common             # Common shared.
+        │   ├── extension      # Extension methods.
         │   ├── helpers        # Custom function, extension, etc which can be used repeatedly on each method.
         │   ├── styles         # Custom style that will be used on each widget.
         │   └── utils          # Utility classes.
@@ -91,7 +92,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [ ] Reminder with Notification
 * [ ] Remove boilerplate BLoC
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
-* [ ] Unit Testing (Mockito)
+* [ ] Unit Testing (Mockito with BLoC)
 
 
 ## How to run Flutter App
