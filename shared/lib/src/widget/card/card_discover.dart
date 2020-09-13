@@ -26,7 +26,7 @@ class CardDiscover extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: image.imageOriginal,
               width: Sizes.width(context) / 2,
-              placeholder: (context, url) => LoadingIndicator(),
+              placeholder: (context, url) => ShimmerDiscover(),
               errorWidget: (context, url, error) => ErrorImage(),
             ),
           ),

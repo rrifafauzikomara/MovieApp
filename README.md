@@ -14,12 +14,11 @@
 
 
 ## Features
-*  Switch Theme (Dark and Light Mode) by App 🔥
+*  Switch Theme (Dark and Light) by App 🔥
 *  Movies
 *  Tv Show
 *  Discover
-*  Detail Movies & Tv Show (Trailer and Crew)
-*  Favorite (ala style 😜)
+*  Detail Movies & Tv Show (with Trailer and Crew)
 *  [Booking Ticket Simulation](https://github.com/triannoviandi/movie-ticketing-app) (I modified from the original code 😁)
 
 
@@ -80,6 +79,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * Handle State - (Loading, No Data, Has Data, No Internet Connection, Request Timeout, Error)
 * [Build Release for Android](https://flutter.dev/docs/deployment/android) - Available on the [Play Store](https://play.google.com/store/apps/details?id=id.rifafauzi.movie)
 * [Youtube Player](https://pub.dev/packages/youtube_player_flutter) - Play Trailer Video.
+* [Extension Methods](https://dart.dev/guides/language/extension-methods)
 * [Pull To Refresh](https://pub.dev/packages/liquid_pull_to_refresh) - Handle Pull to Refresh the Content
 
 
@@ -88,6 +88,8 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [x] Pull To Refresh
 * [ ] Play Trailer with Full Screen
 * [ ] Full Animation
+* [ ] Reminder with Notification
+* [ ] Remove boilerplate BLoC
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
 * [ ] Unit Testing (Mockito)
 
