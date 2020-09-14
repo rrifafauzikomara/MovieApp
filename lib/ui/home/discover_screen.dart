@@ -5,22 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_screen.dart';
 import 'package:shared/shared.dart';
 
-class DiscoverScreen extends StatefulWidget {
+class DiscoverScreen extends StatelessWidget {
   static const routeName = '/discover_movie';
 
   @override
-  _DiscoverScreenState createState() => _DiscoverScreenState();
-}
-
-class _DiscoverScreenState extends State<DiscoverScreen> {
-  @override
-  void initState() {
-    super.initState();
-    context.bloc<DiscoverMovieBloc>().add(LoadDiscoverMovie());
-  }
-
-  @override
   Widget build(BuildContext context) {
+    context.bloc<DiscoverMovieBloc>().add(LoadDiscoverMovie());
     return Scaffold(
       backgroundColor: ColorPalettes.black,
       floatingActionButton: FloatingActionButton(

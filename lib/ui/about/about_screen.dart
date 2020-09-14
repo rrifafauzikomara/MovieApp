@@ -3,20 +3,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
-class AboutScreen extends StatefulWidget {
+class AboutScreen extends StatelessWidget {
   static const routeName = '/about';
 
   @override
-  _AboutScreenState createState() => _AboutScreenState();
-}
-
-class _AboutScreenState extends State<AboutScreen> {
-  bool _isDarkTheme;
-
-  @override
   Widget build(BuildContext context) {
-    var themeData = Theme.of(context);
-    _isDarkTheme = themeData.appBarTheme?.color == null;
+    var _themeData = Theme.of(context);
+    var _isDarkTheme = _themeData.appBarTheme?.color == null;
     return Scaffold(
       body: Stack(
         overflow: Overflow.visible,

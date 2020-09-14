@@ -6,14 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:moviecatalogue/ui/booking/booking_screen.dart';
 import 'package:shared/shared.dart';
 
-class DetailScreen extends StatefulWidget {
+class DetailScreen extends StatelessWidget {
   static const routeName = '/detail_movies';
 
-  @override
-  _DetailScreenState createState() => _DetailScreenState();
-}
-
-class _DetailScreenState extends State<DetailScreen> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -67,14 +62,15 @@ class _DetailScreenState extends State<DetailScreen> {
                     left: Sizes.dp20(context),
                     right: Sizes.dp20(context),
                   ),
-                  child: _buildYoutube(args.movies.id, args.isFromMovie),
+                  child:
+                      _buildYoutube(context, args.movies.id, args.isFromMovie),
                 ),
                 Padding(
                   padding: EdgeInsets.only(
                     left: Sizes.dp20(context),
                     right: Sizes.dp20(context),
                   ),
-                  child: _buildCrew(args.movies.id, args.isFromMovie),
+                  child: _buildCrew(context, args.movies.id, args.isFromMovie),
                 ),
                 Padding(
                   padding: EdgeInsets.only(
@@ -131,7 +127,7 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-  Widget _buildYoutube(int movieId, bool isFromMovie) {
+  Widget _buildYoutube(BuildContext context, int movieId, bool isFromMovie) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -193,7 +189,7 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-  Widget _buildCrew(int movieId, bool isFromMovie) {
+  Widget _buildCrew(BuildContext context, int movieId, bool isFromMovie) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
