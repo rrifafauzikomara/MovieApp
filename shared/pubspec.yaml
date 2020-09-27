@@ -12,12 +12,12 @@ dependencies:
     sdk: flutter
   shared_preferences: any
   shimmer: ^1.1.1
-  cached_network_image: ^2.2.0+1
-  url_launcher: ^5.5.0
-  carousel_slider: ^2.2.1
+  cached_network_image: ^2.3.2+1
+  url_launcher: ^5.7.2
+  carousel_slider: ^2.3.1
   youtube_player_flutter: ^7.0.0+7
-  flutter_svg: 0.18.0
-  lottie: ^0.5.1
+  flutter_svg: 0.19.0
+  lottie: ^0.6.0
 
   # This is our modular
   core:

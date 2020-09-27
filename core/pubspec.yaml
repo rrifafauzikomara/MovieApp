@@ -10,10 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc: ^6.0.1
-  equatable: ^1.2.3
+  flutter_bloc: ^6.0.5
+  equatable: ^1.2.5
   retrofit: any
-  json_serializable: ^3.3.0
+  json_serializable: ^3.5.0
 
   # This is our modular
   shared:
