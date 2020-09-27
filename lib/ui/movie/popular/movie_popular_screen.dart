@@ -61,7 +61,7 @@ class _MoviePopularScreenState extends State<MoviePopularScreen> {
                       Navigation.intentWithData(
                         context,
                         DetailScreen.routeName,
-                        ScreenArguments(movies, true),
+                        ScreenArguments(movies, true, false),
                       );
                     },
                   );

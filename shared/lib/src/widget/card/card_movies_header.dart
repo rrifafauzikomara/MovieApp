@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
 class CardMoviesHeader extends StatelessWidget {
+  final bool isFromBanner;
+  final int idMovie;
   final List<Widget> genre;
   final String title;
   final String imageBanner;
@@ -10,6 +12,8 @@ class CardMoviesHeader extends StatelessWidget {
 
   const CardMoviesHeader(
       {Key key,
+      this.isFromBanner,
+      this.idMovie,
       this.genre,
       this.title,
       this.imageBanner,
@@ -60,9 +64,12 @@ class CardMoviesHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Poster(
-                imagePoster,
-                Sizes.width(context) / 2,
+              Hero(
+                tag: isFromBanner ? idMovie : imagePoster,
+                child: Poster(
+                  imagePoster,
+                  Sizes.width(context) / 2,
+                ),
               ),
               SizedBox(width: Sizes.dp16(context)),
               Expanded(child: movieInformation),

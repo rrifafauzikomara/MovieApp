@@ -60,7 +60,7 @@ class _AiringTodayScreenState extends State<AiringTodayScreen> {
                       Navigation.intentWithData(
                         context,
                         DetailScreen.routeName,
-                        ScreenArguments(movies, false),
+                        ScreenArguments(movies, false, false),
                       );
                     },
                   );

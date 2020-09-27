@@ -87,9 +87,9 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 ## Todo
 * [x] Redesign of UI
 * [x] Pull To Refresh
-* [ ] Play Trailer with Full Screen
-* [ ] Full Animation
+* [x] Hero Animation
 * [ ] Reminder with Notification
+* [ ] Play Trailer with Full Screen
 * [ ] Remove boilerplate BLoC
 * [ ] Change setState() to BLoC
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI

@@ -71,7 +71,7 @@ class DiscoverScreen extends StatelessWidget {
                             Navigation.intentWithData(
                               context,
                               DetailScreen.routeName,
-                              ScreenArguments(movie, true),
+                              ScreenArguments(movie, true, false),
                             );
                           },
                         ),

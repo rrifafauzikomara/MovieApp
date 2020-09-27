@@ -60,7 +60,7 @@ class _OnTheAirScreenState extends State<OnTheAirScreen> {
                       Navigation.intentWithData(
                         context,
                         DetailScreen.routeName,
-                        ScreenArguments(movies, false),
+                        ScreenArguments(movies, false, false),
                       );
                     },
                   );

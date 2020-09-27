@@ -29,6 +29,8 @@ class DetailScreen extends StatelessWidget {
             Column(
               children: [
                 CardMoviesHeader(
+                  isFromBanner: args.isFromBanner,
+                  idMovie: args.movies.id,
                   title: args.movies.title == null
                       ? args.movies.tvName
                       : args.movies.title,
@@ -83,7 +85,7 @@ class DetailScreen extends StatelessWidget {
                       Navigation.intentWithData(
                           context,
                           BookingScreen.routeName,
-                          ScreenArguments(args.movies, true));
+                          ScreenArguments(args.movies, true, false));
                     },
                   ),
                 ),

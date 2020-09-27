@@ -54,17 +54,20 @@ class _BannerHomeState extends State<BannerHome> {
                       Navigation.intentWithData(
                         context,
                         widget.routeNameDetail,
-                        ScreenArguments(widget.data.results[i], true),
+                        ScreenArguments(widget.data.results[i], true, true),
                       );
                     },
                     child: GridTile(
-                      child: CachedNetworkImage(
-                        imageUrl:
-                            widget.data.results[i].backdropPath.imageOriginal,
-                        width: Sizes.width(context),
-                        fit: BoxFit.fill,
-                        placeholder: (context, url) => LoadingIndicator(),
-                        errorWidget: (context, url, error) => ErrorImage(),
+                      child: Hero(
+                        tag: widget.data.results[i].id,
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              widget.data.results[i].backdropPath.imageOriginal,
+                          width: Sizes.width(context),
+                          fit: BoxFit.fill,
+                          placeholder: (context, url) => LoadingIndicator(),
+                          errorWidget: (context, url, error) => ErrorImage(),
+                        ),
                       ),
                       footer: Container(
                         color: ColorPalettes.whiteSemiTransparent,

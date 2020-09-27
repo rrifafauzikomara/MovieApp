@@ -68,6 +68,12 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
   }
 
   @override
+  void dispose() {
+    _dateBackgroundAc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var themeData = Theme.of(context);
     _isDarkTheme = themeData.appBarTheme?.color == null;

@@ -55,6 +55,13 @@ class _CinemaWidgetState extends State<CinemaWidget>
   }
 
   @override
+  void dispose() {
+    _cinemaChairAc.dispose();
+    _cinemaScreenAc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var themeData = Theme.of(context);
     _isDarkTheme = themeData.appBarTheme?.color == null;
