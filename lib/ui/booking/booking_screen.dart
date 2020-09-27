@@ -16,7 +16,7 @@ class BookingScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: Text(args.movies.title),
+        title: Text(args.movies.title ?? args.movies.tvName),
       ),
       body: SingleChildScrollView(
         physics: ClampingScrollPhysics(),

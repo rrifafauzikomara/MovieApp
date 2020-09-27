@@ -45,9 +45,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
               _refreshCompleter?.complete();
               _refreshCompleter = Completer();
               return ListView.builder(
-                itemCount: state.result.results == null
-                    ? 0
-                    : state.result.results.length,
+                itemCount: state.result.results.length,
                 itemBuilder: (BuildContext context, int index) {
                   Movies movies = state.result.results[index];
                   return CardMovies(

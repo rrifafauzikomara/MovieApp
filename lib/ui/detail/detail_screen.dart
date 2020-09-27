@@ -31,9 +31,7 @@ class DetailScreen extends StatelessWidget {
                 CardMoviesHeader(
                   isFromBanner: args.isFromBanner,
                   idMovie: args.movies.id,
-                  title: args.movies.title == null
-                      ? args.movies.tvName
-                      : args.movies.title,
+                  title: args.movies.title ?? args.movies.tvName,
                   imageBanner: args.movies.backdropPath.imageOriginal,
                   imagePoster: args.movies.posterPath.imageOriginal,
                   rating: args.movies.voteAverage,

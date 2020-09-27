@@ -90,6 +90,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [x] Hero Animation
 * [ ] Reminder with Notification
 * [ ] Play Trailer with Full Screen
+* [ ] Add Favorite Movie and Tv Show
 * [ ] Remove boilerplate BLoC
 * [ ] Change setState() to BLoC
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI

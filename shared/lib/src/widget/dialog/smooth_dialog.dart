@@ -47,7 +47,7 @@ class SmoothDialog {
     this.imageWidth = 150,
     this.dialogHeight = 310,
   }) {
-    if (buttonConfig == null) buttonConfig = new ButtonConfig();
+    if (buttonConfig == null) buttonConfig = ButtonConfig();
 
     showDialog(
       context: context,
