@@ -1,6 +1,4 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/home/discover_screen.dart';
 import 'package:moviecatalogue/ui/home/movie_screen.dart';
 import 'package:moviecatalogue/ui/home/tv_show_screen.dart';
@@ -50,40 +48,8 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
         controller: _pageController,
         onPageChanged: _onPageChanged,
         children: <Widget>[
-          MultiBlocProvider(
-            providers: [
-              BlocProvider<MovieNowPlayingBloc>(
-                create: (BuildContext context) =>
-                    MovieNowPlayingBloc(repository: MovieRepository()),
-              ),
-              BlocProvider<MoviePopularBloc>(
-                create: (BuildContext context) =>
-                    MoviePopularBloc(repository: MovieRepository()),
-              ),
-              BlocProvider<MovieUpComingBloc>(
-                create: (BuildContext context) =>
-                    MovieUpComingBloc(repository: MovieRepository()),
-              ),
-            ],
-            child: MovieScreen(),
-          ),
-          MultiBlocProvider(
-            providers: [
-              BlocProvider<TvOnTheAirBloc>(
-                create: (BuildContext context) =>
-                    TvOnTheAirBloc(repository: MovieRepository()),
-              ),
-              BlocProvider<TvAiringTodayBloc>(
-                create: (BuildContext context) =>
-                    TvAiringTodayBloc(repository: MovieRepository()),
-              ),
-              BlocProvider<TvPopularBloc>(
-                create: (BuildContext context) =>
-                    TvPopularBloc(repository: MovieRepository()),
-              ),
-            ],
-            child: TvShowScreen(),
-          ),
+          MovieScreen(),
+          TvShowScreen(),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
