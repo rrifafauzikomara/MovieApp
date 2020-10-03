@@ -25,7 +25,4 @@ dev_dependencies:
   retrofit_generator: any
   build_runner: any
 
-dependency_overrides:
-  analyzer: '0.39.14'
-
 flutter:
