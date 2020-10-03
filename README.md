@@ -88,9 +88,11 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [x] Redesign of UI
 * [x] Pull To Refresh
 * [x] Hero Animation
+* [ ] Add Cupertino style for iOS
+* [ ] Refactoring Theme Implementation
 * [ ] Reminder with Notification
-* [ ] Play Trailer with Full Screen
 * [ ] Add Favorite Movie and Tv Show
+* [ ] Play Trailer with Full Screen
 * [ ] Remove boilerplate BLoC
 * [ ] Change setState() to BLoC
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
