@@ -102,6 +102,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 
 
 ## How to run Flutter App
+### Generated `*.g.dart` file
 Before run the app, make sure you have an emulator running, or a device connected over USB and debugging enabled on that device.
 Then you need to register the `API_KEY` from www.themoviedb.org then enter the `API_KEY` into ***api_constant.dart*** file
 
