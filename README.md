@@ -88,6 +88,9 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [x] Redesign of UI
 * [x] Pull To Refresh
 * [x] Hero Animation
+* [ ] Add Dependencies module to handle dependency version updates
+* [ ] Add Dependency Injection
+* [ ] Add Lint Checker
 * [ ] Add Cupertino style for iOS
 * [ ] Refactoring Theme Implementation
 * [ ] Reminder with Notification
@@ -115,7 +118,7 @@ If you want to generate file `*.g.dart`, you can use this command on terminal. B
 
 One time build:
 ```console
-flutter pub run build_runner build
+flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
 or you can watch for changes and rebuild automatically
 ```console
