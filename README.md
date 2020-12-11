@@ -46,23 +46,29 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 
     # Root Project
     .
-    ├── core                   # Name of module (new package)
-    │   ├── bloc               # Business logic component.
-    │   └── network            # Remote Data Handlers
-    |       ├── api            # Retrofit API for remote end point, model using Equatable.
-    |       ├── model          # Model / POJO using Equatable.
-    │       └── repository     # Single source of data and for handling data from network to cache.
     |
-    ├── lib                    # Name of module (default from Flutter)
-    │   └── ui                 # Activity/View layer
     |
-    └── shared                 # Name of module (new package)
-        ├── common             # Common shared.
-        │   ├── extension      # Extension methods.
-        │   ├── helpers        # Custom function, extension, etc which can be used repeatedly on each method.
-        │   ├── styles         # Custom style that will be used on each widget.
-        │   └── utils          # Utility classes.
-        └── widget             # Custom widget which can be used repeatedly.
+    ├── lib                        # Name of module (default from Flutter)
+    │   ├── launcher               # Main Application
+    │   └── ui                     # Activity/View layer
+    |
+    └── libraries                  # Name of directory
+        ├── core                   # Name of module (new package)
+        │   ├── bloc               # Business logic component.
+        │   └── network            # Remote Data Handlers
+        |       ├── api            # Retrofit API for remote end point, model using Equatable.
+        |       ├── model          # Model / POJO using Equatable.
+        │       └── repository     # Single source of data and for handling data from network to cache.
+        |
+        ├── dependencies           # Handle dependency version updates.
+        |
+        └── shared                 # Name of module (new package)
+            ├── common             # Common shared.
+            │   ├── extension      # Extension methods.
+            │   ├── helpers        # Custom function, extension, etc which can be used repeatedly on each method.
+            │   ├── styles         # Custom style that will be used on each widget.
+            │   └── utils          # Utility classes.
+            └── widget             # Custom widget which can be used repeatedly.
 
 
 ## Built With 🛠
@@ -88,15 +94,14 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [x] Redesign of UI
 * [x] Pull To Refresh
 * [x] Hero Animation
-* [ ] Add Dependencies module to handle dependency version updates
+* [x] Add Dependencies module to handle dependency version updates
 * [ ] Add Dependency Injection
 * [ ] Add Lint Checker
-* [ ] Add Cupertino style for iOS
 * [ ] Refactoring Theme Implementation
-* [ ] Reminder with Notification
 * [ ] Add Favorite Movie and Tv Show
-* [ ] Play Trailer with Full Screen
+* [ ] Reminder with Notification
 * [ ] Remove boilerplate BLoC
+* [ ] Play Trailer with Full Screen
 * [ ] Change setState() to BLoC
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
 * [ ] Unit Testing (Mockito with BLoC)

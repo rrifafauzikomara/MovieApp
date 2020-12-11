@@ -10,19 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc: ^6.0.5
-  equatable: ^1.2.5
-  retrofit: any
-  json_serializable: ^3.5.0
 
-  # This is our modular
+  # This is our modular]
+  dependencies:
+    path: ../dependencies
   shared:
     path: ../shared
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  retrofit_generator: any
-  build_runner: any
 
 flutter:

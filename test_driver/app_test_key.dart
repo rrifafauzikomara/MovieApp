@@ -6,7 +6,7 @@ import 'package:flutter_driver/flutter_driver.dart';
  * https://github.com/flutter/flutter/issues/56192#issuecomment-624101352
  */
 
-import '../shared/lib/src/common/utils/movies_key.dart';
+import '../libraries/shared/lib/src/common/utils/movies_key.dart';
 
 // home screen
 final homeKey = find.byValueKey(KEY_BOTTOM_NAVIGATION);

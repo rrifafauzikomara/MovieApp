@@ -1,0 +1,1 @@
+/// This module for handle dependencies update
