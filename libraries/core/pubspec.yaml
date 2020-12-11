@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  json_serializable: ^3.5.0
+
   # This is our modular]
   dependencies:
     path: ../dependencies

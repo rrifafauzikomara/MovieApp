@@ -47,7 +47,6 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
     # Root Project
     .
     |
-    |
     ├── lib                        # Name of module (default from Flutter)
     │   ├── launcher               # Main Application
     │   └── ui                     # Activity/View layer
@@ -97,7 +96,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [x] Add Dependencies module to handle dependency version updates
 * [x] Add Dependency Injection
 * [x] Refactoring Theme Implementation
-* [ ] Add Lint Checker
+* [ ] Add Lint
 * [ ] Remove boilerplate BLoC
 * [ ] Add Favorite Movie and Tv Show
 * [ ] Reminder with Notification
