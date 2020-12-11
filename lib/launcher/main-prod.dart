@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:shared/shared.dart';
+// TODO: This is not recommendation
+import 'package:core/core.dart' as di;
 
 import 'app_config.dart';
 import 'movie_app.dart';
@@ -10,12 +11,6 @@ void main() async {
   Bloc.observer = MovieBlocObserver();
   Config.appFlavor = Flavor.RELEASE;
   WidgetsFlutterBinding.ensureInitialized();
-  var _isDark;
-  await ThemeHelper().getTheme().then((value) => _isDark = value);
-  runApp(
-    CustomTheme(
-      initialThemeKey: _isDark ? ThemesKeys.DARK : ThemesKeys.LIGHT,
-      child: MyApp(),
-    ),
-  );
+  await di.init(ApiConstant.baseUrlProd);
+  runApp(MyApp());
 }

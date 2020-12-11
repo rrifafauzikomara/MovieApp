@@ -24,54 +24,65 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => DiscoverMovieBloc(repository: MovieRepository()),
+          create: (context) => inject<DiscoverMovieBloc>(),
         ),
         BlocProvider(
-          create: (context) => MovieNowPlayingBloc(repository: MovieRepository()),
+          create: (context) => inject<MovieNowPlayingBloc>(),
         ),
         BlocProvider(
-          create: (context) => MoviePopularBloc(repository: MovieRepository()),
+          create: (context) => inject<MoviePopularBloc>(),
         ),
         BlocProvider(
-          create: (context) => MovieUpComingBloc(repository: MovieRepository()),
+          create: (context) => inject<MovieUpComingBloc>(),
         ),
         BlocProvider(
-          create: (context) => TvAiringTodayBloc(repository: MovieRepository()),
+          create: (context) => inject<TvAiringTodayBloc>(),
         ),
         BlocProvider(
-          create: (context) => TvOnTheAirBloc(repository: MovieRepository()),
+          create: (context) => inject<TvOnTheAirBloc>(),
         ),
         BlocProvider(
-          create: (context) => TvPopularBloc(repository: MovieRepository()),
+          create: (context) => inject<TvPopularBloc>(),
         ),
         BlocProvider<TrailerBloc>(
-          create: (BuildContext context) => TrailerBloc(repository: MovieRepository()),
+          create: (context) => inject<TrailerBloc>(),
         ),
         BlocProvider<CrewBloc>(
-          create: (BuildContext context) => CrewBloc(repository: MovieRepository()),
+          create: (context) => inject<CrewBloc>(),
+        ),
+        BlocProvider<ThemeBloc>(
+          create: (context) => inject<ThemeBloc>(),
         ),
       ],
-      child: MaterialApp(
-        title: Config.title,
-        debugShowCheckedModeBanner: Config.isDebug,
-        theme: CustomTheme.of(context),
-        initialRoute: SplashScreen.routeName,
-        routes: {
-          SplashScreen.routeName: (context) => SplashScreen(),
-          DashBoardScreen.routeName: (context) => DashBoardScreen(title: Config.title),
-          DiscoverScreen.routeName: (context) => DiscoverScreen(),
-          NowPlayingScreen.routeName: (context) => NowPlayingScreen(),
-          MoviePopularScreen.routeName: (context) => MoviePopularScreen(),
-          UpComingScreen.routeName: (context) => UpComingScreen(),
-          AiringTodayScreen.routeName: (context) => AiringTodayScreen(),
-          OnTheAirScreen.routeName: (context) => OnTheAirScreen(),
-          TvPopularScreen.routeName: (context) => TvPopularScreen(),
-          DetailScreen.routeName: (context) => DetailScreen(),
-          SettingScreen.routeName: (context) => SettingScreen(),
-          AboutScreen.routeName: (context) => AboutScreen(),
-          BookingScreen.routeName: (context) => BookingScreen(),
-        },
+      child: BlocBuilder<ThemeBloc, ThemeState>(
+        builder: _buildWithTheme,
       ),
+    );
+  }
+
+  Widget _buildWithTheme(BuildContext context, ThemeState state) {
+    context.bloc<ThemeBloc>().add(GetTheme());
+    return MaterialApp(
+      title: Config.title,
+      debugShowCheckedModeBanner: Config.isDebug,
+      theme: state.isDarkTheme ? Themes.darkTheme : Themes.lightTheme,
+      initialRoute: SplashScreen.routeName,
+      routes: {
+        SplashScreen.routeName: (context) => SplashScreen(),
+        DashBoardScreen.routeName: (context) =>
+            DashBoardScreen(title: Config.title),
+        DiscoverScreen.routeName: (context) => DiscoverScreen(),
+        NowPlayingScreen.routeName: (context) => NowPlayingScreen(),
+        MoviePopularScreen.routeName: (context) => MoviePopularScreen(),
+        UpComingScreen.routeName: (context) => UpComingScreen(),
+        AiringTodayScreen.routeName: (context) => AiringTodayScreen(),
+        OnTheAirScreen.routeName: (context) => OnTheAirScreen(),
+        TvPopularScreen.routeName: (context) => TvPopularScreen(),
+        DetailScreen.routeName: (context) => DetailScreen(),
+        SettingScreen.routeName: (context) => SettingScreen(),
+        AboutScreen.routeName: (context) => AboutScreen(),
+        BookingScreen.routeName: (context) => BookingScreen(),
+      },
     );
   }
 }

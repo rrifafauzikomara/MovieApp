@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
-enum ThemesKeys { LIGHT, DARK }
-
 class Themes {
-
   static ThemeData lightTheme = ThemeData(
     fontFamily: 'IBMPlexSans',
     backgroundColor: ColorPalettes.lightBG,
@@ -44,15 +41,4 @@ class Themes {
       ),
     ),
   );
-
-  static ThemeData getThemeFromKey(ThemesKeys themeKey) {
-    switch (themeKey) {
-      case ThemesKeys.LIGHT:
-        return lightTheme;
-      case ThemesKeys.DARK:
-        return darkTheme;
-      default:
-        return lightTheme;
-    }
-  }
 }

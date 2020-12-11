@@ -5,14 +5,7 @@ class MovieRepository implements Repository {
   final ApiRepository apiRepository;
   final LocalRepository localRepository;
 
-  static final MovieRepository _singleton = MovieRepository._internal(
-      apiRepository: ApiRepository(), localRepository: LocalRepository());
-
-  factory MovieRepository() {
-    return _singleton;
-  }
-
-  MovieRepository._internal(
+  MovieRepository(
       {@required this.apiRepository, @required this.localRepository});
 
   @override
@@ -159,10 +152,11 @@ class MovieRepository implements Repository {
   }
 
   @override
-  Future<Result> getDiscoverMovie([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
+  Future<Result> getDiscoverMovie(
+      [String apiKey = ApiConstant.apiKey,
+      String language = ApiConstant.language]) async {
     try {
-      var fromLocal =
-      await localRepository.getDiscoverMovie(apiKey, language);
+      var fromLocal = await localRepository.getDiscoverMovie(apiKey, language);
       if (fromLocal != null) {
         return fromLocal;
       } else {

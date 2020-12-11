@@ -8,7 +8,6 @@ export 'image/image.dart';
 export 'progress/progress.dart';
 export 'rating/rating.dart';
 export 'shimmer/shimmer.dart';
-export 'theme/themes.dart';
 export 'datetime/date_time.dart';
 export 'cinema/cinema_widget.dart';
 export 'button/custom_button.dart';

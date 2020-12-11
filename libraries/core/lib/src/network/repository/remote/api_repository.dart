@@ -1,55 +1,52 @@
 import 'package:core/core.dart';
-import 'package:dio/dio.dart';
+import 'package:core/src/network/api/api_service.dart';
+import 'package:flutter/cupertino.dart';
 
 class ApiRepository implements Repository {
-  Dio _dio;
-  RestClient _restClient;
+  final ApiService apiService;
 
-  ApiRepository() {
-    _dio = Dio();
-    _restClient = RestClient(_dio);
-  }
+  ApiRepository({@required this.apiService});
 
   @override
   Future<Result> getMovieNowPlaying(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) {
-    return _restClient.getMovieNowPlaying(apiKey, language);
+    return apiService.getMovieNowPlaying(apiKey, language);
   }
 
   @override
   Future<Result> getMovieUpComing(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) {
-    return _restClient.getMovieUpComing(apiKey, language);
+    return apiService.getMovieUpComing(apiKey, language);
   }
 
   @override
   Future<Result> getMoviePopular(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) {
-    return _restClient.getMoviePopular(apiKey, language);
+    return apiService.getMoviePopular(apiKey, language);
   }
 
   @override
   Future<Result> getTvAiringToday(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) {
-    return _restClient.getTvAiringToday(apiKey, language);
+    return apiService.getTvAiringToday(apiKey, language);
   }
 
   @override
   Future<Result> getTvPopular(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) {
-    return _restClient.getTvPopular(apiKey, language);
+    return apiService.getTvPopular(apiKey, language);
   }
 
   @override
   Future<Result> getTvOnTheAir(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) {
-    return _restClient.getTvOnTheAir(apiKey, language);
+    return apiService.getTvOnTheAir(apiKey, language);
   }
 
   @override
@@ -57,14 +54,14 @@ class ApiRepository implements Repository {
       [int movieId,
       String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {
-    return _restClient.getMovieCrews(movieId, apiKey, language);
+    return apiService.getMovieCrews(movieId, apiKey, language);
   }
 
   @override
   Future<ResultTrailer> getMovieTrailer(int movieId,
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {
-    return _restClient.getMovieTrailer(movieId, apiKey, language);
+    return apiService.getMovieTrailer(movieId, apiKey, language);
   }
 
   @override
@@ -72,20 +69,20 @@ class ApiRepository implements Repository {
       [int tvId,
       String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) {
-    return _restClient.getTvShowCrews(tvId, apiKey, language);
+    return apiService.getTvShowCrews(tvId, apiKey, language);
   }
 
   @override
   Future<ResultTrailer> getTvShowTrailer(int tvId,
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {
-    return _restClient.getTvShowTrailer(tvId, apiKey, language);
+    return apiService.getTvShowTrailer(tvId, apiKey, language);
   }
 
   @override
   Future<Result> getDiscoverMovie(
       [String apiKey = ApiConstant.apiKey,
       String language = ApiConstant.language]) async {
-    return _restClient.getDiscoverMovie(apiKey, language);
+    return apiService.getDiscoverMovie(apiKey, language);
   }
 }

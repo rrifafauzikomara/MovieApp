@@ -95,14 +95,14 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [x] Pull To Refresh
 * [x] Hero Animation
 * [x] Add Dependencies module to handle dependency version updates
-* [ ] Add Dependency Injection
+* [x] Add Dependency Injection
+* [x] Refactoring Theme Implementation
+* [ ] Change setState() to BLoC
 * [ ] Add Lint Checker
-* [ ] Refactoring Theme Implementation
+* [ ] Remove boilerplate BLoC
 * [ ] Add Favorite Movie and Tv Show
 * [ ] Reminder with Notification
-* [ ] Remove boilerplate BLoC
 * [ ] Play Trailer with Full Screen
-* [ ] Change setState() to BLoC
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
 * [ ] Unit Testing (Mockito with BLoC)
 * [ ] Add Fastlane

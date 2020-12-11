@@ -28,14 +28,13 @@ dependencies:
   flutter_bloc: ^6.0.5
   shared_preferences: any
   equatable: ^1.2.5
-  retrofit: any
   json_serializable: ^3.5.0
+  get_it: ^5.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: any
-  retrofit_generator: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
