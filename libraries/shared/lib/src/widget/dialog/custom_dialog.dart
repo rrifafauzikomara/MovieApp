@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
-class CustomDialog extends StatefulWidget {
+class CustomDialog extends StatelessWidget {
   final bool isDark, groupValue;
   final ValueChanged<bool> onChanged;
 
   const CustomDialog({Key key, this.isDark, this.groupValue, this.onChanged})
       : super(key: key);
 
-  @override
-  _CustomDialogState createState() => _CustomDialogState();
-}
-
-class _CustomDialogState extends State<CustomDialog> {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
@@ -25,8 +20,8 @@ class _CustomDialogState extends State<CustomDialog> {
             children: <Widget>[
               Radio(
                 value: true,
-                groupValue: widget.groupValue,
-                onChanged: widget.onChanged,
+                groupValue: groupValue,
+                onChanged: onChanged,
               ),
               Text('Dark'),
             ],
@@ -42,8 +37,8 @@ class _CustomDialogState extends State<CustomDialog> {
             children: <Widget>[
               Radio(
                 value: false,
-                groupValue: widget.groupValue,
-                onChanged: widget.onChanged,
+                groupValue: groupValue,
+                onChanged: onChanged,
               ),
               Text('Light'),
             ],

@@ -4,7 +4,7 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
-class BannerHome extends StatefulWidget {
+class BannerHome extends StatelessWidget {
   final Function(int index, CarouselPageChangedReason reason) onPageChanged;
   final Result data;
   final int currentIndex;
@@ -22,14 +22,8 @@ class BannerHome extends StatefulWidget {
       : super(key: key);
 
   @override
-  _BannerHomeState createState() => _BannerHomeState();
-}
-
-class _BannerHomeState extends State<BannerHome> {
-  @override
   Widget build(BuildContext context) {
-    var data =
-        widget.data.results.length > 10 ? 10 : widget.data.results.length;
+    var result = data.results.length > 10 ? 10 : data.results.length;
     return Column(
       children: <Widget>[
         // Banner
@@ -43,26 +37,25 @@ class _BannerHomeState extends State<BannerHome> {
               autoPlayAnimationDuration: Duration(milliseconds: 1000),
               viewportFraction: 1.0,
               aspectRatio: 2.0,
-              onPageChanged: widget.onPageChanged,
+              onPageChanged: onPageChanged,
             ),
             items: <Widget>[
-              for (var i = 0; i < data; i++)
+              for (var i = 0; i < result; i++)
                 ClipRRect(
                   borderRadius: BorderRadius.circular(Sizes.dp10(context)),
                   child: GestureDetector(
                     onTap: () {
                       Navigation.intentWithData(
                         context,
-                        widget.routeNameDetail,
-                        ScreenArguments(widget.data.results[i], true, true),
+                        routeNameDetail,
+                        ScreenArguments(data.results[i], true, true),
                       );
                     },
                     child: GridTile(
                       child: Hero(
-                        tag: widget.data.results[i].id,
+                        tag: data.results[i].id,
                         child: CachedNetworkImage(
-                          imageUrl:
-                              widget.data.results[i].backdropPath.imageOriginal,
+                          imageUrl: data.results[i].backdropPath.imageOriginal,
                           width: Sizes.width(context),
                           fit: BoxFit.fill,
                           placeholder: (context, url) => LoadingIndicator(),
@@ -73,9 +66,9 @@ class _BannerHomeState extends State<BannerHome> {
                         color: ColorPalettes.whiteSemiTransparent,
                         padding: EdgeInsets.all(Sizes.dp5(context)),
                         child: Text(
-                          widget.isFromMovie
-                              ? widget.data.results[i].title
-                              : widget.data.results[i].tvName,
+                          isFromMovie
+                              ? data.results[i].title
+                              : data.results[i].tvName,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
@@ -91,12 +84,12 @@ class _BannerHomeState extends State<BannerHome> {
             ],
           ),
         ),
-        _dotIndicator(data),
+        _dotIndicator(result, context),
       ],
     );
   }
 
-  Widget _dotIndicator(int data) {
+  Widget _dotIndicator(int data, BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -110,7 +103,7 @@ class _BannerHomeState extends State<BannerHome> {
             ),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: widget.currentIndex == i
+              color: currentIndex == i
                   ? ColorPalettes.darkAccent
                   : ColorPalettes.grey,
             ),
@@ -118,7 +111,7 @@ class _BannerHomeState extends State<BannerHome> {
         Spacer(),
         GestureDetector(
           onTap: () {
-            Navigation.intent(context, widget.routeNameAll);
+            Navigation.intent(context, routeNameAll);
           },
           child: Text(
             'See all',

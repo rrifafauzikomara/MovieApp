@@ -97,7 +97,6 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [x] Add Dependencies module to handle dependency version updates
 * [x] Add Dependency Injection
 * [x] Refactoring Theme Implementation
-* [ ] Change setState() to BLoC
 * [ ] Add Lint Checker
 * [ ] Remove boilerplate BLoC
 * [ ] Add Favorite Movie and Tv Show
