@@ -73,13 +73,12 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 ## Built With 🛠
 * [BLoC Pattern](https://bloclibrary.dev/) - Business logic component to separate the business logic with UI.
 * [Equatable](https://pub.dev/packages/equatable) - Being able to compare objects in `Dart` often involves having to override the `==` operator.
-* [Retrofit](https://pub.dartlang.org/packages/retrofit) with [Dio](https://github.com/flutterchina/dio/) - A type-safe HTTP client.
+* [Dio](https://github.com/flutterchina/dio/) - A type-safe HTTP client.
 * [Json Serializable](https://pub.dev/packages/json_serializable) - Builders for handling JSON.
 * [Shared Preferences](https://pub.dev/packages/shared_preferences) - Cache implementation approach.
 * [Modularization](https://medium.com/flutter-community/mastering-flutter-modularization-in-several-ways-f5bced19101a) - Separate functionality into independent, interchangeable modules.
 * [Shimmer](https://pub.dev/packages/shimmer) - Loading handler.
 * [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons) - Launcher icons handler.
-* [Integration Testing](https://flutter.dev/docs/cookbook/testing/integration/introduction) - Automating UI/Integration Tests.
 * [Flavor](https://medium.com/@animeshjain/build-flavors-in-flutter-android-and-ios-with-different-firebase-projects-per-flavor-27c5c5dac10b) - Handling different environments for development and production.
 * [Codemagic](https://blog.codemagic.io/environments-in-flutter-with-codemagic-cicd/) - Handling DevOps CI/CD for pipeline and automatically build.
 * Handle State - (Loading, No Data, Has Data, No Internet Connection, Request Timeout, Error)
@@ -87,24 +86,19 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [Youtube Player](https://pub.dev/packages/youtube_player_flutter) - Play Trailer Video.
 * [Extension Methods](https://dart.dev/guides/language/extension-methods)
 * [Pull To Refresh](https://pub.dev/packages/liquid_pull_to_refresh) - Handle Pull to Refresh the Content
+* [Get It](https://pub.dev/packages/get_it) - A Dependency Injection
 
 
 ## Todo
-* [x] Redesign of UI
-* [x] Pull To Refresh
-* [x] Hero Animation
-* [x] Add Dependencies module to handle dependency version updates
-* [x] Add Dependency Injection
-* [x] Refactoring Theme Implementation
+* [ ] Update Version of Dependencies
 * [ ] Add Lint
-* [ ] Remove boilerplate BLoC
-* [ ] Add Favorite Movie and Tv Show
+* [ ] Add Favorite Movie and Tv Show using Moor
 * [ ] Reminder with Notification
 * [ ] Play Trailer with Full Screen
 * [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
 * [ ] Unit Testing (Mockito with BLoC)
 * [ ] Add Fastlane
-* [ ] Automatically publish to Google Play Store
+* [ ] Automatically publish to Firebase App Distribution
 
 
 ## How to run Flutter App
