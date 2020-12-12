@@ -96,22 +96,14 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [ ] Add CI to automatically publish to Firebase App Distribution
 
 
-## How to run Flutter App
+## How to run the App
 1. First run `flutter pub get` on each module sequentially starting from `dependencies, core, shared, and your root project`.
 2. Add your `API_KEY` into ***api_constant.dart*** file.
-3. Generated `*.g.dart` file in core module. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieApp/tree/master/libraries/core) module first using `cd` command. For example `cd libraries` and then `cd core`. Then you can run the command below.
-One time build:
-```console
-flutter packages pub run build_runner build --delete-conflicting-outputs
-```
-or you can watch for changes and rebuild automatically
-```console
-flutter pub run build_runner watch
-```
+3. Generated `*.g.dart` file in `core` module. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieApp/tree/master/libraries/core) module first using `cd` command. For example `cd libraries` and then `cd core`. Then you can run the command: `flutter packages pub run build_runner build --delete-conflicting-outputs`.
 4. Run the App using [this](https://github.com/rrifafauzikomara/MovieApp#run-flutter-app-between-flavor-for-development-and-production-with-command-prompt) or [this](https://github.com/rrifafauzikomara/MovieApp#run-flutter-app-between-flavor-for-development-and-production-with-). Enjoy your App!.
 
 
-### Run Flutter app between Flavor for development and production with command prompt
+## Run the App using command prompt
 Development
 ```console
 flutter run --flavor development --target=lib/ui/launcher/main-dev.dart
@@ -122,7 +114,7 @@ flutter run --flavor production --target=lib/ui/launcher/main-prod.dart
 ```
 
 
-### Run Flutter app between Flavor for development and production with <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/running.png" alt="Run" width="20" height="20"/>
+## Run the App using <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/running.png" alt="Run" width="20" height="20"/>
 <pre>
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/tutor1.png" alt="Tutor1" />
 <img src="https://github.com/rrifafauzikomara/MovieCatalogue/blob/master/screenshot/tutor2.png" alt="Tutor2" />
