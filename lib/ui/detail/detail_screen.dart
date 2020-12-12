@@ -119,7 +119,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 color: theme.accentColor,
                 icon: Icon(Icons.favorite_border),
                 onPressed: () {
-                  PopUp.showSnackBarSuccess("Add to Favorite", context);
+                  PopUp.showSuccess("Add to Favorite");
                 },
               ),
             ),
