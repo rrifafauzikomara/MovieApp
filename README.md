@@ -38,7 +38,7 @@
 This is a normal flutter app. You should follow the instructions in the [official documentation](https://flutter.io/docs/get-started/install).
 This project uses **BLoC** (business logic component) to separate the business logic with UI itself.
 It's recommended to do self-study about it before jumping into the project [here](https://bloclibrary.dev/).
-And also on this project uses **Modularization** approach to separate each feature ([core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core), [shared](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/shared), [ui](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/lib/ui) modules).
+And also on this project uses **Modularization** approach to separate each feature ([core](https://github.com/rrifafauzikomara/MovieApp/tree/master/libraries/core), [shared](https://github.com/rrifafauzikomara/MovieApp/tree/master/libraries/shared), [ui](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/lib/ui) modules).
 You can do self-study about it in [here](https://medium.com/flutter-community/mastering-flutter-modularization-in-several-ways-f5bced19101a).
 
 
@@ -47,25 +47,22 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
     # Root Project
     .
     |
-    ├── lib                        # Name of module (default from Flutter)
-    │   ├── launcher               # Main Application
-    │   └── ui                     # Activity/View layer
+    ├── lib                        # Name of module (default from Flutter).
+    │   ├── launcher               # Main Application.
+    │   └── ui                     # Activity/View layer.
     |
-    └── libraries                  # Name of directory
-        ├── core                   # Name of module (new package)
+    └── libraries                  # Name of directory.
+        ├── core                   # Name of module.
         │   ├── bloc               # Business logic component.
         │   ├── di                 # Dependency injection.
         │   ├── local              # Local data handlers.
         │   ├── network            # Remote data handlers.
         │   └── repository         # Repository data handlers.
         |
-        ├── dependencies           # Handle dependency version updates.
+        ├── dependencies           # Name of module (Handle dependency version updates).
         |
-        └── shared                 # Name of module (new package)
+        └── shared                 # Name of module.
             ├── common             # Common shared.
-            │   ├── extension      # Extension methods.
-            │   ├── styles         # Custom style that will be used on each widget.
-            │   └── utils          # Utility classes.
             └── widget             # Custom widget which can be used repeatedly.
 
 
@@ -93,10 +90,10 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 * [ ] Add Favorite Movie and Tv Show using Moor
 * [ ] Reminder with Notification
 * [ ] Play Trailer with Full Screen
-* [ ] Re-check Integration Testing (UI Test) Because of Redesign of UI
+* [ ] Re-write Integration Testing (UI Test) because of Redesign UI
 * [ ] Unit Testing (Mockito with BLoC)
 * [ ] Add Fastlane
-* [ ] Automatically publish to Firebase App Distribution
+* [ ] Add CI to automatically publish to Firebase App Distribution
 
 
 ## How to run Flutter App
@@ -109,7 +106,7 @@ static const apiKey = "HERE";
 ```
 
 
-If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) module first using `cd` command. For example `cd libraries` and then `cd core`. Then you can run the command below.
+If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieApp/tree/master/libraries/core) module first using `cd` command. For example `cd libraries` and then `cd core`. Then you can run the command below.
 
 One time build:
 ```console
