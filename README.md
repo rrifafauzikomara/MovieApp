@@ -97,17 +97,9 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 
 
 ## How to run Flutter App
-### Generated `*.g.dart` file
-Before run the app, make sure you have an emulator running, or a device connected over USB and debugging enabled on that device.
-Then you need to register the `API_KEY` from www.themoviedb.org then enter the `API_KEY` into ***api_constant.dart*** file
-
-```
-static const apiKey = "HERE";
-```
-
-
-If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieApp/tree/master/libraries/core) module first using `cd` command. For example `cd libraries` and then `cd core`. Then you can run the command below.
-
+1. First run `flutter pub get` on each module sequentially starting from `dependencies, core, shared, and your root project`.
+2. Add your `API_KEY` into ***api_constant.dart*** file.
+3. Generated `*.g.dart` file in core module. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieApp/tree/master/libraries/core) module first using `cd` command. For example `cd libraries` and then `cd core`. Then you can run the command below.
 One time build:
 ```console
 flutter packages pub run build_runner build --delete-conflicting-outputs
@@ -116,6 +108,7 @@ or you can watch for changes and rebuild automatically
 ```console
 flutter pub run build_runner watch
 ```
+4. Run the App using [this](https://github.com/rrifafauzikomara/MovieApp#run-flutter-app-between-flavor-for-development-and-production-with-command-prompt) or [this](https://github.com/rrifafauzikomara/MovieApp#run-flutter-app-between-flavor-for-development-and-production-with-). Enjoy your App!.
 
 
 ### Run Flutter app between Flavor for development and production with command prompt
