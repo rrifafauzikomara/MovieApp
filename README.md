@@ -97,20 +97,22 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 
 
 ## How to run the App
-1. First run `flutter pub get` on each module sequentially starting from `dependencies, core, shared, and your root project`.
-2. Add your `API_KEY` into ***api_constant.dart*** file.
-3. Generated `*.g.dart` file in `core` module. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieApp/tree/master/libraries/core) module first using `cd` command. For example `cd libraries` and then `cd core`. Then you can run the command: `flutter packages pub run build_runner build --delete-conflicting-outputs`.
-4. Run the App using [this](https://github.com/rrifafauzikomara/MovieApp#run-the-app-using-command-prompt) or [this](https://github.com/rrifafauzikomara/MovieApp#run-the-app-using-). Enjoy your App!.
+1. Clone this project.
+2. Open with your favorite tools editor.
+3. Run `Pub get` on each module sequentially starting from `dependencies`, `core`, `shared`, and `your root project`.
+4. Add your `API_KEY` into ***api_constant.dart*** file.
+5. Generated `*.g.dart` file in `core` module. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieApp/tree/master/libraries/core) module first using `cd` command. For example `cd libraries` and then `cd core`. Then you can run this command: `flutter packages pub run build_runner build --delete-conflicting-outputs`.
+6. Run the App using [this](https://github.com/rrifafauzikomara/MovieApp#run-the-app-using-command-prompt) or [this](https://github.com/rrifafauzikomara/MovieApp#run-the-app-using-). Enjoy your App!.
 
 
 ## Run the App using command prompt
 Development
 ```console
-flutter run --flavor development --target=lib/ui/launcher/main-dev.dart
+flutter run --flavor development --target=lib/launcher/main-dev.dart
 ```
 Production
 ```console
-flutter run --flavor production --target=lib/ui/launcher/main-prod.dart
+flutter run --flavor production --target=lib/launcher/main-prod.dart
 ```
 
 
