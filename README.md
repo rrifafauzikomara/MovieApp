@@ -100,7 +100,7 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 1. First run `flutter pub get` on each module sequentially starting from `dependencies, core, shared, and your root project`.
 2. Add your `API_KEY` into ***api_constant.dart*** file.
 3. Generated `*.g.dart` file in `core` module. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieApp/tree/master/libraries/core) module first using `cd` command. For example `cd libraries` and then `cd core`. Then you can run the command: `flutter packages pub run build_runner build --delete-conflicting-outputs`.
-4. Run the App using [this](https://github.com/rrifafauzikomara/MovieApp#run-flutter-app-between-flavor-for-development-and-production-with-command-prompt) or [this](https://github.com/rrifafauzikomara/MovieApp#run-flutter-app-between-flavor-for-development-and-production-with-). Enjoy your App!.
+4. Run the App using [this](https://github.com/rrifafauzikomara/MovieApp#run-the-app-using-command-prompt) or [this](https://github.com/rrifafauzikomara/MovieApp#run-the-app-using-). Enjoy your App!.
 
 
 ## Run the App using command prompt
