@@ -54,17 +54,16 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
     └── libraries                  # Name of directory
         ├── core                   # Name of module (new package)
         │   ├── bloc               # Business logic component.
-        │   └── network            # Remote Data Handlers
-        |       ├── api            # Retrofit API for remote end point, model using Equatable.
-        |       ├── model          # Model / POJO using Equatable.
-        │       └── repository     # Single source of data and for handling data from network to cache.
+        │   ├── di                 # Dependency injection.
+        │   ├── local              # Local data handlers.
+        │   ├── network            # Remote data handlers.
+        │   └── repository         # Repository data handlers.
         |
         ├── dependencies           # Handle dependency version updates.
         |
         └── shared                 # Name of module (new package)
             ├── common             # Common shared.
             │   ├── extension      # Extension methods.
-            │   ├── helpers        # Custom function, extension, etc which can be used repeatedly on each method.
             │   ├── styles         # Custom style that will be used on each widget.
             │   └── utils          # Utility classes.
             └── widget             # Custom widget which can be used repeatedly.
@@ -90,7 +89,6 @@ You can do self-study about it in [here](https://medium.com/flutter-community/ma
 
 
 ## Todo
-* [ ] Update Version of Dependencies
 * [ ] Add Lint
 * [ ] Add Favorite Movie and Tv Show using Moor
 * [ ] Reminder with Notification
@@ -111,7 +109,7 @@ static const apiKey = "HERE";
 ```
 
 
-If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) module first using `cd` command. For example `cd core`. Then you can run the command below.
+If you want to generate file `*.g.dart`, you can use this command on terminal. But before you running that, make sure go to [core](https://github.com/rrifafauzikomara/MovieCatalogue/tree/master/core) module first using `cd` command. For example `cd libraries` and then `cd core`. Then you can run the command below.
 
 One time build:
 ```console

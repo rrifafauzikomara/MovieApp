@@ -17,16 +17,20 @@ class UpComingScreen extends StatefulWidget {
 class _UpComingScreenState extends State<UpComingScreen> {
   Completer<void> _refreshCompleter;
 
+  _loadMovieUpComing(BuildContext context) {
+    context.read<MovieUpComingBloc>().add(LoadMovieUpComing());
+  }
+
+  Future<void> _refresh() {
+    _loadMovieUpComing(context);
+    return _refreshCompleter.future;
+  }
+
   @override
   void initState() {
     super.initState();
     _refreshCompleter = Completer<void>();
-    context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
-  }
-
-  Future<void> _refresh() {
-    context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
-    return _refreshCompleter.future;
+    _loadMovieUpComing(context);
   }
 
   @override
@@ -80,9 +84,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
               _refreshCompleter = Completer();
               return NoInternetWidget(
                 message: AppConstant.noInternetConnection,
-                onPressed: () {
-                  context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
-                },
+                onPressed: () => _loadMovieUpComing(context),
               );
             } else {
               return Center(child: Text(""));

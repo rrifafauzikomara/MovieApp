@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
 
 class PopUp {
-  static showSnackBar(Widget child,
-      {GlobalKey<ScaffoldState> key, BuildContext context}) {
-    if (key == null && context == null) {
-      return;
-    }
-    final snackBar = SnackBar(
-      duration: Duration(seconds: 3),
-      content: child,
-      backgroundColor: Colors.black,
-    );
+  static void showSnackBarSuccess(String message, BuildContext context) {
+    Scaffold.of(context).showSnackBar(SnackBar(
+      content: Text(message),
+      backgroundColor: Colors.green,
+    ));
+  }
 
-    if (key != null) {
-      key.currentState
-        ..hideCurrentSnackBar()
-        ..showSnackBar(snackBar);
-    } else {
-      Scaffold.of(context).showSnackBar(snackBar);
-    }
+  static void showSnackBarError(String error, BuildContext context) {
+    Scaffold.of(context).showSnackBar(SnackBar(
+      content: Text(error),
+      backgroundColor: Colors.red,
+    ));
   }
 }

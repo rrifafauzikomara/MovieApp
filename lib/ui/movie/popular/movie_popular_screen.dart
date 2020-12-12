@@ -17,15 +17,19 @@ class MoviePopularScreen extends StatefulWidget {
 class _MoviePopularScreenState extends State<MoviePopularScreen> {
   Completer<void> _refreshCompleter;
 
+  _loadMoviePopular(BuildContext context) {
+    context.read<MoviePopularBloc>().add(LoadMoviePopular());
+  }
+
   @override
   void initState() {
     super.initState();
     _refreshCompleter = Completer<void>();
-    context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
+    _loadMoviePopular(context);
   }
 
   Future<void> _refresh() {
-    context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
+    _loadMoviePopular(context);
     return _refreshCompleter.future;
   }
 
@@ -80,9 +84,7 @@ class _MoviePopularScreenState extends State<MoviePopularScreen> {
               _refreshCompleter = Completer();
               return NoInternetWidget(
                 message: AppConstant.noInternetConnection,
-                onPressed: () {
-                  context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
-                },
+                onPressed: () => _loadMoviePopular(context),
               );
             } else {
               return Center(child: Text(""));

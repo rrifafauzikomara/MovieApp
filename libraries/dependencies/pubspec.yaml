@@ -13,20 +13,20 @@ dependencies:
     sdk: flutter
 
   # UI
-  shimmer: ^1.1.1
-  cached_network_image: ^2.3.2+1
-  url_launcher: ^5.7.2
+  shimmer: ^1.1.2
+  cached_network_image: ^2.4.1
+  url_launcher: ^5.7.10
   flutter_launcher_icons: ^0.8.0
-  package_info: ^0.4.3
+  package_info: ^0.4.3+2
   youtube_player_flutter: ^7.0.0+7
   flutter_svg: 0.19.0
   liquid_pull_to_refresh: ^2.0.0
   carousel_slider: ^2.3.1
-  lottie: ^0.6.0
+  lottie: ^0.7.0+1
 
   # Core
-  flutter_bloc: ^6.0.5
-  shared_preferences: any
+  flutter_bloc: ^6.1.1
+  shared_preferences: ^0.5.12+4
   equatable: ^1.2.5
   get_it: ^5.0.3
   dio: ^3.0.10

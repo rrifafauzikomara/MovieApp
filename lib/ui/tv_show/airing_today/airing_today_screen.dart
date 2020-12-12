@@ -16,16 +16,20 @@ class AiringTodayScreen extends StatefulWidget {
 class _AiringTodayScreenState extends State<AiringTodayScreen> {
   Completer<void> _refreshCompleter;
 
+  _loadTvAiring(BuildContext context) {
+    context.read<TvAiringTodayBloc>().add(LoadTvAiringToday());
+  }
+
+  Future<void> _refresh() {
+    _loadTvAiring(context);
+    return _refreshCompleter.future;
+  }
+
   @override
   void initState() {
     super.initState();
     _refreshCompleter = Completer<void>();
-    context.bloc<TvAiringTodayBloc>().add(LoadTvAiringToday());
-  }
-
-  Future<void> _refresh() {
-    context.bloc<TvAiringTodayBloc>().add(LoadTvAiringToday());
-    return _refreshCompleter.future;
+    _loadTvAiring(context);
   }
 
   @override
@@ -79,9 +83,7 @@ class _AiringTodayScreenState extends State<AiringTodayScreen> {
               _refreshCompleter = Completer();
               return NoInternetWidget(
                 message: AppConstant.noInternetConnection,
-                onPressed: () {
-                  context.bloc<TvAiringTodayBloc>().add(LoadTvAiringToday());
-                },
+                onPressed: () => _loadTvAiring(context),
               );
             } else {
               return Center(child: Text(""));

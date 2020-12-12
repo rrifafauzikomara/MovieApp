@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
   }
 
   Widget _buildWithTheme(BuildContext context, ThemeState state) {
-    context.bloc<ThemeBloc>().add(GetTheme());
+    context.select((ThemeBloc themeBloc) => themeBloc.add(GetTheme()));
     return MaterialApp(
       title: Config.title,
       debugShowCheckedModeBanner: Config.isDebug,
@@ -78,7 +78,9 @@ class MyApp extends StatelessWidget {
         AiringTodayScreen.routeName: (context) => AiringTodayScreen(),
         OnTheAirScreen.routeName: (context) => OnTheAirScreen(),
         TvPopularScreen.routeName: (context) => TvPopularScreen(),
-        DetailScreen.routeName: (context) => DetailScreen(),
+        DetailScreen.routeName: (context) => DetailScreen(
+              arguments: ModalRoute.of(context).settings.arguments,
+            ),
         SettingScreen.routeName: (context) => SettingScreen(),
         AboutScreen.routeName: (context) => AboutScreen(),
         BookingScreen.routeName: (context) => BookingScreen(),

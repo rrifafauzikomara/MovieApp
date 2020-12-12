@@ -20,20 +20,32 @@ class _MovieScreenState extends State<MovieScreen> {
   Completer<void> _refreshCompleter;
   int _current = 0;
 
+  _loadMovieNowPlaying(BuildContext context) {
+    context.read<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
+  }
+
+  _loadMoviePopular(BuildContext context) {
+    context.read<MoviePopularBloc>().add(LoadMoviePopular());
+  }
+
+  _loadMovieUpComing(BuildContext context) {
+    context.read<MovieUpComingBloc>().add(LoadMovieUpComing());
+  }
+
+  Future<void> _refresh() {
+    _loadMovieNowPlaying(context);
+    _loadMoviePopular(context);
+    _loadMovieUpComing(context);
+    return _refreshCompleter.future;
+  }
+
   @override
   void initState() {
     super.initState();
     _refreshCompleter = Completer<void>();
-    context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
-    context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
-    context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
-  }
-
-  Future<void> _refresh() {
-    context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
-    context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
-    context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
-    return _refreshCompleter.future;
+    _loadMovieNowPlaying(context);
+    _loadMoviePopular(context);
+    _loadMovieUpComing(context);
   }
 
   @override
@@ -128,9 +140,7 @@ class _MovieScreenState extends State<MovieScreen> {
           _refreshCompleter = Completer();
           return NoInternetWidget(
             message: AppConstant.noInternetConnection,
-            onPressed: () {
-              context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
-            },
+            onPressed: () => _loadMovieNowPlaying(context),
           );
         } else {
           return Center(child: Text(""));
@@ -213,9 +223,7 @@ class _MovieScreenState extends State<MovieScreen> {
                 _refreshCompleter = Completer();
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () {
-                    context.bloc<MovieUpComingBloc>().add(LoadMovieUpComing());
-                  },
+                  onPressed: () => _loadMovieUpComing(context),
                 );
               } else {
                 return Center(child: Text(""));
@@ -301,9 +309,7 @@ class _MovieScreenState extends State<MovieScreen> {
                 _refreshCompleter = Completer();
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () {
-                    context.bloc<MoviePopularBloc>().add(LoadMoviePopular());
-                  },
+                  onPressed: () => _loadMoviePopular(context),
                 );
               } else {
                 return Center(child: Text(""));

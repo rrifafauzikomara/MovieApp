@@ -5,12 +5,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviecatalogue/ui/detail/detail_screen.dart';
 import 'package:shared/shared.dart';
 
-class DiscoverScreen extends StatelessWidget {
+class DiscoverScreen extends StatefulWidget {
   static const routeName = '/discover_movie';
 
   @override
+  _DiscoverScreenState createState() => _DiscoverScreenState();
+}
+
+class _DiscoverScreenState extends State<DiscoverScreen> {
+  _loadDiscoverMovie(BuildContext context) {
+    context.read<DiscoverMovieBloc>().add(LoadDiscoverMovie());
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadDiscoverMovie(context);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    context.bloc<DiscoverMovieBloc>().add(LoadDiscoverMovie());
     return Scaffold(
       backgroundColor: ColorPalettes.black,
       floatingActionButton: FloatingActionButton(
@@ -122,9 +136,7 @@ class DiscoverScreen extends StatelessWidget {
           } else if (state is DiscoverMovieNoInternetConnection) {
             return NoInternetWidget(
               message: AppConstant.noInternetConnection,
-              onPressed: () {
-                context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
-              },
+              onPressed: () => _loadDiscoverMovie(context),
             );
           } else {
             return Center(child: Text(""));

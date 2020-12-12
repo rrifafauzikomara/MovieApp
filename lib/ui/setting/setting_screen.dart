@@ -64,9 +64,7 @@ class SettingScreen extends StatelessWidget {
                                   ? state.isDarkTheme
                                   : false,
                               onChanged: (value) {
-                                context
-                                    .bloc<ThemeBloc>()
-                                    .add(ThemeChanged(isDarkTheme: value));
+                                context.read<ThemeBloc>().add(ThemeChanged(isDarkTheme: value));
                               },
                             );
                           },

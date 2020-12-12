@@ -16,16 +16,20 @@ class TvPopularScreen extends StatefulWidget {
 class _TvPopularScreenState extends State<TvPopularScreen> {
   Completer<void> _refreshCompleter;
 
+  _loadTvPopular(BuildContext context) {
+    context.read<TvPopularBloc>().add(LoadTvPopular());
+  }
+
+  Future<void> _refresh() {
+    _loadTvPopular(context);
+    return _refreshCompleter.future;
+  }
+
   @override
   void initState() {
     super.initState();
     _refreshCompleter = Completer<void>();
-    context.bloc<TvPopularBloc>().add(LoadTvPopular());
-  }
-
-  Future<void> _refresh() {
-    context.bloc<TvPopularBloc>().add(LoadTvPopular());
-    return _refreshCompleter.future;
+    _loadTvPopular(context);
   }
 
   @override
@@ -79,9 +83,7 @@ class _TvPopularScreenState extends State<TvPopularScreen> {
               _refreshCompleter = Completer();
               return NoInternetWidget(
                 message: AppConstant.noInternetConnection,
-                onPressed: () {
-                  context.bloc<TvPopularBloc>().add(LoadTvPopular());
-                },
+                onPressed: () => _loadTvPopular(context),
               );
             } else {
               return Center(child: Text(""));

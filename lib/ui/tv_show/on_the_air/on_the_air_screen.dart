@@ -16,16 +16,20 @@ class OnTheAirScreen extends StatefulWidget {
 class _OnTheAirScreenState extends State<OnTheAirScreen> {
   Completer<void> _refreshCompleter;
 
+  _loadTvOnAir(BuildContext context) {
+    context.read<TvOnTheAirBloc>().add(LoadTvOnTheAir());
+  }
+
+  Future<void> _refresh() {
+    _loadTvOnAir(context);
+    return _refreshCompleter.future;
+  }
+
   @override
   void initState() {
     super.initState();
     _refreshCompleter = Completer<void>();
-    context.bloc<TvOnTheAirBloc>().add(LoadTvOnTheAir());
-  }
-
-  Future<void> _refresh() {
-    context.bloc<TvOnTheAirBloc>().add(LoadTvOnTheAir());
-    return _refreshCompleter.future;
+    _loadTvOnAir(context);
   }
 
   @override
@@ -79,9 +83,7 @@ class _OnTheAirScreenState extends State<OnTheAirScreen> {
               _refreshCompleter = Completer();
               return NoInternetWidget(
                 message: AppConstant.noInternetConnection,
-                onPressed: () {
-                  context.bloc<TvOnTheAirBloc>().add(LoadTvOnTheAir());
-                },
+                onPressed: () => _loadTvOnAir(context),
               );
             } else {
               return Center(child: Text(""));

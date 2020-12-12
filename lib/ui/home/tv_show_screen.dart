@@ -20,20 +20,32 @@ class _TvShowScreenState extends State<TvShowScreen> {
   Completer<void> _refreshCompleter;
   int _current = 0;
 
+  _loadTvOnAir(BuildContext context) {
+    context.read<TvOnTheAirBloc>().add(LoadTvOnTheAir());
+  }
+
+  _loadTvAiring(BuildContext context) {
+    context.read<TvAiringTodayBloc>().add(LoadTvAiringToday());
+  }
+
+  _loadTvPopular(BuildContext context) {
+    context.read<TvPopularBloc>().add(LoadTvPopular());
+  }
+
+  Future<void> _refresh() {
+    _loadTvOnAir(context);
+    _loadTvAiring(context);
+    _loadTvPopular(context);
+    return _refreshCompleter.future;
+  }
+
   @override
   void initState() {
     super.initState();
     _refreshCompleter = Completer<void>();
-    context.bloc<TvOnTheAirBloc>().add(LoadTvOnTheAir());
-    context.bloc<TvAiringTodayBloc>().add(LoadTvAiringToday());
-    context.bloc<TvPopularBloc>().add(LoadTvPopular());
-  }
-
-  Future<void> _refresh() {
-    context.bloc<TvOnTheAirBloc>().add(LoadTvOnTheAir());
-    context.bloc<TvAiringTodayBloc>().add(LoadTvAiringToday());
-    context.bloc<TvPopularBloc>().add(LoadTvPopular());
-    return _refreshCompleter.future;
+    _loadTvOnAir(context);
+    _loadTvAiring(context);
+    _loadTvPopular(context);
   }
 
   @override
@@ -128,9 +140,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
           _refreshCompleter = Completer();
           return NoInternetWidget(
             message: AppConstant.noInternetConnection,
-            onPressed: () {
-              context.bloc<TvOnTheAirBloc>().add(LoadTvOnTheAir());
-            },
+            onPressed: () => _loadTvOnAir(context),
           );
         } else {
           return Center(child: Text(""));
@@ -213,9 +223,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
                 _refreshCompleter = Completer();
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () {
-                    context.bloc<TvAiringTodayBloc>().add(LoadTvAiringToday());
-                  },
+                  onPressed: () => _loadTvAiring(context),
                 );
               } else {
                 return Center(child: Text(""));
@@ -301,9 +309,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
                 _refreshCompleter = Completer();
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () {
-                    context.bloc<TvPopularBloc>().add(LoadTvPopular());
-                  },
+                  onPressed: () => _loadTvPopular(context),
                 );
               } else {
                 return Center(child: Text(""));

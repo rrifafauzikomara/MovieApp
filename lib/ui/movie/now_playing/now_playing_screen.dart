@@ -17,16 +17,20 @@ class NowPlayingScreen extends StatefulWidget {
 class _NowPlayingScreenState extends State<NowPlayingScreen> {
   Completer<void> _refreshCompleter;
 
+  _loadMovieNowPlaying(BuildContext context) {
+    context.read<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
+  }
+
+  Future<void> _refresh() {
+    _loadMovieNowPlaying(context);
+    return _refreshCompleter.future;
+  }
+
   @override
   void initState() {
     super.initState();
     _refreshCompleter = Completer<void>();
-    context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
-  }
-
-  Future<void> _refresh() {
-    context.bloc<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
-    return _refreshCompleter.future;
+    _loadMovieNowPlaying(context);
   }
 
   @override
@@ -80,11 +84,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
               _refreshCompleter = Completer();
               return NoInternetWidget(
                 message: AppConstant.noInternetConnection,
-                onPressed: () {
-                  context
-                      .bloc<MovieNowPlayingBloc>()
-                      .add(LoadMovieNowPlaying());
-                },
+                onPressed: () => _loadMovieNowPlaying(context),
               );
             } else {
               return Center(child: Text(""));

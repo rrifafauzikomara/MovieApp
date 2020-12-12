@@ -6,21 +6,39 @@ import 'package:flutter/services.dart';
 import 'package:moviecatalogue/ui/booking/booking_screen.dart';
 import 'package:shared/shared.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
   static const routeName = '/detail_movies';
 
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final ScreenArguments arguments;
+
+  const DetailScreen({Key key, @required this.arguments});
+
+  @override
+  _DetailScreenState createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+  _loadTrailer(BuildContext context, int movieId, bool isFromMovie) {
+    context.read<TrailerBloc>().add(LoadTrailer(movieId, isFromMovie));
+  }
+
+  _loadCrew(BuildContext context, int movieId, bool isFromMovie) {
+    context.read<CrewBloc>().add(LoadCrew(movieId, isFromMovie));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadTrailer(
+        context, widget.arguments.movies.id, widget.arguments.isFromMovie);
+    _loadCrew(
+        context, widget.arguments.movies.id, widget.arguments.isFromMovie);
+  }
 
   @override
   Widget build(BuildContext context) {
-    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
-    context
-        .bloc<TrailerBloc>()
-        .add(LoadTrailer(args.movies.id, args.isFromMovie));
-    context.bloc<CrewBloc>().add(LoadCrew(args.movies.id, args.isFromMovie));
     var theme = Theme.of(context);
     return Scaffold(
-      key: scaffoldKey,
       body: SingleChildScrollView(
         physics: ClampingScrollPhysics(),
         child: Stack(
@@ -29,14 +47,18 @@ class DetailScreen extends StatelessWidget {
             Column(
               children: [
                 CardMoviesHeader(
-                  isFromBanner: args.isFromBanner,
-                  idMovie: args.movies.id,
-                  title: args.movies.title ?? args.movies.tvName,
-                  imageBanner: args.movies.backdropPath.imageOriginal,
-                  imagePoster: args.movies.posterPath.imageOriginal,
-                  rating: args.movies.voteAverage,
-                  genre:
-                      args.movies.genreIds.take(3).map(buildGenreChip).toList(),
+                  isFromBanner: widget.arguments.isFromBanner,
+                  idMovie: widget.arguments.movies.id,
+                  title: widget.arguments.movies.title ??
+                      widget.arguments.movies.tvName,
+                  imageBanner:
+                      widget.arguments.movies.backdropPath.imageOriginal,
+                  imagePoster: widget.arguments.movies.posterPath.imageOriginal,
+                  rating: widget.arguments.movies.voteAverage,
+                  genre: widget.arguments.movies.genreIds
+                      .take(3)
+                      .map(buildGenreChip)
+                      .toList(),
                 ),
                 Padding(
                   padding: EdgeInsets.all(Sizes.dp20(context)),
@@ -52,7 +74,7 @@ class DetailScreen extends StatelessWidget {
                       ),
                       SizedBox(height: Sizes.dp8(context)),
                       Text(
-                        args.movies.overview,
+                        widget.arguments.movies.overview,
                       ),
                     ],
                   ),
@@ -62,15 +84,14 @@ class DetailScreen extends StatelessWidget {
                     left: Sizes.dp20(context),
                     right: Sizes.dp20(context),
                   ),
-                  child:
-                      _buildYoutube(context, args.movies.id, args.isFromMovie),
+                  child: _buildYoutube(),
                 ),
                 Padding(
                   padding: EdgeInsets.only(
                     left: Sizes.dp20(context),
                     right: Sizes.dp20(context),
                   ),
-                  child: _buildCrew(context, args.movies.id, args.isFromMovie),
+                  child: _buildCrew(),
                 ),
                 Padding(
                   padding: EdgeInsets.only(
@@ -83,7 +104,8 @@ class DetailScreen extends StatelessWidget {
                       Navigation.intentWithData(
                           context,
                           BookingScreen.routeName,
-                          ScreenArguments(args.movies, true, false));
+                          ScreenArguments(
+                              widget.arguments.movies, true, false));
                     },
                   ),
                 ),
@@ -97,17 +119,7 @@ class DetailScreen extends StatelessWidget {
                 color: theme.accentColor,
                 icon: Icon(Icons.favorite_border),
                 onPressed: () {
-                  PopUp.showSnackBar(
-                    Text(
-                      "Add to Favorite",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: Sizes.dp16(context),
-                        color: ColorPalettes.white,
-                      ),
-                    ),
-                    key: scaffoldKey,
-                  );
+                  PopUp.showSnackBarSuccess("Add to Favorite", context);
                 },
               ),
             ),
@@ -127,7 +139,7 @@ class DetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildYoutube(BuildContext context, int movieId, bool isFromMovie) {
+  Widget _buildYoutube() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -173,11 +185,8 @@ class DetailScreen extends StatelessWidget {
               } else if (state is TrailerNoInternetConnection) {
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () {
-                    context
-                        .bloc<TrailerBloc>()
-                        .add(LoadTrailer(movieId, isFromMovie));
-                  },
+                  onPressed: () => _loadTrailer(context,
+                      widget.arguments.movies.id, widget.arguments.isFromMovie),
                 );
               } else {
                 return Center(child: Text(""));
@@ -189,7 +198,7 @@ class DetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCrew(BuildContext context, int movieId, bool isFromMovie) {
+  Widget _buildCrew() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -229,11 +238,8 @@ class DetailScreen extends StatelessWidget {
               } else if (state is CrewNoInternetConnection) {
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () {
-                    context
-                        .bloc<CrewBloc>()
-                        .add(LoadCrew(movieId, isFromMovie));
-                  },
+                  onPressed: () => _loadCrew(context,
+                      widget.arguments.movies.id, widget.arguments.isFromMovie),
                 );
               } else {
                 return Center(child: Text(""));
