@@ -28,16 +28,13 @@ class CardHome extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius:
                       BorderRadius.all(Radius.circular(Sizes.dp10(context))),
-                  child: Hero(
-                    tag: image.imageOriginal,
-                    child: CachedNetworkImage(
-                      imageUrl: image.imageOriginal,
-                      height: Sizes.width(context) / 1.8,
-                      width: Sizes.width(context) / 2.5,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => LoadingIndicator(),
-                      errorWidget: (context, url, error) => ErrorImage(),
-                    ),
+                  child: CachedNetworkImage(
+                    imageUrl: image.imageOriginal,
+                    height: Sizes.width(context) / 1.8,
+                    width: Sizes.width(context) / 2.5,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => LoadingIndicator(),
+                    errorWidget: (context, url, error) => ErrorImage(),
                   ),
                 ),
               ),

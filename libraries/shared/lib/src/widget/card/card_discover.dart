@@ -23,14 +23,11 @@ class CardDiscover extends StatelessWidget {
           borderRadius: BorderRadius.circular(Sizes.dp20(context)),
           child: GestureDetector(
             onTap: onTap,
-            child: Hero(
-              tag: image.imageOriginal,
-              child: CachedNetworkImage(
-                imageUrl: image.imageOriginal,
-                width: Sizes.width(context) / 2,
-                placeholder: (context, url) => ShimmerDiscover(),
-                errorWidget: (context, url, error) => ErrorImage(),
-              ),
+            child: CachedNetworkImage(
+              imageUrl: image.imageOriginal,
+              width: Sizes.width(context) / 2,
+              placeholder: (context, url) => ShimmerDiscover(),
+              errorWidget: (context, url, error) => ErrorImage(),
             ),
           ),
         ),

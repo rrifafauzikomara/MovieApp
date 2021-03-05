@@ -52,15 +52,13 @@ class BannerHome extends StatelessWidget {
                       );
                     },
                     child: GridTile(
-                      child: Hero(
-                        tag: data.results[i].id,
-                        child: CachedNetworkImage(
-                          imageUrl: data.results[i].backdropPath.imageOriginal,
-                          width: Sizes.width(context),
-                          fit: BoxFit.fill,
-                          placeholder: (context, url) => LoadingIndicator(),
-                          errorWidget: (context, url, error) => ErrorImage(),
-                        ),
+                      // TODO: Create Hero Animation with "id" from "result"
+                      child: CachedNetworkImage(
+                        imageUrl: data.results[i].backdropPath.imageOriginal,
+                        width: Sizes.width(context),
+                        fit: BoxFit.fill,
+                        placeholder: (context, url) => LoadingIndicator(),
+                        errorWidget: (context, url, error) => ErrorImage(),
                       ),
                       footer: Container(
                         color: ColorPalettes.whiteSemiTransparent,
